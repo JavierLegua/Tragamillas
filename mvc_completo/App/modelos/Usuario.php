@@ -9,28 +9,28 @@
 
 
         public function obtenerUsuarios(){
-            $this->db->query("SELECT * FROM usuarios");
+            $this->db->query("SELECT * FROM usuario");
 
             return $this->db->registros();
         }
 
 
         public function obtenerRoles(){
-            $this->db->query("SELECT * FROM roles");
+            $this->db->query("SELECT * FROM rol");
 
             return $this->db->registros();
         }
 
 
         public function agregarUsuario($datos){
-            $this->db->query("INSERT INTO usuarios (nombre, email, telefono, id_rol) 
-                                        VALUES (:nombre, :email, :telefono, :id_rol)");
+            $this->db->query("INSERT INTO usuario (apellidoUsuario, email, telefono, idRol) 
+                                        VALUES (:apellidoUsuario, :email, :telefono, :idRol)");
 
             //vinculamos los valores
-            $this->db->bind(':nombre',$datos['nombre']);
+            $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);
             $this->db->bind(':email',$datos['email']);
             $this->db->bind(':telefono',$datos['telefono']);
-            $this->db->bind(':id_rol',$datos['id_rol']);
+            $this->db->bind(':idRol',$datos['idRol']);
 
             //ejecutamos
             if($this->db->execute()){
@@ -50,15 +50,15 @@
 
 
         public function actualizarUsuario($datos){
-            $this->db->query("UPDATE usuarios SET nombre=:nombre, email=:email, telefono=:telefono, id_rol=:id_rol
+            $this->db->query("UPDATE usuario SET apellidoUsuario=:apellidoUsuario, email=:email, telefono=:telefono, idRol=:idRol
                                                 WHERE id_usuario = :id");
 
             //vinculamos los valores
             $this->db->bind(':id',$datos['id_usuario']);
-            $this->db->bind(':nombre',$datos['nombre']);
+            $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);
             $this->db->bind(':email',$datos['email']);
             $this->db->bind(':telefono',$datos['telefono']);
-            $this->db->bind(':id_rol',$datos['id_rol']);
+            $this->db->bind(':idRol',$datos['idRol']);
 
             //ejecutamos
             if($this->db->execute()){
@@ -70,7 +70,7 @@
 
 
         public function borrarUsuario($id){
-            $this->db->query("DELETE FROM usuarios WHERE id_usuario = :id");
+            $this->db->query("DELETE FROM usuario WHERE id_usuario = :id");
             $this->db->bind(':id',$id);
 
             if($this->db->execute()){

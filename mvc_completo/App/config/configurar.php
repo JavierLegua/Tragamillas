@@ -13,4 +13,4 @@
     define('DB_HOST', 'localhost');
     define('DB_USUARIO', 'root');
     define('DB_PASSWORD', 'toor');
-    define('DB_NOMBRE', 'crud_mvc');
+    define('DB_NOMBRE', 'tragamillas');

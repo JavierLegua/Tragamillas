@@ -9,7 +9,7 @@
 
 
         public function loginEmail($email, $clave){
-            $this->db->query("SELECT * FROM usuarios WHERE email = :email and clave = :clave");
+            $this->db->query("SELECT * FROM usuario WHERE email = :email and clave = :clave");
             $this->db->bind(':email',$email);
             $this->db->bind(':clave',$clave);
 
