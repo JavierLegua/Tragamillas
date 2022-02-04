@@ -10,6 +10,7 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $this->datos['email'] = trim($_POST['email']);
                 $this->datos['clave'] = trim($_POST['clave']);
+                
                 $usuarioSesion = $this->loginModelo->loginEmail($this->datos['email'], $this->datos['clave']);
                 if (isset($usuarioSesion) && !empty($usuarioSesion)){       // si tiene datos el objeto devuelto entramos
                     Sesion::crearSesion($usuarioSesion);
