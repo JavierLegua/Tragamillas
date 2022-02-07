@@ -8,20 +8,20 @@
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>Rol</th>
-<?php if (tienePrivilegios($datos['usuarioSesion']->id_rol,[1])):?>
+<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
                 <th>Acciones</th>
 <?php endif ?>
             </tr>
         </thead>
         <tbody>
-            <?php foreach($datos['usuarios'] as $uruario): ?>
+            <?php foreach($datos['usuario'] as $uruario): ?>
                 <tr>
                     <td><?php echo $uruario->id_usuario ?></td>
-                    <td><?php echo $uruario->nombre ?></td>
+                    <td><?php echo $uruario->apellidoUsuario ?></td>
                     <td><?php echo $uruario->email ?></td>
                     <td><?php echo $uruario->telefono ?></td>
-                    <td><?php echo $uruario->id_rol ?></td>
-<?php if (tienePrivilegios($datos['usuarioSesion']->id_rol,[1])):?>
+                    <td><?php echo $uruario->idRol ?></td>
+<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
                     <td>
                         <a href="<?php echo RUTA_URL?>/usuarios/editar/<?php echo $uruario->id_usuario ?>">Editar</a>
                         &nbsp;&nbsp;&nbsp;
@@ -35,7 +35,7 @@
         </tbody>
     </table>
 
-<?php if (tienePrivilegios($datos['usuarioSesion']->id_rol,[1])):?>
+<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
     <div class="col text-center">
         <a class="btn btn-success" href="<?php echo RUTA_URL?>/usuarios/agregar/">+</a>
     </div>

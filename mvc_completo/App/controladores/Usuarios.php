@@ -6,7 +6,7 @@
             Sesion::iniciarSesion($this->datos);
             $this->datos['rolesPermitidos'] = [1,2];          // Definimos los roles que tendran acceso
 
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol,$this->datos['rolesPermitidos'])) {
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
             }
 
@@ -21,7 +21,7 @@
             //Obtenemos los usuarios
             $usuarios = $this->usuarioModelo->obtenerUsuarios();
 
-            $this->datos['usuarios'] = $usuarios;
+            $this->datos['usuario'] = $usuarios;
 
             $this->vista('usuarios/inicio',$this->datos);
             // $this->vista('usuarios/inicioVue',$this->datos);
@@ -38,9 +38,14 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 $usuarioNuevo = [
-                    'nombre' => trim($_POST['nombre']),
+                    'apellidoUsuario' => trim($_POST['apellidoUsuario']),
+                    'dniUsuario' => trim($_POST['dniUsuario']),
+                    'cc' => trim($_POST['cc']),
+                    'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
+                    'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
+                    'activado' => trim($_POST['activado']),
                     'id_rol' => trim($_POST['rol']),
                 ];
 
@@ -51,9 +56,14 @@
                 }
             } else {
                 $this->datos['usuario'] = (object) [
-                    'nombre' => '',
+                    'apellidoUsuario' => '',
+                    'dniUsuario' => '',
+                    'cc' => '',
+                    'fecha_nac' => '',
                     'email' => '',
+                    'clave' => '',
                     'telefono' => '',
+                    'activado' => '',
                     'id_rol' => 3
                 ];
 
@@ -75,9 +85,14 @@
 
                 $usuarioModificado = [
                     'id_usuario' => $id,
-                    'nombre' => trim($_POST['nombre']),
+                    'apellidoUsuario' => trim($_POST['apellidoUsuario']),
+                    'dniUsuario' => trim($_POST['dniUsuario']),
+                    'cc' => trim($_POST['cc']),
+                    'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
+                    'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
+                    'activado' => trim($_POST['activado']),
                     'id_rol' => trim($_POST['rol']),
                 ];
 
@@ -91,7 +106,7 @@
                 $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
                 $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
 
-                $this->vista('usuarios/agregar_editar',$this->datos);
+                $this->vista('usuario/agregar_editar',$this->datos);
             }
         }
 

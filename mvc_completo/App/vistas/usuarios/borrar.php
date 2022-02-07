@@ -8,7 +8,7 @@
     <form method="post" class="card-body">
         <div class="mt-3 mb-3">
             <label for="nombre">Nombre: <sup>*</sup></label>
-            <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $datos['usuario']->nombre ?>" disabled>
+            <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $datos['usuario']->apellidoUsuario ?>" disabled>
         </div>
         <div class="mb-3">
             <label for="email">Email: <sup>*</sup></label>
