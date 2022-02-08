@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de inicio</title>
+    <title>Pagina de inicio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1,2])):?>
     <body>
-<section class="main">
+<section class="main"> <!-- quitar clase main -->
     <div class="container">
 
         <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
+
             <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
                 <div class="card-header d-flex justify-content-center colortarjeta">
                     <i class="bi bi-people-fill iconsize"></i>
@@ -24,14 +25,14 @@
                 <div class="card-body">
                     <h4 class="card-title text-center">Grupos</h4>
                     <p class="card-text">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion accordion-flush" id="accordionFlushExample1">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne1">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne1">
                                     Enlaces
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample1">
                                     <div class="accordion-body">
                                         <a href="#">Crear</a> <br>
                                         <a href="#">Eliminar</a> <br>
@@ -42,7 +43,6 @@
                         </div>
                     </p>
                 </div>
-
             </div>
 
             <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
@@ -53,14 +53,14 @@
                 <div class="card-body">
                     <h4 class="card-title text-center">Eventos</h4>
                     <p class="card-text">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion accordion-flush" id="accordionFlushExample2">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne2" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne2" aria-expanded="false" aria-controls="flush-collapseOne2">
                                     Enlaces
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne2" class="accordion-collapse collapse" aria-labelledby="flush-headingOne2" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseOne2" class="accordion-collapse collapse" aria-labelledby="flush-headingOne2" data-bs-parent="#accordionFlushExample2">
                                     <div class="accordion-body">
                                         <a href="#">Organizar</a> <br>
                                         <a href="#">Gestionar</a> <br>
@@ -121,14 +121,14 @@
                 <div class="card-body">
                     <h4 class="card-title text-center">Tiendas</h4>
                     <p class="card-text">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion accordion-flush" id="accordionFlushExample6">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne6">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne6" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne6" aria-expanded="false" aria-controls="flush-collapseOne6">
                                     Enlaces
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne6" class="accordion-collapse collapse" aria-labelledby="flush-headingOne6" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapseOne6" class="accordion-collapse collapse" aria-labelledby="flush-headingOne6" data-bs-parent="#accordionFlushExample6">
                                     <div class="accordion-body"><a href="#">Consultar</a></div>
                                 </div>
                             </div>
@@ -170,15 +170,22 @@
                 <div class="card-body">
                     <h4 class="card-title text-center">Usuarios</h4>
                     <p class="card-text">
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                        <div class="card card-body" style="width: 300px;">
+                        This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+                        </div>
+                    </div>
+                        <div class="accordion accordion-flush" id="accordionFlushExample9">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne9">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne9" aria-expanded="false" aria-controls="flush-collapseOne">
                                     Enlaces
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne9" class="accordion-collapse collapse" aria-labelledby="flush-headingOne9" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body"><a href="#">Gestionar</a></div>
+                                <div id="flush-collapseOne9" class="accordion-collapse collapse" aria-labelledby="flush-headingOne9" data-bs-parent="#accordionFlushExample9">
+                                    <div class="accordion-body">
+                                        <a href="<?php echo RUTA_URL ?>/usuarios">Gestionar</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +199,8 @@
 
     </div> <!-- fin container -->
 </section>
-</body>
+
+
 
 <?php else: ?>
     <h1>HOLA</h1>
@@ -201,5 +209,6 @@
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 </html>
 

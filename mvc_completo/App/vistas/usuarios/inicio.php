@@ -75,7 +75,7 @@
                 let usuario = data.usuario
 
                 document.getElementById("tbodyTablaSesiones").innerHTML = ""
-                document.getElementById("usuarioSesion").innerHTML = usuario.nombre
+                document.getElementById("usuarioSesion").innerHTML = usuario.apellidoUsuario
 
                 document.getElementById("listadoSesiones").style.display="block";
 
