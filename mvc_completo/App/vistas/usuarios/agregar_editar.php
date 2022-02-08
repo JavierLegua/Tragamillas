@@ -7,7 +7,6 @@
         $accion = "Agregar";
     }
 ?>
-
 <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 
 <div class="card bg-light mt-5 w-75 card-center" style=" margin: auto;">
@@ -51,9 +50,9 @@
             <select name="rol" id="rol" class="form-select form-select-lg">
                 <?php foreach($datos['listaRoles'] as $rol): ?>
                     <?php if ($rol->idRol == $datos['usuario']->idRol):?>
-                        <option value="<?php echo $rol->idRol?>" selected><?php echo $rol->rol?></option>
+                        <option value="<?php echo $rol->idRol?>" selected><?php echo $rol->nombreRol?></option>
                     <?php else: ?>
-                        <option value="<?php echo $rol->idRol?>"><?php echo $rol->rol?></option>
+                        <option value="<?php echo $rol->idRol?>"><?php echo $rol->nombreRol?></option>
                     <?php endif ?>
                 <?php endforeach ?>
             </select>
@@ -63,4 +62,4 @@
     
 </div>
 
-<?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>
+<?php //require_once RUTA_APP.'/vistas/inc/footer.php' ?>

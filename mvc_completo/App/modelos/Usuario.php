@@ -55,9 +55,10 @@
 
 
         public function actualizarUsuario($datos){
-            $this->db->query("UPDATE usuario SET apellidoUsuario=:apellidoUsuario, dniUsuario=:dniUsuario, cc=:cc,  fecha_nac=:fecha_nac, email=:email, clave=:clave,telefono=:telefono, activado=:activado, idRol=:idRol WHERE id_usuario = :id");
+            $this->db->query("UPDATE usuario SET apellidoUsuario=:apellidoUsuario, dniUsuario=:dniUsuario, cc=:cc, fecha_nac=:fecha_nac, email=:email, clave=:clave,telefono=:telefono, activado=:activado, idRol=:idRol WHERE id_usuario = :id");
 
             //vinculamos los valores
+            $this->db->bind(':id',$datos['id_usuario']);
             $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);
             $this->db->bind(':dniUsuario',$datos['dniUsuario']);
             $this->db->bind(':cc',$datos['cc']);

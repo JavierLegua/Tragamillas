@@ -4,7 +4,7 @@
 </body>
 <footer class="footer">
     <div class="container-fluid position-absolute bottom-0 end-0 color">
-        <div class="row" style="height: 100px;">
+        <div class="row" style="height: 70px;">
 
             <div class="col" style="margin-left: 50px;">
                 <a href="#">Inicio</a>

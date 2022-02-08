@@ -29,24 +29,25 @@
 
 
         public function agregar(){
+            
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol,$this->datos['rolesPermitidos'])) {
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');
             }
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 $usuarioNuevo = [
-                    'apellidoUsuario' => trim($_POST['apellidoUsuario']),
-                    'dniUsuario' => trim($_POST['dniUsuario']),
+                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'dniUsuario' => trim($_POST['dni']),
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
                     'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'id_rol' => trim($_POST['rol']),
+                    'idRol' => trim($_POST['rol']),
                 ];
 
                 if ($this->usuarioModelo->agregarUsuario($usuarioNuevo)){
@@ -64,7 +65,7 @@
                     'clave' => '',
                     'telefono' => '',
                     'activado' => '',
-                    'id_rol' => 3
+                    'idRol' => 3
                 ];
 
                 $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
@@ -75,26 +76,29 @@
 
 
         public function editar($id){
+            
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
-
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol,$this->datos['rolesPermitidos'])) {
+            
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');
             }
-
+            
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+                
                 $usuarioModificado = [
                     'id_usuario' => $id,
-                    'apellidoUsuario' => trim($_POST['apellidoUsuario']),
-                    'dniUsuario' => trim($_POST['dniUsuario']),
+                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'dniUsuario' => trim($_POST['dni']),
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
                     'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'id_rol' => trim($_POST['rol']),
+                    'idRol' => trim($_POST['rol']),
                 ];
+
+                
 
                 if ($this->usuarioModelo->actualizarUsuario($usuarioModificado)){
                     redireccionar('/usuarios');
@@ -102,11 +106,12 @@
                     die('Algo ha fallado!!!');
                 }
             } else {
+                
                 //obtenemos información del usuario y el listado de roles desde del modelo
                 $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
                 $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
-
-                $this->vista('usuario/agregar_editar',$this->datos);
+                $this->vista('usuarios/agregar_editar',$this->datos);
+               
             }
         }
 
@@ -131,7 +136,7 @@
         public function sesiones($id_usuario){
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol,$this->datos['rolesPermitidos'])) {
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 exit();
             }
 
@@ -150,7 +155,7 @@
         public function cerrarSesion(){
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol,$this->datos['rolesPermitidos'])) {
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 exit();
             }
             
