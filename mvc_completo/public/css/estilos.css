@@ -26,6 +26,12 @@ html{
 .main{
     margin-bottom: 150px;
 }
+
+.avatar {
+    position: absolute;
+    top: -130px;
+    
+}
  
 .footer{
         text-align: center;
