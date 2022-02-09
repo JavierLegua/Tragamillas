@@ -2,8 +2,8 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Estructura MVC en PHP</h1>
-    <p>Modulo: DWES</p>
+    <h1>Bienvenido a la página de inicio del club Tragamillas</h1>
+    <p>Equipo Los Makeleles</p>
   </div>    
   <p>CPIFP Bajo Aragón</p>
 </div>

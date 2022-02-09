@@ -9,14 +9,14 @@
     
     <link rel="stylesheet" href="<?php echo RUTA_URL?>/css/estilos.css">
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
-    <title><?php echo NOMBRE_SITIO?></title>
+    <title><?php echo "TRAGAMILLAS"?></title>
 </head>
 <body>
     
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a href="<?php echo RUTA_URL?>" class="navbar-brand"><?php echo NOMBRE_SITIO ?></a>
+            <a href="<?php echo RUTA_URL?>" class="navbar-brand"><?php echo "TRAGAMILLAS"?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
