@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de inicio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"> <!-- cambiar la ruta del css, esta mal -->
-</head>
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1,2])):?>
     <body>
-<section class="main"> <!-- quitar clase main -->
+<section class="main">
+
     <div class="container">
 
         <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
@@ -102,8 +92,6 @@
 
             </div>
 
-
-
             <div class="borde border col-lg-3 col-md- p-0 tarjeta">
 
                 <div class="card-header d-flex justify-content-center colortarjeta">
@@ -131,9 +119,6 @@
                 </div>
 
             </div>
-
-
-
 
             <div class="borde border col-lg-3 col-md- p-0 tarjeta">
 
@@ -163,7 +148,6 @@
 
             </div>
         
-        
             <div class="borde border col-md-4 p-0 tarjeta">
                 <div class="card-header d-flex justify-content-center colortarjeta">
                 <i class="bi bi-cart2 iconsize"></i>
@@ -186,7 +170,6 @@
                     </p>
                 </div>
             </div>
-
 
             <div class="borde border col-md-4 p-0 tarjeta">
                 <div class="card-header d-flex justify-content-center colortarjeta">
@@ -213,7 +196,6 @@
                     </p>
                 </div>
             </div>
-
 
             <div class="borde border col-md-4 p-0 tarjeta">
                 <div class="card-header d-flex justify-content-center colortarjeta">
@@ -264,14 +246,10 @@
                 </div>
             </div>
 
-            
-
         </div><!-- fin row -->
 
     </div> <!-- fin container -->
 </section>
-
-
 
 <?php else: ?>
     <h1>HOLA</h1>
@@ -282,4 +260,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-
