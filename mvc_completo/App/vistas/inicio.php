@@ -238,7 +238,7 @@
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne9" class="accordion-collapse collapse" aria-labelledby="flush-headingOne9" data-bs-parent="#accordionFlushExample9">
-                                    <div class="accordion-body"><a href="#">Gestionar</a></div>
+                                    <div class="accordion-body"><a href="<?php echo RUTA_URL ?>/usuarios">Gestionar</a></div>
                                 </div>
                             </div>
                         </div>
