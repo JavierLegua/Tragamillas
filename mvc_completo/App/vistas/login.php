@@ -16,14 +16,14 @@
 
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100 ">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 columna">
 
-        <div class="card text-white justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded" style="border-radius: 1rem;" >
+        <div class="card text-white justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded">
         
-            <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" width="291" height="217" class="avatar">
+            <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" class="avatar" style="padding-bottom: 50px;">
         
        
-          <div class="card-body p-5 text-center">
+          <div class="card-body p-5 text-center mt-3">
 
             <div class="mb-md-5 mt-md-5 pb-5 ">
               <form action="datos_login.php" method="post">
@@ -36,12 +36,17 @@
                   
                 </div>
 
-                <input type="submit" class="mt-4 bg-primary btn btn-outline-light btn-lg px-5" value="Login">
+                <input type="submit" class="mt-4 colortarjeta btn btn-outline-light btn-lg px-5" value="Login"> <br>
+
+                
               </form>
+              
             </div>
 
         </div>
+        <a href="<?php echo RUTA_URL ?>"><img src="<?php echo RUTA_URL?>/public/img/arrow-left-circle-fill.png" alt="img" style=" width: 35px;"></a>
       </div>
+      
     </div>
   </div>
 </section>

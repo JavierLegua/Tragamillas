@@ -5,6 +5,7 @@
 
 .iconsize {
     font-size: 120px;
+
 }
 
 .tarjeta{
@@ -29,7 +30,9 @@ html{
 
 .avatar {
     position: absolute;
-    top: -130px;
+    top: -129px;
+    width:70%; 
+    height:52.3%;
     
 }
  
@@ -49,3 +52,14 @@ html{
         width: 10rem; 
     }
  }
+
+ @media (max-width: 575px) { 
+   .columna {
+       width: 67%;
+   }
+ }
+ @media (max-width: 767px) { 
+    .avatar {
+        top: -98px;
+    }
+  }
