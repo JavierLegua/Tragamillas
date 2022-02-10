@@ -5,9 +5,9 @@
 
         <div class="container">
 
-            <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
+            <div class="row d-flex justify-content-around">
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-people-fill iconsize"></i>
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-calendar2-plus iconsize"></i>
                     </div>
@@ -64,7 +64,7 @@
 
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
 
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-envelope iconsize"></i>
@@ -92,7 +92,7 @@
 
                 </div>
 
-                <div class="borde border col-lg-3 col-md- p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md- p-0 tarjeta shadow mb-5 bg-body rounded">
 
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-journal-text iconsize"></i>
@@ -120,7 +120,7 @@
 
                 </div>
 
-                <div class="borde border col-lg-3 col-md- p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md- p-0 tarjeta shadow mb-5 bg-body rounded">
 
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-currency-euro iconsize"></i>
@@ -148,7 +148,7 @@
 
                 </div>
             
-                <div class="borde border col-md-4 p-0 tarjeta">
+                <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                     <i class="bi bi-cart2 iconsize"></i>
                     </div>
@@ -171,7 +171,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-md-4 p-0 tarjeta">
+                <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-file-earmark-person iconsize"></i>    
                     </div>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-md-4 p-0 tarjeta">
+                <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class='bi bi-calendar-date iconsize'></i>
                     </div>
@@ -222,7 +222,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-md-4 p-0 tarjeta">
+                <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class='bi bi-person-fill iconsize'></i>
                     </div>
@@ -257,9 +257,9 @@
     <body>
     <section>
         <div class="container">
-            <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
+            <div class="row d-flex justify-content-around">
                 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-stopwatch iconsize"></i>
                     </div>
@@ -286,7 +286,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-file-earmark-person iconsize"></i>
                     </div>
@@ -312,7 +312,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-md-3 p-0 tarjeta">
+                <div class="borde border col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class='bi bi-people-fill iconsize'></i>
                     </div>
@@ -340,7 +340,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-journal-text iconsize"></i>
                     </div>
@@ -378,7 +378,7 @@
         <div class="container">
             <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
                 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-stopwatch iconsize"></i>
                     </div>
@@ -404,7 +404,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-credit-card-2-front iconsize"></i>
                     </div>
@@ -430,7 +430,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-file-earmark-person iconsize"></i>
                     </div>
@@ -455,7 +455,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-md-3 p-0 tarjeta">
+                <div class="borde border col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class='bi bi-person-fill iconsize'></i>
                     </div>
@@ -479,7 +479,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-journal-text iconsize"></i>
                     </div>
@@ -517,7 +517,7 @@
         <div class="container">
             <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
                 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-person-badge iconsize"></i>
                     </div>
@@ -543,7 +543,7 @@
                     </div>
                 </div>
 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-body rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-journal-check iconsize"></i>
                     </div>

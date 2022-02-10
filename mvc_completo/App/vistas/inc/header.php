@@ -9,7 +9,7 @@
     
     <link rel="stylesheet" href="<?php echo RUTA_URL?>/css/estilos.css">
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
-    <title><?php echo "Página del administrador"?></title>
+    <title><?php echo "Página de inicio"?></title>
 </head>
 <body>
     
