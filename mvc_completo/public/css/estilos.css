@@ -27,6 +27,9 @@ html{
 .main{
     margin-bottom: 50px;
 }
+.mainF{
+    margin-bottom: 120px;
+}
 
 .avatar {
     position: absolute;

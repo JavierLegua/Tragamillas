@@ -7,7 +7,7 @@
         $accion = "Agregar";
     }
 ?>
-<div class="container main">
+<div class="container mainF">
 
     <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 
@@ -59,7 +59,7 @@
                     <?php endforeach ?>
                 </select>
             </div>
-            <input type="submit" class="btn btn-success" value="<?php echo $accion ?> Usuario">
+            <input type="submit" class="btn btn-success" value="<?php echo $accion ?> Usuario" onclick="return confirm('¿Seguro que quieres <?php echo $accion ?> este usuario?');">
         </form>
         
     </div>
