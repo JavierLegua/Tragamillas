@@ -4,7 +4,7 @@
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [3];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [4];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -23,7 +23,7 @@
 
             $this->datos['usuario'] = $usuarios;
 
-            $this->vista('usuarios/inicio',$this->datos);
+            $this->vista('tiendas/inicio',$this->datos);
             // $this->vista('usuarios/inicioVue',$this->datos);
         }
 

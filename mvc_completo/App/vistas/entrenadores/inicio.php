@@ -1,132 +1,121 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Rol</th>
-<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
-                <th>Acciones</th>
-<?php endif ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($datos['usuario'] as $uruario): ?>
-                <tr>
-                    <td><?php echo $uruario->id_usuario ?></td>
-                    <td><?php echo $uruario->apellidoUsuario ?></td>
-                    <td><?php echo $uruario->email ?></td>
-                    <td><?php echo $uruario->telefono ?></td>
-                    <td><?php echo $uruario->idRol ?></td>
-<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
-                    <td>
-                        <a href="<?php echo RUTA_URL?>/usuarios/editar/<?php echo $uruario->id_usuario ?>">Editar</a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a>
-                        &nbsp;&nbsp;&nbsp;
-                        <a href="javascript:getSesiones(<?php echo $uruario->id_usuario ?>)">Sesiones</a>
-                    </td>
-<?php endif ?>
-                </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
-
-<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
-    <div class="col text-center">
-        <a class="btn btn-success" href="<?php echo RUTA_URL?>/usuarios/agregar/">+</a>
-    </div>
-
-    <div class="container" id="listadoSesiones" style="display:none">
-        <br><br>
-        <h2>Sesiones de: <span id="usuarioSesion"></span></h2>
-        <table class="table text-center">
-            <thead>
-                <tr>
-                <th scope="col">id_sesion</th>
-                <th scope="col">id_usuario</th>
-                <th scope="col">fecha_inicio</th>
-                <th scope="col">fecha_fin</th>
-                <th scope="col">estado</th>
-                </tr>
-            </thead>
-            <tbody id="tbodyTablaSesiones">
-
+<body>
+    <section>
+        <div class="container">
+            <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
                 
-            </tbody>
-        </table>
-    </div>
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-stopwatch iconsize"></i>
+                    </div>
 
+                    <div class="card-body">
+                        
+                        <p class="card-text">
+                            <div class="accordion accordion-flush" id="accordionFlushExample1">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne1">
+                                            <h5 class="card-title text-center">Marcas/Tests</h5>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample1">
+                                        <div class="accordion-body">
+                                            <a href="#">Consultar Marcas</a> <br>
+                                            <a href="#">Realizar Test</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
 
-<script>
-    function getSesiones(id_usuario){
-        fetch('<?php echo RUTA_URL?>/usuarios/sesiones/'+id_usuario, {
-            headers: {
-                "Content-Type": "application/json"
-            },
-            credentials: 'include'
-        })
-            .then((resp) => resp.json())
-            .then(function(data) {
-                let sesiones = data.sesiones
-                let usuario = data.usuario
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-file-earmark-person iconsize"></i>
+                    </div>
 
-                document.getElementById("tbodyTablaSesiones").innerHTML = ""
-                document.getElementById("usuarioSesion").innerHTML = usuario.apellidoUsuario
+                    <div class="card-body">
+                        
+                        <p class="card-text">
+                            <div class="accordion accordion-flush" id="accordionFlushExample3">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            <h5 class="card-title text-center">Licencias</h5>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne3" data-bs-parent="#accordionFlushExample3">
+                                        <div class="accordion-body">
+                                            <a href="#">Consultar</a> <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
 
-                document.getElementById("listadoSesiones").style.display="block";
+                <div class="borde border col-md-3 p-0 tarjeta">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class='bi bi-people-fill iconsize'></i>
+                    </div>
+            
+                    <div class="card-body">
+                        
+                        <p class="card-text">
+                            <div class="accordion accordion-flush" id="accordionFlushExample4">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne4" aria-expanded="false" aria-controls="flush-collapseOne4">
+                                            <h5 class="card-title text-center">Alumnos</h5>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne4" class="accordion-collapse collapse" aria-labelledby="flush-headingOne4" data-bs-parent="#accordionFlushExample4">
+                                        <div class="accordion-body">
+                                            <a href="#">Crear</a> <br>
+                                            <a href="#">Ver</a> <br>
+                                            <a href="#">Modificar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
 
-                for (i = 0; i < sesiones.length; i++){
-                    let fechaInicio = new Date(sesiones[i].fecha_inicio)
-                    let fechaFin = new Date(sesiones[i].fecha_fin)
-                    let fechaFinOut = "-"
-                    let estado
-                    if (sesiones[i].fecha_fin) {
-                        fechaFinOut = fechaFin.toLocaleString()
-                        estado = "cerrada"
-                    } else {
-                        estado = '<div class="col text-center"> \
-                                    <a class="btn btn-success" href="javascript:cerrarSesion(\''+id_usuario+'\',\''+sesiones[i].id_sesion+'\')"> \
-                                        Cerrar \
-                                    </a> \
-                                </div>'
-                    }
-                    
-                    document.getElementById("tbodyTablaSesiones").insertRow(-1).innerHTML = 
-                                '<td>' + sesiones[i].id_sesion + '</td>' + 
-                                '<td>' + sesiones[i].id_usuario + '</td>' + 
-                                '<td>' + fechaInicio.toLocaleString() + '</td>' + 
-                                '<td>' + fechaFinOut + '</td>' +
-                                '<td>' + estado + '</td>'
-                }
-            })
-    }
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-journal-text iconsize"></i>
+                    </div>
 
-
-    async function cerrarSesion(id_usuario,id_sesion){
-        const data = new FormData();
-        data.append('id_sesion', id_sesion);
-        
-        await fetch('<?php echo RUTA_URL?>/usuarios/cerrarSesion/', {
-            method: "POST",
-            body: data,
-        })
-            .then((resp) => resp.json())
-            .then(function(data) {
-    
-                if (Boolean(data)){
-                    getSesiones(id_usuario)
-                } else {
-                    alert('Error al Cerrar la sesión')
-                }
-                
-            })
-    }
-
-</script>
-<?php endif ?>
+                    <div class="card-body">
+                        
+                        <p class="card-text">
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne5">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne5" aria-expanded="false" aria-controls="flush-collapseOne5">
+                                            <h5 class="card-title text-center">Inscripciones</h5>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne5" class="accordion-collapse collapse" aria-labelledby="flush-headingOne5" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <a href="#">Grupo</a> <br>
+                                            <a href="#">Evento</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>
