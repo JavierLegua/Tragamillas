@@ -1,6 +1,6 @@
 <?php
 
-    class Inicio extends Controlador{
+    class Login extends Controlador{
 
         public function __construct(){
 
@@ -38,6 +38,12 @@
                     $this->vista('login', $this->datos);
                 }
             }            
+        }
+        public function logout(){
+            Sesion::iniciarSesion($this->datos);        // controlamos si no esta iniciada la sesion y cogemos los datos de la sesion
+            $this->loginModelo->registroFinSesion($this->datos['usuarioSesion']->id_usuario);       // registramos fecha cierre de sesion
+            Sesion::cerrarSesion();
+            redireccionar('/');
         }
     }
 ?>
