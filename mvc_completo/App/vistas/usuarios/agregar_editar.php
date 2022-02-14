@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label for="dni">DNI: <sup>*</sup></label>
-                <input type="text" name="dni" id="dni" class="form-control form-control-lg" value="<?php echo $datos['usuario']->dniUsuario ?>" onblur="comprobarDni(this.value)>
+                <input type="text" name="dni" id="dni" class="form-control form-control-lg" value="<?php echo $datos['usuario']->dniUsuario ?>" onblur="comprobarDni(this.value)">
             </div>
             <div class="mb-3">
                 <label for="cc">Cuenta: <sup>*</sup></label>
