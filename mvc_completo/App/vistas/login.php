@@ -11,13 +11,13 @@
 </head>
 
 <body>
-<section class="vh-100 gradient-custom">
+<section class="vh-100">
 
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100 ">
-      <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 columna">
+      <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
 
-        <div class="card text-white justify-content-center align-items-center shadow p-3 mb-5 bg-body rounded">
+        <div class="card text-white justify-content-center align-items-center shadow mb-5 bg-body rounded" style="padding-top: 50px;">
         
             <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" class="avatar" style="padding-bottom: 50px;">
         
@@ -41,9 +41,9 @@
               </form>
               
             </div>
-
+              <a href="<?php echo RUTA_URL ?>"><img src="<?php echo RUTA_URL?>/public/img/arrow-left-circle-fill.png" alt="img" style=" width: 35px;"></a>
         </div>
-        <a href="<?php echo RUTA_URL ?>"><img src="<?php echo RUTA_URL?>/public/img/arrow-left-circle-fill.png" alt="img" style=" width: 35px;"></a>
+        
       </div>
       
     </div>
