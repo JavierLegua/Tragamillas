@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="email">Email: <sup>*</sup></label>
-                <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $datos['usuario']->email ?>">
+                <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $datos['usuario']->email ?>" onblur="validarEmail(this.value)">
             </div>
             <div class="mb-3">
                 <label for="clave">Contraseña: <sup>*</sup></label>
