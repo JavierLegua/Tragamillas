@@ -35,6 +35,89 @@
                             <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Usuarios</a>
                         <?php endif ?>
                     </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Grupos</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Grupos</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <div class="dropdown">
+                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Eventos
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Organizar</a></li>
+                                    <li><a class="dropdown-item" href="#">Gestionar</a></li>
+                                    <li><a class="dropdown-item" href="#">Consultar</a></li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                            <div class="dropdown">
+                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Eventos
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Organizar</a></li>
+                                    <li><a class="dropdown-item" href="#">Gestionar</a></li>
+                                    <li><a class="dropdown-item" href="#">Consultar</a></li>
+                                </ul>
+                            </div>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Correo</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Correo</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Facturación</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Facturación</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Tiendas</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Tiendas</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Temporadas</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Temporadas</a>
+                        <?php endif ?>
+                    </li>   
+                    
 <?php endif ?>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-md-0">

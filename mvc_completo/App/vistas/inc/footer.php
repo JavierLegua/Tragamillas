@@ -6,16 +6,19 @@
     <div class="container-fluid position-absolute bottom-0 end-0 color">
         <div class="row" style="height: 70px;">
 
-            <div class="col" style="margin-left: 50px;">
-                <a href="#">Inicio</a>
-                <a href="#">Eventos</a>
-                <a href="#">Facturación</a>
+            <div class="col">
+                <a href="<?php echo RUTA_URL ?>/usuarios">Usuarios</a>
+                <a href="#">Grupos</a>
                 <a href="#">Licencias</a>
+                <a href="#">Eventos</a>
+                <a href="#">Correo</a>
+                <a href="#">Inscripciones</a>
+                <a href="#">Facturación</a>
                 <a href="#">Tiendas</a>
                 <a href="#">Temporadas</a>
             </div>
 
-            <div class="col">
+            <div class="col" style="margin-right: 150px;">
                 <i class="bi bi-facebook float-end ms-3" style='font-size:35px; color:#023ef9'></i> 
                 <i class="bi bi-instagram float-end ms-3" style="font-size:35px; color:#023ef9"></i>
                 <i class="bi bi-youtube float-end ms-3" style="font-size:35px; color:#023ef9"></i>
