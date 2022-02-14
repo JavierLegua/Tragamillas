@@ -1,4 +1,12 @@
 // alert('Hola Mundo')
+function validarEmail(valor) {
+    re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+	if(!re.exec(valor)){
+		alert('email no valido');
+	}else{
+	    alert('email valido');
+	}
+}
 
 function comprobarDni(dni_user){
 
