@@ -28,7 +28,7 @@
 
         public function agregarTienda($datos){
             $this->db->query("INSERT INTO usuario (apellidoUsuario, dniUsuario, cc, fecha_nac, email, clave, telefono, activado, idRol) 
-                                        VALUES (:apellidoUsuario, :dniUsuario, :cc, :fecha_nac, :email, :clave, :telefono, :activado, 4)");
+                                        VALUES (:apellidoUsuario, :dniUsuario, :cc, :fecha_nac, :email, :clave, :telefono, :activado, :idRol)");
 
             //vinculamos los valores
             $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);

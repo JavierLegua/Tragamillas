@@ -20,9 +20,9 @@
                     <td><?php echo $uruario->telefono ?></td>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
                     <td>
-                        <a href="<?php echo RUTA_URL?>/tiendas/editar/<?php echo $uruario->id_usuario ?>">Editar</a>
+                        <a href="<?php echo RUTA_URL?>/tiendas/editarTienda/<?php echo $uruario->id_usuario ?>">Editar</a>
                         &nbsp;&nbsp;&nbsp;
-                        <a href="<?php echo RUTA_URL?>/tiendas/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a>
+                        <a href="<?php echo RUTA_URL?>/tiendas/borrarTienda/<?php echo $uruario->id_usuario ?>">Borrar</a>
                         &nbsp;&nbsp;&nbsp;
                     </td>
 <?php endif ?>
@@ -33,7 +33,7 @@
 
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
     <div class="col text-center">
-        <a class="btn btn-success" href="<?php echo RUTA_URL?>/tiendas/agregar/">+</a>
+        <a class="btn btn-success" href="<?php echo RUTA_URL?>/tiendas/agregarTienda/">+</a>
     </div>
 
 <?php endif ?>

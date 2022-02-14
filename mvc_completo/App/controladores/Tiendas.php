@@ -27,7 +27,7 @@
         }
 
 
-        public function agregarTiendas(){
+        public function agregarTienda(){
             
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 
@@ -74,7 +74,7 @@
         }
 
 
-        public function editar($id){
+        public function editarTienda($id){
             
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
             
@@ -115,7 +115,7 @@
         }
 
 
-        public function borrar($id){
+        public function borrarTienda($id){
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($this->tiendaModelo->borrarTienda($id)){
