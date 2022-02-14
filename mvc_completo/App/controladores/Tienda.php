@@ -10,7 +10,7 @@
                 redireccionar('/');
             }
 
-            $this->usuarioModelo = $this->modelo('Usuario');
+            $this->tiendaModelo = $this->modelo('Tienda');
 
             $this->datos['menuActivo'] = 1;         // Definimos el menu que sera destacado en la vista
             
@@ -19,21 +19,21 @@
 
         public function index(){
             //Obtenemos los usuarios
-            $usuarios = $this->usuarioModelo->obtenerUsuarios();
+            $tiendas = $this->tiendaModelo->obtenerTiendas();
 
-            $this->datos['usuario'] = $usuarios;
+            $this->datos['tienda'] = $tiendas;
 
-            $this->vista('tiendas/inicio',$this->datos);
+            $this->vista('tiendas/gestionTiendas',$this->datos);
             // $this->vista('usuarios/inicioVue',$this->datos);
         }
 
 
-        public function agregar(){
+        public function agregarTiendas(){
             
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                redireccionar('/usuarios');
+                redireccionar('/tiendas');
             }
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -47,11 +47,11 @@
                     'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'idRol' => trim($_POST['rol']),
+                    'idRol' => 3,
                 ];
 
-                if ($this->usuarioModelo->agregarUsuario($usuarioNuevo)){
-                    redireccionar('/usuarios');
+                if ($this->tiendaModelo->agregarUsuario($usuarioNuevo)){
+                    redireccionar('/tiendas');
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -68,9 +68,9 @@
                     'idRol' => 3
                 ];
 
-                $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
+                $this->datos['listaRoles'] = $this->tiendaModelo->obtenerRoles();
 
-                $this->vista('usuarios/agregar_editar',$this->datos);
+                $this->vista('tiendas/agregar_editar',$this->datos);
             }
         }
 
@@ -80,7 +80,7 @@
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
             
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                redireccionar('/usuarios');
+                redireccionar('/tiendas');
             }
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -95,22 +95,22 @@
                     'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'idRol' => trim($_POST['rol']),
+                    'idRol' => 3,
                 ];
 
                 
 
-                if ($this->usuarioModelo->actualizarUsuario($usuarioModificado)){
-                    redireccionar('/usuarios');
+                if ($this->tiendaModelo->actualizarTienda($usuarioModificado)){
+                    redireccionar('/tienda');
                 } else {
                     die('Algo ha fallado!!!');
                 }
             } else {
                 
                 //obtenemos información del usuario y el listado de roles desde del modelo
-                $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
-                $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
-                $this->vista('usuarios/agregar_editar',$this->datos);
+                $this->datos['tienda'] = $this->tiendaModelo->obtenerTiendaId($id);
+                $this->datos['listaRoles'] = $this->tiendaModelo->obtenerRoles();
+                $this->vista('tiendas/agregar_editar',$this->datos);
                
             }
         }
@@ -119,53 +119,17 @@
         public function borrar($id){
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                if ($this->usuarioModelo->borrarUsuario($id)){
-                    redireccionar('/usuarios');
+                if ($this->tiendaModelo->borrarTienda($id)){
+                    redireccionar('/tiendas');
                 } else {
                     die('Algo ha fallado!!!');
                 }
             } else {
                 //obtenemos información del usuario desde del modelo
-                $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
+                $this->datos['tienda'] = $this->tiendaModelo->obtenerTiendaId($id);
 
-                $this->vista('usuarios/borrar',$this->datos);
+                $this->vista('tiendas/borrar',$this->datos);
             }
         }
 
-        
-        public function sesiones($id_usuario){
-            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
-
-            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                exit();
-            }
-
-            // En __construct() verificamos que se haya iniciado la sesion
-            $sesiones = $this->usuarioModelo->obtenerSesionesUsuario($id_usuario);
-            $usuario = $this->usuarioModelo->obtenerUsuarioId($id_usuario);
-
-            // utilizamos $datos en lugar de $this->datos ya que no necesitamos los datos del usuario de sesion
-            $datos['sesiones'] = $sesiones;
-            $datos['usuario'] = $usuario;
-
-            $this->vistaApi($datos);
-        }
-
-
-        public function cerrarSesion(){
-            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
-
-            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                exit();
-            }
-            
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $id_sesion = $_POST['id_sesion'];
-                
-                $resultado = $this->usuarioModelo->cerrarSesion($id_sesion);
-
-                unlink(session_save_path().'\\sess_'.$id_sesion);
-                $this->vistaApi($resultado);
-            }
-        }
     }

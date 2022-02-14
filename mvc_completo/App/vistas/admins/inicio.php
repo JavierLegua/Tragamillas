@@ -1,4 +1,4 @@
-<?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
+z<?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <body>
     <section class="main"> <!-- quitar clase main -->
     <div class="container">

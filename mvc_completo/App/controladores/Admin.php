@@ -74,6 +74,52 @@
             }
         }
 
+        public function agregarTiendas(){
+            
+            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
+
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+                redireccionar('/crud_tiendas');
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                $usuarioNuevo = [
+                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'dniUsuario' => trim($_POST['dni']),
+                    'cc' => trim($_POST['cc']),
+                    'fecha_nac' => trim($_POST['fecha_nac']),
+                    'email' => trim($_POST['email']),
+                    'clave' => trim($_POST['clave']),
+                    'telefono' => trim($_POST['telefono']),
+                    'activado' => trim($_POST['activado']),
+                    'idRol' => trim($_POST['rol']),
+                ];
+
+                if ($this->usuarioModelo->agregarUsuario($usuarioNuevo)){
+                    redireccionar('/crud_tiendas');
+                } else {
+                    die('Algo ha fallado!!!');
+                }
+            } else {
+                $this->datos['usuario'] = (object) [
+                    'apellidoUsuario' => '',
+                    'dniUsuario' => '',
+                    'cc' => '',
+                    'fecha_nac' => '',
+                    'email' => '',
+                    'clave' => '',
+                    'telefono' => '',
+                    'activado' => '',
+                    'idRol' => 4
+                ];
+
+                $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
+
+                $this->vista('crud_tiendas/agregar_editar',$this->datos);
+            }
+        }
+
 
         public function editar($id){
             
@@ -115,6 +161,46 @@
             }
         }
 
+        public function editar_tiendas($id){
+            
+            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
+            
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+                redireccionar('/crud_tiendas');
+            }
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                $usuarioModificado = [
+                    'id_usuario' => $id,
+                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'dniUsuario' => trim($_POST['dni']),
+                    'cc' => trim($_POST['cc']),
+                    'fecha_nac' => trim($_POST['fecha_nac']),
+                    'email' => trim($_POST['email']),
+                    'clave' => trim($_POST['clave']),
+                    'telefono' => trim($_POST['telefono']),
+                    'activado' => trim($_POST['activado']),
+                    'idRol' => trim($_POST['rol']),
+                ];
+
+                
+
+                if ($this->usuarioModelo->actualizarUsuario($usuarioModificado)){
+                    redireccionar('/crud_tiendas');
+                } else {
+                    die('Algo ha fallado!!!');
+                }
+            } else {
+                
+                //obtenemos información del usuario y el listado de roles desde del modelo
+                $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
+                $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
+                $this->vista('crud_tiendas/agregar_editar',$this->datos);
+               
+            }
+        }
+
 
         public function borrar($id){
             
@@ -129,6 +215,22 @@
                 $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
 
                 $this->vista('usuarios/borrar',$this->datos);
+            }
+        }
+
+        public function borrar_tiendas($id){
+            
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                if ($this->usuarioModelo->borrarUsuario($id)){
+                    redireccionar('/crud_tiendas');
+                } else {
+                    die('Algo ha fallado!!!');
+                }
+            } else {
+                //obtenemos información del usuario desde del modelo
+                $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
+
+                $this->vista('crud_tiendas/borrar',$this->datos);
             }
         }
 
