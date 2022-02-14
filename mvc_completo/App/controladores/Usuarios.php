@@ -24,7 +24,6 @@
             $this->datos['usuario'] = $usuarios;
 
             $this->vista('usuarios/inicio',$this->datos);
-            // $this->vista('usuarios/inicioVue',$this->datos);
         }
 
 

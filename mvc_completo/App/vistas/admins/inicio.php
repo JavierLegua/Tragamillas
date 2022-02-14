@@ -1,4 +1,4 @@
-z<?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
+<?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <body>
     <section class="main"> <!-- quitar clase main -->
     <div class="container">
@@ -167,7 +167,7 @@ z<?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne6" class="accordion-collapse collapse" aria-labelledby="flush-headingOne6" data-bs-parent="#accordionFlushExample6">
-                                    <div class="accordion-body"><a href="#">Consultar</a></div>
+                                    <div class="accordion-body"><a href="<?php echo RUTA_URL?>/tiendas">Consultar</a></div>
                                 </div>
                             </div>
                         </div>

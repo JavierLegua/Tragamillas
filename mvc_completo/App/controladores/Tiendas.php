@@ -1,10 +1,10 @@
 <?php
 
-    class Tienda extends Controlador{
+    class Tiendas extends Controlador{
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [4];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -24,7 +24,6 @@
             $this->datos['tienda'] = $tiendas;
 
             $this->vista('tiendas/gestionTiendas',$this->datos);
-            // $this->vista('usuarios/inicioVue',$this->datos);
         }
 
 
@@ -38,7 +37,7 @@
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
-                $usuarioNuevo = [
+                $tiendaNuevo = [
                     'apellidoUsuario' => trim($_POST['nombre']),
                     'dniUsuario' => trim($_POST['dni']),
                     'cc' => trim($_POST['cc']),
@@ -47,16 +46,16 @@
                     'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'idRol' => 3,
+                    'idRol' => 4,
                 ];
 
-                if ($this->tiendaModelo->agregarUsuario($usuarioNuevo)){
+                if ($this->tiendaModelo->agregarTienda($tiendaNuevo)){
                     redireccionar('/tiendas');
                 } else {
                     die('Algo ha fallado!!!');
                 }
             } else {
-                $this->datos['usuario'] = (object) [
+                $this->datos['tienda'] = (object) [
                     'apellidoUsuario' => '',
                     'dniUsuario' => '',
                     'cc' => '',
@@ -65,7 +64,7 @@
                     'clave' => '',
                     'telefono' => '',
                     'activado' => '',
-                    'idRol' => 3
+                    'idRol' => 4
                 ];
 
                 $this->datos['listaRoles'] = $this->tiendaModelo->obtenerRoles();
@@ -85,7 +84,7 @@
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
-                $usuarioModificado = [
+                $tiendaModificado = [
                     'id_usuario' => $id,
                     'apellidoUsuario' => trim($_POST['nombre']),
                     'dniUsuario' => trim($_POST['dni']),
@@ -95,13 +94,13 @@
                     'clave' => trim($_POST['clave']),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'idRol' => 3,
+                    'idRol' => 4,
                 ];
 
                 
 
-                if ($this->tiendaModelo->actualizarTienda($usuarioModificado)){
-                    redireccionar('/tienda');
+                if ($this->tiendaModelo->actualizarTienda($tiendaModificado)){
+                    redireccionar('/tienda/gestionTiendas');
                 } else {
                     die('Algo ha fallado!!!');
                 }

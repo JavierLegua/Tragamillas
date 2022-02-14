@@ -1,5 +1,4 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-    <?php exit()?>
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($datos['usuario'] as $uruario): ?>
+            <?php foreach($datos['tienda'] as $uruario): ?>
                 <tr>
                     <td><?php echo $uruario->id_usuario ?></td>
                     <td><?php echo $uruario->apellidoUsuario ?></td>
