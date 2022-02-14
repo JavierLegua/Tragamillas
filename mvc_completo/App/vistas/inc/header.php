@@ -35,9 +35,27 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Grupos</a>
+                            <div class="dropdown">
+                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Grupos
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Crear</a></li>
+                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver</a></li>
+                                </ul>
+                            </div>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Grupos</a>
+                            <div class="dropdown">
+                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Grupos
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Crear</a></li>
+                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver</a></li>
+                                </ul>
+                            </div>
                         <?php endif ?>
                     </li>
 
