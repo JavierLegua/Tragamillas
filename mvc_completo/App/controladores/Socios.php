@@ -23,11 +23,18 @@
 
             $this->datos['socio'] = $socios;
 
-            $this->vista('socios/gestionSocio',$this->datos);
+            $this->vista('socios/gestionSocios',$this->datos);
         }
 
-
         public function marcarRopa(){
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+                redireccionar('/tiendas');
+            } else {
+                echo"hola";
+            }
+        }
+
+        public function agregarTienda(){
             
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
 

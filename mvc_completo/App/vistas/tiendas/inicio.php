@@ -20,7 +20,7 @@
                                     </h2>
                                     <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample1">
                                         <div class="accordion-body">
-                                            <a href="#">Consultar Socios</a>
+                                            <a href="<?php echo RUTA_URL?>/socios">Consultar Socios</a>
                                         </div>
                                     </div>
                                 </div>
