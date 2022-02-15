@@ -88,18 +88,7 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <div class="accordion accordion-flush" id="accordionFlushExample6">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne6">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne6" aria-expanded="false" aria-controls="flush-collapseOne6">
-                                        <h5 class="card-title text-center">Tiendas</h5>
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne6" class="accordion-collapse collapse" aria-labelledby="flush-headingOne6" data-bs-parent="#accordionFlushExample6">
-                                    <div class="accordion-body"><a href="<?php echo RUTA_URL?>/tiendas">Consultar</a></div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/tiendas"><h4>Tiendas</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                     </p>
                 </div>
             </div>
