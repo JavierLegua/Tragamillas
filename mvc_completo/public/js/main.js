@@ -1,10 +1,7 @@
-// alert('Hola Mundo')
 function validarEmail(valor) {
     re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 	if(!re.exec(valor)){
-		alert('email no valido');
-	}else{
-	    alert('email valido');
+		alert('Dirección de correo electrónico no valida');
 	}
 }
 
@@ -15,7 +12,6 @@ function comprobarDni(dni_user){
     var letraDni= dni_user.substring(8,9);
     var resto = parseInt(numerosDni)%23;
     if(vLetras[resto] != letraDni){
-        alert("El dni introducido no existe");
+        alert("El DNI introducido no existe");
     }
 }
-    

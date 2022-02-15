@@ -19,6 +19,26 @@
             return $this->db->registros();
         }
 
+        public function marcarRopa($datos){
+
+            $this->db->query("INSERT INTO equipacion (talla, fechaPeticion, idUsuario, idOtrosGastos) 
+            VALUES (:talla, NOW(), :idUsuario, :idOtrosGastos)");
+
+            // //vinculamos los valores
+            $this->db->bind(':talla',$datos['talla']);
+            // $this->db->bind(':fechaPeticion', NOW());
+            $this->db->bind(':idUsuario',$datos['idUsuario']);
+            $this->db->bind(':idOtrosGastos',null);
+
+            //ejecutamos
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+            
+        }
+
         public function obtenerSocioId($id){
             $this->db->query("SELECT * FROM usuario WHERE id_usuario = :id");
             $this->db->bind(':id',$id);

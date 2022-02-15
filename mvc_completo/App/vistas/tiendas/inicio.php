@@ -46,7 +46,7 @@
                                     </h2>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne3" data-bs-parent="#accordionFlushExample3">
                                         <div class="accordion-body">
-                                            <a href="#">Ropa Recogida</a> <br>
+                                            <a href="<?php echo RUTA_URL?>/pedidos">Ropa Recogida</a> <br>
                                         </div>
                                     </div>
                                 </div>

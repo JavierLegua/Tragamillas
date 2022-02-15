@@ -20,7 +20,7 @@
                     <td><?php echo $uruario->telefono ?></td>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[4])):?>
                     <td>
-                        <a href="<?php echo RUTA_URL?>/tiendas/marcarRopa/<?php echo $uruario->id_usuario ?>">Marcar ropa</a>
+                        <a href="<?php echo RUTA_URL?>/socios/marcarRopa/<?php echo $uruario->id_usuario ?>">Pedir ropa</a>
                     </td>
 <?php endif ?>
                 </tr>

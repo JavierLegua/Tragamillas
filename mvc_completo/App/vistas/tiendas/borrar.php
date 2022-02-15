@@ -3,7 +3,7 @@
 <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 
 <div class="card bg-light mt-5 w-75 card-center" style=" margin: auto;">
-    <h2 class="card-header">Borrar Usuario</h2>
+    <h2 class="card-header">Borrar Tienda</h2>
 
     <form method="post" class="card-body">
         <div class="mt-3 mb-3">
@@ -18,7 +18,7 @@
             <label for="telefono">Teléfono: <sup>*</sup></label>
             <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $datos['tienda']->telefono ?>" disabled>
         </div>
-        <input type="submit" class="btn btn-success" value="Borrar Usuario">
+        <input type="submit" class="btn btn-success" value="Borrar Tienda">
     </form>
     
 </div>
