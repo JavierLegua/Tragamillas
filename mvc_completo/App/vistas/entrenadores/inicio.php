@@ -9,24 +9,9 @@
                         <i class="bi bi-stopwatch iconsize"></i>
                     </div>
 
-                    <div class="card-body">
-                        
+                    <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <div class="accordion accordion-flush" id="accordionFlushExample1">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne1">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne1">
-                                            <h5 class="card-title text-center">Marcas/Tests</h5>
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample1">
-                                        <div class="accordion-body">
-                                            <a href="#">Consultar Marcas</a> <br>
-                                            <a href="#">Realizar Test</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="colorb" href="#"><h4>Marcas/Test</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
                 </div>
@@ -36,23 +21,9 @@
                         <i class="bi bi-file-earmark-person iconsize"></i>
                     </div>
 
-                    <div class="card-body">
-                        
+                    <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <div class="accordion accordion-flush" id="accordionFlushExample3">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne3">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            <h5 class="card-title text-center">Licencias</h5>
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne3" data-bs-parent="#accordionFlushExample3">
-                                        <div class="accordion-body">
-                                            <a href="#">Consultar</a> <br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="colorb" href="#"><h4>Licencias</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
                 </div>
@@ -62,25 +33,9 @@
                         <i class='bi bi-people-fill iconsize'></i>
                     </div>
             
-                    <div class="card-body">
-                        
+                    <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <div class="accordion accordion-flush" id="accordionFlushExample4">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne4">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne4" aria-expanded="false" aria-controls="flush-collapseOne4">
-                                            <h5 class="card-title text-center">Alumnos</h5>
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseOne4" class="accordion-collapse collapse" aria-labelledby="flush-headingOne4" data-bs-parent="#accordionFlushExample4">
-                                        <div class="accordion-body">
-                                            <a href="#">Crear</a> <br>
-                                            <a href="#">Ver</a> <br>
-                                            <a href="#">Modificar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="colorb" href="#"><h4>Alumnos</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
                 </div>
@@ -90,24 +45,9 @@
                         <i class="bi bi-journal-text iconsize"></i>
                     </div>
 
-                    <div class="card-body">
-                        
+                    <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <div class="accordion accordion-flush" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne5">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne5" aria-expanded="false" aria-controls="flush-collapseOne5">
-                                            <h5 class="card-title text-center">Inscripciones</h5>
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseOne5" class="accordion-collapse collapse" aria-labelledby="flush-headingOne5" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <a href="#">Grupo</a> <br>
-                                            <a href="#">Evento</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="colorb" href="#"><h4>Inscripciones</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
                 </div>
