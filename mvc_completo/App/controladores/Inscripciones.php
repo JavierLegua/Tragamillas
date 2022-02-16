@@ -17,7 +17,7 @@
         public function index(){
     
             $this->vista('inscripciones/inicio', $this->datos);
-            
+                
         }
   
 
