@@ -41,7 +41,7 @@
                     'entregado' => trim($_POST['entregado']),
                 ];
 
-                print_r($pedidoConfirmado);exit();
+                // print_r($pedidoConfirmado);exit();
 
                 if ($this->pedidoModelo->confirmarPedido($pedidoConfirmado)){
                     redireccionar('/pedidos');

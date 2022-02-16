@@ -41,7 +41,7 @@
                     // 'fechaPeticion' => trim($_POST['fechaPeticion']),
                     'idUsuario' => $id,
                     // 'idIngresoCuotas' => trim($_POST['idIngresoCuotas']),
-                    'idOtrosGastos' => trim($_POST['idOtrosGastos']),
+                    //'idOtrosGastos' => trim($_POST['idOtrosGastos']),
                 ];
 
                 if ($this->socioModelo->marcarRopa($equipacionNueva)){
