@@ -46,7 +46,7 @@
                 ];
 
                 if ($this->socioModelo->marcarRopa($equipacionNueva)){
-                    redireccionar('/tienda');
+                    redireccionar('/socios');
                     
                 } else {
                     die('Algo ha fallado!!!');
