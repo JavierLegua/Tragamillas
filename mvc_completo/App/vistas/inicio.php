@@ -572,7 +572,6 @@
             </div>
         </div>
     </section>
-</body>
 <?php endif ?>
 
 
