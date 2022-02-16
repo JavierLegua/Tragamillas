@@ -33,7 +33,7 @@
                 <div class="form-outline form-white mb-4">
                   <input type="password" name="clave" id="clave" class="form-control form-control-lg" placeholder="Contraseña" required/>
                 </div>
-                <input type="submit" class="mt-4 colortarjeta btn btn-outline-light btn-lg px-5" value="Login"> <br>
+                <input type="submit" class="mt-4 btn btn-outline-light btn-lg px-5 colortarjeta colortarjetahover" value="Login"> <br>
               </form>  
             </div>
               <a href="<?php echo RUTA_URL ?>"><img src="<?php echo RUTA_URL?>/public/img/arrow-left-circle-fill.png" alt="img" style=" width: 35px;"></a>

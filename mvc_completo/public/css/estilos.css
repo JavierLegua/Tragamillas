@@ -1,5 +1,6 @@
  body{
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
  }
 
 .colorb{
@@ -46,6 +47,11 @@
 .colortarjeta{
     background-color: #023ef9;
 }
+.colortarjetahover:hover{
+    color: #023ef9;
+    border: 1px solid #023ef9;
+    background-color: #EBEFF2;
+} 
 
 html{
     position: relative;
@@ -85,10 +91,17 @@ html{
  }
 
  @media (max-width: 575px) { 
+    body{
+        font-size: 14px;
+    }
+    nav{
+        font-size: 14px;
+    }
    .columna {
        width: 67%;
    }
  }
+
  @media (max-width: 767px) { 
     .avatar {
         top: -98px;
