@@ -2,9 +2,10 @@
 <body>
     <section>
         <div class="container">
-            <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
+            <div class="row d-flex justify-content-around" style="margin-top: 175px; margin-bottom: 50px;">
                 
                 <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-stopwatch iconsize"></i>
                     </div>
@@ -14,9 +15,11 @@
                             <a class="colorb" href="#"><h4>Marcas/Test</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
+
                 </div>
 
                 <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-file-earmark-person iconsize"></i>
                     </div>
@@ -26,21 +29,25 @@
                             <a class="colorb" href="#"><h4>Licencias</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
+
                 </div>
 
                 <div class="borde border col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class='bi bi-people-fill iconsize'></i>
                     </div>
             
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="#"><h4>Alumnos</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/usuarios"><h4>Alumnos</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
+
                 </div>
 
                 <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-journal-text iconsize"></i>
                     </div>
@@ -50,6 +57,7 @@
                             <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones"><h4>Inscripciones</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
+                    
                 </div>
             
             </div>
