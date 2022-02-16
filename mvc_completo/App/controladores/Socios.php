@@ -42,6 +42,7 @@
                     'idUsuario' => $id,
                     // 'idIngresoCuotas' => trim($_POST['idIngresoCuotas']),
                     //'idOtrosGastos' => trim($_POST['idOtrosGastos']),
+                    'idTienda' => $this->datos['usuarioSesion']->id_usuario,
                 ];
 
                 if ($this->socioModelo->marcarRopa($equipacionNueva)){
@@ -57,6 +58,7 @@
                     'idUsuario' => $id,
                     'idIngresoCuotas' => '',
                     'idOtrosGastos' => '',
+                    'idTienda' => $this->datos['usuarioSesion']->id_usuario,
                 ];
 
                 

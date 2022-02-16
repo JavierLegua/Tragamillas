@@ -17,7 +17,8 @@
 
         public function index(){
             //Obtenemos los usuarios
-            $pedidos = $this->pedidoModelo->obtenerPedidos();
+            $idTienda = $this->datos['usuarioSesion']->id_usuario;
+            $pedidos = $this->pedidoModelo->obtenerPedidos($idTienda);
 
             $this->datos['pedido'] = $pedidos;
 

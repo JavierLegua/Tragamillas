@@ -21,14 +21,15 @@
 
         public function marcarRopa($datos){
 
-            $this->db->query("INSERT INTO equipacion (talla, fechaPeticion, idUsuario, idOtrosGastos) 
-            VALUES (:talla, NOW(), :idUsuario, :idOtrosGastos)");
+            $this->db->query("INSERT INTO equipacion (talla, fechaPeticion, idUsuario, idOtrosGastos, idTienda) 
+            VALUES (:talla, NOW(), :idUsuario, :idOtrosGastos, :idTienda)");
 
             // //vinculamos los valores
             $this->db->bind(':talla',$datos['talla']);
             // $this->db->bind(':fechaPeticion', NOW());
             $this->db->bind(':idUsuario',$datos['idUsuario']);
             $this->db->bind(':idOtrosGastos',null);
+            $this->db->bind(':idTienda',$datos['idTienda']);
 
             //ejecutamos
             if($this->db->execute()){
