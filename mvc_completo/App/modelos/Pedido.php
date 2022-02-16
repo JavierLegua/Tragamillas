@@ -8,7 +8,7 @@
         }
 
         public function obtenerPedidos(){
-            $this->db->query("SELECT equipacion.idEquipacion, equipacion.talla, equipacion.idUsuario, usuario.apellidoUsuario FROM equipacion, usuario WHERE equipacion.idUsuario = usuario.id_usuario");
+            $this->db->query("SELECT equipacion.idEquipacion, equipacion.talla, equipacion.idUsuario, usuario.apellidoUsuario, equipacion.entregado FROM equipacion, usuario WHERE equipacion.idUsuario = usuario.id_usuario");
 
             return $this->db->registros();
         }
