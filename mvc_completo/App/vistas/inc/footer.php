@@ -63,9 +63,9 @@
             </div>
 
             <div class="col" style="margin-right: 150px;">
-                <a href=""><i class="bi bi-facebook float-end ms-3" style='font-size:35px; color:#023ef9'></i> </a>
-                <i class="bi bi-instagram float-end ms-3" style="font-size:35px; color:#023ef9"></i>
-                <i class="bi bi-youtube float-end ms-3" style="font-size:35px; color:#023ef9"></i>
+                <a href=https://es-es.facebook.com/tragamillasalcaniz/"><i class="bi bi-facebook float-end ms-3" style='font-size:35px; color:#023ef9'></i> </a>
+                <a href="https://www.instagram.com/tragamillas_/?hl=es"><i class="bi bi-instagram float-end ms-3" style="font-size:35px; color:#023ef9"></i></a>
+                <a href="https://www.youtube.com/channel/UCqGEJt6GHKsFvZieC04VCow"><i class="bi bi-youtube float-end ms-3" style="font-size:35px; color:#023ef9"></i></a>
             </div>
 
         </div>
