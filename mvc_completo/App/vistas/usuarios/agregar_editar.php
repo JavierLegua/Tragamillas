@@ -21,11 +21,11 @@
             </div>
             <div class="mb-3">
                 <label for="dni">DNI: <sup>*</sup></label>
-                <input type="text" name="dni" id="dni" class="form-control form-control-lg" value="<?php echo $datos['usuario']->dniUsuario ?>" onblur="comprobarDni(this.value)">
+                <input type="text" name="dni" id="dni" class="form-control form-control-lg" maxlength="9" autocomplete="off" value="<?php echo $datos['usuario']->dniUsuario ?>" onblur="comprobarDni(this.value)">
             </div>
             <div class="mb-3">
                 <label for="cc">Cuenta: <sup>*</sup></label>
-                <input type="text" name="cc" id="cc" class="form-control form-control-lg" value="<?php echo $datos['usuario']->cc ?>">
+                <input type="text" name="cc" id="cc" class="form-control form-control-lg" value="<?php echo $datos['usuario']->cc ?>" onblur="fn_ValidateIBAN(this.value)">
             </div>
             <div class="mb-3">
                 <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="email">Email: <sup>*</sup></label>
-                <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $datos['usuario']->email ?>" onblur="validarEmail(this.value)">
+                <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" value="<?php echo $datos['usuario']->email ?>" onblur="validarEmail(this.value)">
             </div>
             <div class="mb-3">
                 <label for="clave">Contraseña: <sup>*</sup></label>
