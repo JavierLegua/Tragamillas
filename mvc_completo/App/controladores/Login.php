@@ -11,8 +11,15 @@
         public function index ($error = ''){
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                //comprobamos que la contraseña introducida concuerde con el hash guardado de la bbdd
+
+                
+
                 $this->datos['email'] = trim($_POST['email']);
                 $this->datos['clave'] = trim($_POST['clave']);
+
+                //$claveCifrada = password_hash($this->datos['clave'], PASSWORD_BCRYPT);
                 $usuarioSesion = $this->loginModelo->loginEmail($this->datos['email'], $this->datos['clave']);
 
                 if(isset($usuarioSesion) && !empty($usuarioSesion)){  // si tiene datos el objeto devuelto entramos

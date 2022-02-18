@@ -16,7 +16,10 @@
                         <td><?php echo $uruario->idGrupo ?></td>
                         <td><?php echo $uruario->nombre ?></td>
                         <td>
-                            <a href="<?php echo RUTA_URL?>/inscripciones/agregarinscripcion/<?php echo $uruario->idGrupo ?>">Pre-inscribirse</a>
+                            <form action="<?php echo RUTA_URL?>/inscripciones/agregarinscripcion/<?php echo $uruario->idGrupo?>" method="post">
+                                <button type="submit">Pre-inscribirse</button>
+                            </form>
+                            
                         </td>                
                     </tr>
                 <?php endif ?>

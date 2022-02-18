@@ -29,7 +29,13 @@
 
         public function agregar(){
             
-            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1];      // Definimos los roles que tendran acceso
+
+            //prueba de cifrado de contraseña
+
+            $pass = $_POST['clave'];
+            $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
+            password_verify($pass, $passCifrada);
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');
@@ -43,7 +49,7 @@
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
-                    'clave' => trim($_POST['clave']),
+                    'clave' => trim($passCifrada),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
                     'idRol' => trim($_POST['rol']),

@@ -31,7 +31,7 @@
                 redireccionar('/inscripciones');
             }
             // print_r($this->datos);exit();
-            if (true) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 $inscripcionNueva = [
                     'aceptado' => 0,
@@ -39,7 +39,6 @@
                     'idGrupo' => $id,
                     'idUsuario' => $this->datos['usuarioSesion']->id_usuario,                    
                 ];
-                // print_r($inscripcionNueva);exit();
                 if ($this->inscripcionModelo->agregarInscripcion($inscripcionNueva)){
                     redireccionar('/inscripciones');
                 } else {
@@ -47,6 +46,7 @@
                 }
             } else {
                 $this->datos['inscripcion'] = (object) [
+                    'fecha_inscrip' => '',
                     'aceptado' => 0,
                     'activado' => '',
                     'idGrupo' => '',

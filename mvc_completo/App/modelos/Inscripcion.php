@@ -15,7 +15,7 @@ class Inscripcion{
     // }
 
     public function obtenerGrupos(){
-        $this->db->query("SELECT * FROM grupo");
+        $this->db->query("SELECT * FROM grupo WHERE");
 
         return $this->db->registros();
     }
@@ -56,13 +56,13 @@ class Inscripcion{
 
     public function agregarInscripcion($datos){
         $this->db->query("INSERT INTO grupo_socio (fecha_inscrip, aceptado, activo, idGrupo, idUsuario) 
-                                    VALUES (:NOW(), :aceptado, :activo, :idGrupo, :idUsuario)");
+                                    VALUES (NOW(), :aceptado, :activo, :idGrupo, :idUsuario)");
 
         //vinculamos los valores
-        $this->db->bind(':aceptado',$this->datos['usuarioSesion']->activado);
-        $this->db->bind(':activo',0);
+        $this->db->bind(':aceptado',0);
+        $this->db->bind(':activo',$datos['activo']);
         $this->db->bind(':idGrupo',$datos['idGrupo']);
-        $this->db->bind(':idUsuario',$this->datos['usuarioSesion']->id);
+        $this->db->bind(':idUsuario',$datos['idUsuario']);
 
         //ejecutamos
         if($this->db->execute()){
