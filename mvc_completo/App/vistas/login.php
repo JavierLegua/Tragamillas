@@ -11,10 +11,10 @@
 </head>
 
 <body>
-<section class="vh-100">
+<section>
 
-  <div class="container py-5 vh-100">
-    <div class="row vistab justify-content-around justify-content-center align-items-center mt-5 vh-100">
+  <div class="container">
+    <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
 
         <div class="card text-white justify-content-center align-items-center shadow mb-5 bg-body rounded" style="padding-top: 50px;">
