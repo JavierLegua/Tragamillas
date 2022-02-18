@@ -3,7 +3,7 @@
     <section class="main">
     <div class="container">
 
-        <div class="row d-flex justify-content-around">  <!-- Esto lo que hace es que coja todo el ancho de la página -->
+        <div class="row vistab justify-content-around justify-content-center align-items-center mt-5">  <!-- Esto lo que hace es que coja todo el ancho de la página -->
 
 <!-- ----------------------- -->
             <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">

@@ -3,7 +3,7 @@
 <body>
     <section>
         <div class="container">
-            <div class="row d-flex justify-content-around" style="margin-bottom: 50px;">
+            <div class="row vista justify-content-around justify-content-center align-items-center">
                 
                 <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
                     <div class="card-header d-flex justify-content-center colortarjeta">

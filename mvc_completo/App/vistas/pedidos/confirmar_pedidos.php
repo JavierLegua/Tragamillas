@@ -4,7 +4,7 @@
 
     <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 
-    <div class="card bg-light mt-5 w-75 card-center" style=" margin: auto;">
+    <div class="card bg-light mt-5 w-75 card-center m-auto">
     <h2 class="card-header">Confirmar pedido</h2>
 
     <form method="post" class="card-body">
