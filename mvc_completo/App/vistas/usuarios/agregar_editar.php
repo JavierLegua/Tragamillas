@@ -11,7 +11,7 @@
 
     <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 
-    <div class="card bg-light mt-5 w-75 card-center;">
+    <div class="card bg-light mt-5 w-75 justify-content-center align-items-center;">
         <h2 class="card-header"><?php echo $accion ?> Usuario</h2>
 
         <form method="post" class="card-body">
