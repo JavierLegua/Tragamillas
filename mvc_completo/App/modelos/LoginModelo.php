@@ -15,10 +15,9 @@
             return $this->db->registro();
         }
 
-        public function loginEmail($email, $clave){
-            $this->db->query("SELECT * FROM usuario WHERE email = :email and clave = :clave");
+        public function loginEmail($email){
+            $this->db->query("SELECT * FROM usuario WHERE email = :email");
             $this->db->bind(':email',$email);
-            $this->db->bind(':clave',$clave);
 
             return $this->db->registro();
         }
