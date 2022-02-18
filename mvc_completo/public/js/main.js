@@ -68,9 +68,9 @@ function fn_ValidateIBAN(IBAN) {
     //Se calcula el resto, llamando a la función modulo97, definida más abajo
     resto = modulo97(isbanaux);
     if (resto == 1){
-        return true;
+        campoiban.style.backgroundColor = "#C7FFDD";
     }else{
-        return false;
+        campoiban.style.backgroundColor = "#FFA6A1";
     }
 }
 
