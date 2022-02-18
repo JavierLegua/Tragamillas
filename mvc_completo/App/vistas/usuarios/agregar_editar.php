@@ -36,11 +36,14 @@
                 <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" value="<?php echo $datos['usuario']->email ?>" onblur="validarEmail(this.value)">
             </div>
             <div class="mb-3">
-                <label for="clave">Contraseña: <sup>*</sup></label>
-                <input type="text" name="clave" id="clave" class="form-control form-control-lg" value="<?php echo $datos['usuario']->clave ?>">
+                <label for="clave">Nueva contraseña: <sup>*</sup></label>
+                <input type="password" name="clave" id="clave" class="form-control form-control-lg" value="">
+            </div>
+            <div>
+                <button class="btn btn-primary" type="button" onclick="mostrarPass()"><i class="glyphicon glyphicon-eye-open"></i>Mostrar contraseña</button> <br>     <!--  mostrar icono en el boton -->
             </div>
             <div class="mb-3">
-                <label for="telefono">Teléfono: <sup>*</sup></label>
+                <br><label for="telefono">Teléfono: <sup>*</sup></label>
                 <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $datos['usuario']->telefono ?>">
             </div>
             <div class="mb-3">

@@ -90,3 +90,14 @@ function getnumIBAN(letra) {
     ls_letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return ls_letras.search(letra) + 10;
 }
+
+/* ----------------------------------------------------------------------------------------- */
+
+function mostrarPass(){
+    var campo = document.getElementById("clave");
+    if (campo.type == "password") {
+        campo.type = "text"
+    }else{
+        campo.type = "password";
+    }
+}
