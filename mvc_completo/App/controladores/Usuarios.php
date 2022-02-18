@@ -34,8 +34,10 @@
             //prueba de cifrado de contraseña
 
             $pass = $_POST['clave'];
+            //$salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+
             $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
-            password_verify($pass, $passCifrada);
+            //password_verify($pass, $passCifrada);
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');
@@ -87,6 +89,11 @@
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');
             }
+
+            $pass = $_POST['clave'];
+            //$salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+
+            $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
@@ -97,7 +104,7 @@
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
-                    'clave' => trim($_POST['clave']),
+                    'clave' => trim($passCifrada),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
                     'idRol' => trim($_POST['rol']),
