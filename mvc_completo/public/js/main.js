@@ -14,6 +14,7 @@ function validarEmail(valor) {
 
 document.getElementById("dni").addEventListener("keyup", comprobarDni);
 function comprobarDni(dni_user){
+    var campo = document.getElementById("dni");
 
     var campo = document.getElementById("dni");
 

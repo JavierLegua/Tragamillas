@@ -1,4 +1,4 @@
-<?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
+<?php require_once RUTA_APP.'/vistas/inc/header.php'?>
 <body>
     <section>
         <div class="container">
@@ -54,7 +54,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones"><h4>Inscripciones</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/entrenadores_inscripciones"><h4>Inscripciones</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
                     

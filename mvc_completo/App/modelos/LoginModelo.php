@@ -8,6 +8,13 @@
         }
 
 
+        public function obtenerPass($clave){
+            $this->db->query("SELECT clave FROM usuario");
+            $this->db->bind(':clave',$clave);
+
+            return $this->db->registro();
+        }
+
         public function loginEmail($email, $clave){
             $this->db->query("SELECT * FROM usuario WHERE email = :email and clave = :clave");
             $this->db->bind(':email',$email);
