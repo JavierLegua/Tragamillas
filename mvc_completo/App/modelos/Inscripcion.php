@@ -15,10 +15,11 @@ class Inscripcion{
     // }
 
     public function obtenerGrupos(){
-        $this->db->query("SELECT * FROM grupo WHERE");
+        $this->db->query("SELECT * FROM grupo");
 
         return $this->db->registros();
     }
+
 
     // public function obtenerInscripciones(){
     //     $this->db->query("SELECT * FROM grupo_socio");
