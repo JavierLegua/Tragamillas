@@ -72,6 +72,21 @@
             }
         }
 
+        public function actualizar($datos){
+            $this->db->query("UPDATE usuario SET clave=:clave WHERE id_usuario = :id");
+
+            //vinculamos los valores
+            $this->db->bind(':id',$datos['id_usuario']);
+            $this->db->bind(':clave',$datos['clave']);
+
+            //ejecutamos
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         public function borrarTienda($id){
             $this->db->query("DELETE FROM usuario WHERE id_usuario = :id");
             $this->db->bind(':id',$id);

@@ -14,6 +14,9 @@
                     <label for="clave">Nueva contraseña: <sup>*</sup></label>
                     <input type="password" name="clave" id="clave" class="form-control form-control-lg" value="">
                 </div>
+                <div>
+                    <button class="btn btn-primary" type="button" onclick="mostrarPass()"><i class="glyphicon glyphicon-eye-open"></i>Mostrar contraseña</button> <br> <br>    <!--  mostrar icono en el boton -->
+                </div>
                 <input type="submit" class="btn btn-success" value="Actualizar contraseña" onclick="return confirm('¿Seguro que quieres actualizar la contraseña?');">
             </form>
         </div>

@@ -24,6 +24,7 @@
                         &nbsp;&nbsp;&nbsp;
                         <a href="<?php echo RUTA_URL?>/tiendas/borrarTienda/<?php echo $uruario->id_usuario ?>">Borrar</a>
                         &nbsp;&nbsp;&nbsp;
+                        <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a>
                     </td>
 <?php endif ?>
                 </tr>

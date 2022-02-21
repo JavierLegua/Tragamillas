@@ -35,10 +35,19 @@
                 <label for="email">Email: <sup>*</sup></label>
                 <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $datos['tienda']->email ?>" onblur="validarEmail(this.value)">
             </div>
+            <?php 
+            if ($accion == "Agregar") { 
+            ?>
             <div class="mb-3">
-                <label for="clave">Contraseña: <sup>*</sup></label>
-                <input type="text" name="clave" id="clave" class="form-control form-control-lg" value="<?php echo $datos['tienda']->clave ?>">
+                <label for="clave">Nueva contraseña: <sup>*</sup></label>
+                <input type="password" name="clave" id="clave" class="form-control form-control-lg" value="">
             </div>
+            <div>
+                <button class="btn btn-primary" type="button" onclick="mostrarPass()"><i class="glyphicon glyphicon-eye-open"></i>Mostrar contraseña</button> <br>     <!--  mostrar icono en el boton -->
+            </div>
+            <?php 
+            }
+            ?>
             <div class="mb-3">
                 <label for="telefono">Teléfono: <sup>*</sup></label>
                 <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $datos['tienda']->telefono ?>">
