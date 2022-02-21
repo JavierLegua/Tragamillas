@@ -75,6 +75,20 @@
             }
         }
 
+        public function actualizarPass($datos){
+            $this->db->query("UPDATE usuario SET clave=:clave WHERE id_usuario = :id AND idRol = :idRol");
+
+            //vinculamos los valores
+            $this->db->bind(':clave',$datos['clave']);
+
+            //ejecutamos
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         public function borrarUsuario($id){
             $this->db->query("DELETE FROM usuario WHERE id_usuario = :id");
             $this->db->bind(':id',$id);

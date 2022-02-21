@@ -127,6 +127,41 @@
             }
         }
 
+        public function actualizarPass($id){
+            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
+            
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+                redireccionar('/usuarios');
+            }
+
+            $pass = $_POST['clave'];
+            //$salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+
+            $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                $usuarioModificado = [
+                    'clave' => trim($passCifrada)
+                ];
+
+                
+
+                if ($this->usuarioModelo->actualizarUsuario($usuarioModificado)){
+                    redireccionar('/usuarios');
+                } else {
+                    die('Algo ha fallado!!!');
+                }
+            } else {
+                
+                //obtenemos información del usuario y el listado de roles desde del modelo
+                $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
+                $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
+                $this->vista('usuarios/agregar_editar',$this->datos);
+               
+            }
+        }
+
 
         public function borrar($id){
             
