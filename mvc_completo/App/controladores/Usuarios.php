@@ -143,41 +143,4 @@
                 $this->vista('usuarios/borrar',$this->datos);
             }
         }
-
-        
-        public function sesiones($id_usuario){
-            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
-
-            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                exit();
-            }
-
-            // En __construct() verificamos que se haya iniciado la sesion
-            $sesiones = $this->usuarioModelo->obtenerSesionesUsuario($id_usuario);
-            $usuario = $this->usuarioModelo->obtenerUsuarioId($id_usuario);
-
-            // utilizamos $datos en lugar de $this->datos ya que no necesitamos los datos del usuario de sesion
-            $datos['sesiones'] = $sesiones;
-            $datos['usuario'] = $usuario;
-
-            $this->vistaApi($datos);
-        }
-
-
-        public function cerrarSesion(){
-            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
-
-            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                exit();
-            }
-            
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $id_sesion = $_POST['id_sesion'];
-                
-                $resultado = $this->usuarioModelo->cerrarSesion($id_sesion);
-
-                unlink(session_save_path().'\\sess_'.$id_sesion);
-                $this->vistaApi($resultado);
-            }
-        }
     }
