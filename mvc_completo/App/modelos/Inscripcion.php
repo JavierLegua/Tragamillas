@@ -14,9 +14,11 @@ class Inscripcion{
     //     return $this->db->registros();
     // }
 
-    public function obtenerGrupos(){
-        $this->db->query("SELECT * FROM grupo");
+    public function obtenerGrupos($id){
+        $this->db->query("SELECT grupo.idGrupo, grupo.nombre, grupo.fecha_ini, grupo.fecha_fin FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo
+        where idUsuario = $id;");
 
+        
         return $this->db->registros();
     }
 

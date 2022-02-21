@@ -17,7 +17,7 @@
 
         public function index(){
             //Obtenemos los grupos
-            $inscripcion = $this->inscripcionModelo->obtenerGrupos();
+            $inscripcion = $this->inscripcionModelo->obtenerGrupos($this->datos['usuarioSesion']->id_usuario);
 
             $this->datos['inscripcion'] = $inscripcion;
             
