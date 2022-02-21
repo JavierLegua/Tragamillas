@@ -25,7 +25,7 @@
             </div>
             <div class="mb-3">
                 <label for="cc">Cuenta: <sup>*</sup></label>
-                <input type="text" name="cc" id="cc" class="form-control form-control-lg" maxlength="24" value="<?php echo $datos['usuario']->cc ?>" onblur="fn_ValidateIBAN(this.value)">
+                <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24" value="<?php echo $datos['usuario']->cc ?>" onblur="fn_ValidateIBAN(this.value)">
             </div>
             <div class="mb-3">
                 <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>

@@ -17,9 +17,9 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
 
-        <div class="card text-white justify-content-center align-items-center shadow mb-5 bg-body rounded" style="padding-top: 50px;">
+        <div class="card text-white justify-content-center align-items-center shadow mb-5 bg-body rounded padtop">
         
-            <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" class="avatar" style="padding-bottom: 50px;">
+            <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" class="avatar padbotom">
         
        
           <div class="card-body p-5 text-center mt-3">
