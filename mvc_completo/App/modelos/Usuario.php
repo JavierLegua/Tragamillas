@@ -75,10 +75,11 @@
             }
         }
 
-        public function actualizarPass($datos){
-            $this->db->query("UPDATE usuario SET clave=:clave WHERE id_usuario = :id AND idRol = :idRol");
+        public function actualizar($datos){
+            $this->db->query("UPDATE usuario SET clave=:clave WHERE id_usuario = :id");
 
             //vinculamos los valores
+            $this->db->bind(':id',$datos['id_usuario']);
             $this->db->bind(':clave',$datos['clave']);
 
             //ejecutamos

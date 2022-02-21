@@ -127,7 +127,7 @@
             }
         }
 
-        public function actualizarPass($id){
+        public function actualizar($id){
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
             
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
@@ -141,13 +141,14 @@
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
-                $usuarioModificado = [
-                    'clave' => trim($passCifrada)
+                $passModificada = [
+                    'clave' => trim($passCifrada),
+                    'id_usuario' => $id
                 ];
 
                 
 
-                if ($this->usuarioModelo->actualizarUsuario($usuarioModificado)){
+                if ($this->usuarioModelo->actualizar($passModificada)){
                     redireccionar('/usuarios');
                 } else {
                     die('Algo ha fallado!!!');
@@ -157,7 +158,7 @@
                 //obtenemos información del usuario y el listado de roles desde del modelo
                 $this->datos['usuario'] = $this->usuarioModelo->obtenerUsuarioId($id);
                 $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
-                $this->vista('usuarios/agregar_editar',$this->datos);
+                $this->vista('usuarios/actualizar',$this->datos);
                
             }
         }
