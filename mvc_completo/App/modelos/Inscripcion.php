@@ -15,12 +15,26 @@ class Inscripcion{
     // }
 
     public function obtenerGrupos($id){
-        $this->db->query("SELECT grupo.idGrupo, grupo.nombre, grupo.fecha_ini, grupo.fecha_fin FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo
-        where idUsuario = $id;");
-
+        $this->db->query("SELECT grupo.idGrupo FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo WHERE idUsuario = $id;");
         
         return $this->db->registros();
     }
+
+    // public function obtenerGruposInscrito($id){
+    //     $this->db->query("SELECT grupo.idGrupo FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo WHERE idUsuario = $id;");
+        
+    //     $idGrupos = $this->db->registros();
+    //     //print_r($idGrupos);exit;
+    //     $cadena = "";
+    //     for ($i=0; $i < $idGrupos.count(); $i++) { 
+    //         $cadena+= $idGrupos[$i]->strval($idGrupo);
+    //     }
+
+    //     echo $cadena;exit;
+    //     $this->db->query("SELECT * FROM grupo WHERE NOT (grupo.idGrupo IN ($idGrupos));");
+    //     return $this->db->registros();
+
+    // }
 
 
     // public function obtenerInscripciones(){
