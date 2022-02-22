@@ -119,6 +119,11 @@ html{
    .columna {
        width: 67%;
    }
+
+   .container{
+       padding-left: 100px;
+       padding-right: 100px;
+   }
  }
 
  @media (max-width: 767px) { 
