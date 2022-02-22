@@ -15,33 +15,49 @@ class Inscripcion{
     // }
 
     public function obtenerGrupos($id){
-        $this->db->query("SELECT grupo.idGrupo FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo WHERE idUsuario = $id;");
         
+        $this->db->query("SELECT grupo.idGrupo FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo WHERE idUsuario = $id;");
+        return $this->db->registros();
+
+    }
+
+    public function obtenerGruposFinal($ids){
+  
+        $this->db->query("SELECT * FROM grupo WHERE NOT (grupo.idGrupo IN ($ids));");
+        return $this->db->registros();
+
+    }
+
+
+    public function obtenerInscripciones(){
+        $this->db->query("SELECT gs.aceptado, gs.activo, gs.idGrupo, gs.idUsuario, u.apellidoUsuario FROM grupo_socio as gs, usuario as u WHERE gs.idUsuario = u.id_usuario");
+
         return $this->db->registros();
     }
 
-    // public function obtenerGruposInscrito($id){
-    //     $this->db->query("SELECT grupo.idGrupo FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo WHERE idUsuario = $id;");
-        
-    //     $idGrupos = $this->db->registros();
-    //     //print_r($idGrupos);exit;
-    //     $cadena = "";
-    //     for ($i=0; $i < $idGrupos.count(); $i++) { 
-    //         $cadena+= $idGrupos[$i]->strval($idGrupo);
-    //     }
+    public function confirmarInscripcion($id, $idGrupo, $datos){
+        $this->db->query("UPDATE grupo_socio SET aceptado=:aceptado WHERE idUsuario = $id AND idGrupo = $idGrupo");
 
-    //     echo $cadena;exit;
-    //     $this->db->query("SELECT * FROM grupo WHERE NOT (grupo.idGrupo IN ($idGrupos));");
-    //     return $this->db->registros();
+        $this->db->bind(':aceptado',1);
 
-    // }
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    public function cancelarInscripcion($id, $idGrupo, $datos){
+        $this->db->query("UPDATE grupo_socio SET aceptado=:aceptado WHERE idUsuario = $id AND idGrupo = $idGrupo");
 
-    // public function obtenerInscripciones(){
-    //     $this->db->query("SELECT * FROM grupo_socio");
+        $this->db->bind(':aceptado',0);
 
-    //     return $this->db->registros();
-    // }
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // public function marcarRopa($datos){
 
