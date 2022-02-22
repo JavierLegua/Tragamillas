@@ -36,12 +36,26 @@
             $this->db->bind(':activado',$datos['activado']);
             $this->db->bind(':idRol',$datos['idRol']);
 
-            //ejecutamos
-            if($this->db->execute()){
-                return true;
+            if($id = $this->db->executeInsert()){
+                if ($datos['idRol'] == 2) {
+                    $this->db->query("INSERT INTO entrenador (idUsuario, sueldo) VALUES (:idUsuario, :sueldo)");
+                    $this->db->bind(':idUsuario',$id);
+                    $this->db->bind(':sueldo',NULL);
+                    if($this->db->execute()){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
             } else {
                 return false;
             }
+
+
+            
+
+            //ejecutamos
+            
         }
 
         public function obtenerUsuarioId($id){

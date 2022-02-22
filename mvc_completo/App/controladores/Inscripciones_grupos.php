@@ -17,7 +17,7 @@
 
         public function index(){
             
-            $inscripciones = $this->inscripcionModelo->obtenerInscripciones();
+            $inscripciones = $this->inscripcionModelo->obtenerInscripciones($this->datos['usuarioSesion']->id_usuario);
 
             $this->datos['inscripcion'] = $inscripciones;
             

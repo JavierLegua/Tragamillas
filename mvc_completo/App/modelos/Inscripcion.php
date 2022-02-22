@@ -29,8 +29,8 @@ class Inscripcion{
     }
 
 
-    public function obtenerInscripciones(){
-        $this->db->query("SELECT gs.aceptado, gs.activo, gs.idGrupo, gs.idUsuario, u.apellidoUsuario FROM grupo_socio as gs, usuario as u WHERE gs.idUsuario = u.id_usuario");
+    public function obtenerInscripciones($id){
+        $this->db->query("SELECT gs.aceptado, gs.activo, gs.idGrupo, gs.idUsuario, u.apellidoUsuario FROM grupo_socio as gs, usuario as u, entrenador_grupo as eg WHERE gs.idUsuario = u.id_usuario AND eg.idUsuario = $id AND eg.idGrupo = gs.idGrupo");
 
         return $this->db->registros();
     }
