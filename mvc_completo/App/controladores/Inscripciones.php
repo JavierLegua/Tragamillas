@@ -23,15 +23,23 @@
 
             $grupos = [];
             
-
+            
             for ($i=0; $i < count($inscripcion); $i++) { 
-                $grupos[$i]+=$inscripcion[$i]->idGrupo;
+                $grupos[$i]=$inscripcion[$i]->idGrupo;
             }
-            echo $grupos[0];
-            print_r($grupos);exit;
-            $this->datos['inscripcion'] = $inscripcion;
+            $ids = (string) '';
+            foreach ($grupos as $id_grupo) {
+                $ids .= $id_grupo.',';
+            }
+            $ids = trim($ids, ',');
+            
+            $inscripciones = $this->inscripcionModelo->obtenerGruposFinal($ids);
+
+            $this->datos['inscripcion'] = $inscripciones;
             
             $this->vista('inscripciones/inicio',$this->datos);
+
+            
         }
         
         public function agregarInscripcion($id){

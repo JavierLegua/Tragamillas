@@ -17,7 +17,7 @@
                         <td><?php echo $uruario->nombre ?></td>
                         <td>
                             <form action="<?php echo RUTA_URL?>/inscripciones/agregarinscripcion/<?php echo $uruario->idGrupo?>" method="post">
-                                <button type="submit">Pre-inscribirse</button>
+                                <button class="btn btn-primary" type="submit">Pre-inscribirse</button>
                             </form>
                             
                         </td>                
