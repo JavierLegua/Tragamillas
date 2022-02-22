@@ -16,6 +16,10 @@
             
         }
 
+        public function obtenerrol(){
+            $roles = $this->usuarioModelo->obtenerRoles();
+            $this->vistaApi($roles);
+        }
 
         public function index(){
             //Obtenemos los usuarios
