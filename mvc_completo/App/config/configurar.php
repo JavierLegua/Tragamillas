@@ -22,13 +22,13 @@
     error_reporting(E_ALL);
 
     // Incluir la libreria PHPMailer
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-    use PHPMailer\PHPMailer\SMTP;
+    // use PHPMailer\PHPMailer\PHPMailer;
+    // use PHPMailer\PHPMailer\Exception;
+    // use PHPMailer\PHPMailer\SMTP;
 
-    require 'librerias/PHPMailer/src/Exception.php';
-    require 'librerias/PHPMailer/src/PHPMailer.php';
-    require 'librerias/PHPMailer/src/SMTP.php';
+    // require 'librerias/PHPMailer/src/Exception.php';
+    // require 'librerias/PHPMailer/src/PHPMailer.php';
+    // require 'librerias/PHPMailer/src/SMTP.php';
 
     // Inicio
     $mail = new PHPMailer(true);
