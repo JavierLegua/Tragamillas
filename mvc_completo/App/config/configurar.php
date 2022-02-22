@@ -16,22 +16,22 @@
     define('DB_NOMBRE', 'tragamillas');
 
 
-    // Mostrar errores PHP (Desactivar en producción)
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+    // //Mostrar errores PHP (Desactivar en producción)
+    // ini_set('display_errors', 1);
+    // ini_set('display_startup_errors', 1);
+    // error_reporting(E_ALL);
 
-    // Incluir la libreria PHPMailer
+    // //Incluir la libreria PHPMailer
     // use PHPMailer\PHPMailer\PHPMailer;
     // use PHPMailer\PHPMailer\Exception;
     // use PHPMailer\PHPMailer\SMTP;
 
-    // require 'librerias/PHPMailer/src/Exception.php';
-    // require 'librerias/PHPMailer/src/PHPMailer.php';
-    // require 'librerias/PHPMailer/src/SMTP.php';
+    // require '/librerias/PHPMailer/src/Exception.php';
+    // require '/librerias/PHPMailer/src/PHPMailer.php';
+    // require '/librerias/PHPMailer/src/SMTP.php';
 
-    // Inicio
-    //$mail = new PHPMailer(true);
+    // //Inicio
+    // $mail = new PHPMailer(true);
 
     // try {
     //     // Configuracion SMTP

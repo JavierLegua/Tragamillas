@@ -83,7 +83,7 @@
 <SCRipt>
 
   async function recuperarPass(){
-        //const data = new FormData('emailRecuperacion');
+        const data = new FormData(document.getElementById('emailRecuperacion'));
         //alert("dddddd")
         // await fetch('<?php echo RUTA_URL?>/inicio/recuperarPass/', {
         //     method: "POST",
