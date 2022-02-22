@@ -43,7 +43,7 @@
     </table>
 
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
-    <div class="col text-center">
+    <div class="col text-center" onMouseDown="comprobarExiste()">
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rellenarRol()">
@@ -77,7 +77,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><?php echo $accion ?> Usuario</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close" onclick="comprobarExiste()"></button>
         </div>
         <div class="modal-body">
 
@@ -127,16 +127,35 @@
 
 <script>
 
+function comprobarExiste(){
+    var element = document.getElementById("contenedorRoles");
+    
+    if(typeof(element) != 'undefined' && element != null){
+        eliminar_elemento();
+    } else{
+        rellenarRol();
+    }
+}
+
+
+function dfad(){
+    var valor = document.getElementById("contenedorRoles");
+    return valor;
+}
+
+
+function eliminar_elemento(){
+    var valor = dfad();
+    var selectrolll = document.getElementById("selectrolll");
+    var throwawayNode = valor.removeChild(selectrolll);
+}
+
     async function rellenarRol(){
-        document.getElementById(contenedorRoles); 
         
         await fetch('<?php echo RUTA_URL?>/usuarios/obtenerrol') 
         .then(response => response.json())
         .then(data => datos = data);
-/*comprobar si el elemento select esta creado, si  no lo esta lo crea y si esta no hace nada */
-        if (condition) {
-            
-        }
+      
         var dasfsaf  = document.createElement("select");
         var prueba = " form-control form-control-lg-3";
         dasfsaf.setAttribute("class", prueba);
@@ -159,9 +178,10 @@
             
        });        
         document.getElementById("contenedorRoles").appendChild(dasfsaf);
-
- 
+       
     }
+
+
 
     function getSesiones(id_usuario){
         fetch('<?php echo RUTA_URL?>/usuarios/sesiones/'+id_usuario, {
