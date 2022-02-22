@@ -63,6 +63,12 @@
             return $this->stmt->execute();
         }
 
+        public function executeInsert(){
+            $this->stmt->execute();
+            return $this->dbh->lastInsertId();
+        }
+
+
         // Obtener los registros 
         public function registros(){
             $this->execute();
