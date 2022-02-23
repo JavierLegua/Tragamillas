@@ -26,30 +26,33 @@
             
         }
         
-        public function confirmarInscripcion($id, $idGrupo){
+        public function confirmarInscripcion($id, $idGrupo, $abierto){
             $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/inscripciones_grupos');
             }
-            // print_r($this->datos);exit();
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 $inscripcionConfirmada = [
-                    'aceptado' => 1,                    
+                    'aceptado' => 1,             
                 ];
-                if ($this->inscripcionModelo->confirmarInscripcion($id, $idGrupo, $inscripcionConfirmada)){
+                if ($abierto == 1 && $this->inscripcionModelo->confirmarInscripcion($id, $idGrupo, $inscripcionConfirmada)){
                     redireccionar('/inscripciones_grupos');
                 } else {
-                    die('Algo ha fallado!!!');
+                    if ($abierto == 0) {
+                        $this->vista('/errores/grupo_cerrado',$this->datos);
+                    } else {
+                        die('Algo ha fallado!!!');
+                    }
                 }
             } else {
                 $this->datos['inscripcion'] = (object) [
-                    'aceptado' => 1, 
+                    'aceptado' => 0, 
                 ];
                 $this->datos['inscripcion'] = $this->inscripcionModelo->obtenerInscripciones();
 
-                $this->vista('inscripciones/aceptarSocios',$this->datos);
+                $this->vista('/inscripciones/aceptarSocios',$this->datos);
             }
 
         }
@@ -73,13 +76,15 @@
                 }
             } else {
                 $this->datos['inscripcion'] = (object) [
-                    'aceptado' => 0, 
+                    'aceptado' => 1, 
                 ];
                 $this->datos['inscripcion'] = $this->inscripcionModelo->obtenerInscripciones();
 
-                $this->vista('inscripciones/aceptarSocios',$this->datos);
+                $this->vista('/inscripciones/aceptarSocios',$this->datos);
             }
 
         }
+
+
     }
 ?>

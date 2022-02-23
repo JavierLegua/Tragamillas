@@ -49,6 +49,20 @@
                 <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
 
                     <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class='bi bi-people-fill iconsize'></i>
+                    </div>
+
+                    <div class="card-body d-flex justify-content-around">
+                        <p class="card-text">
+                            <a class="colorb" href="<?php echo RUTA_URL?>/grupos"><h4>Grupos</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
+                    <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-journal-text iconsize"></i>
                     </div>
 
