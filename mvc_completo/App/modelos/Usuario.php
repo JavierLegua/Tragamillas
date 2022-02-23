@@ -114,6 +114,19 @@
             }
         }
 
+        public function recuperarPass($email, $pass){
+            $this->db->query("UPDATE usuario SET clave=:clave WHERE email = :email");
+
+            $this->db->bind(':email', $email);
+            $this->db->bind(':clave', $pass);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
 ///////////////////////////////////////////////// Sesion //////////////////////////////////////////////
 
         public function obtenerSesionesUsuario($id){

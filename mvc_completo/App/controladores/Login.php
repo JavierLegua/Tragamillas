@@ -10,40 +10,45 @@
 
         public function index ($error = ''){
             
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            echo "hola";
 
-                $this->datos['email'] = trim($_POST['email']);
-                $this->datos['clave'] = trim($_POST['clave']);
+            // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                $usuarioSesion = $this->loginModelo->loginEmail($this->datos['email']);
+            //     $this->datos['email'] = trim($_POST['email']);
+            //     $this->datos['clave'] = trim($_POST['clave']);
 
-                if(isset($usuarioSesion)) {
-                    $accesoPermitido = password_verify($this->datos['clave'], $usuarioSesion->clave);       //comprobamos que la contraseña introducida concuerde con el hash guardado de la bbdd
-                    if($accesoPermitido){
-                        Sesion::crearSesion($usuarioSesion);
-                        $this->loginModelo->registroSesion($usuarioSesion->id_usuario); // registro el login en DDBB
-                        redireccionar('/'); 
-                    }
-                } else {
-                    redireccionar('/login/index/error_1');
-                }
+            //     $usuarioSesion = $this->loginModelo->loginEmail($this->datos['email']);
+
+            //     if(isset($usuarioSesion)) {
+            //         $accesoPermitido = password_verify($this->datos['clave'], $usuarioSesion->clave);       //comprobamos que la contraseña introducida concuerde con el hash guardado de la bbdd
+                    
+            //         if($accesoPermitido){
+            //             Sesion::crearSesion($usuarioSesion);
+            //             $this->loginModelo->registroSesion($usuarioSesion->id_usuario); // registro el login en DDBB
+            //             redireccionar('/'); 
+            //         } else {
+
+            //         }
+            //     } else {
+            //         redireccionar('/login/index/error_1');
+            //     }
                 
-            }else{
-                if (Sesion::sesionCreada($this->datos)){     // dependiendo del rol que tiene el usuario el cual ha iniciado sesion se le redirige a una pagina u otra
-                    if ($this->datos['usuarioSesion']->idRol == 1) {
-                        redireccionar('/admin');
-                    } elseif ($this->datos['usuarioSesion']->idRol == 2){
-                        redireccionar('/entrenador');
-                    } elseif ($this->datos['usuarioSesion']->idRol == 3){
-                        redireccionar('/socio');
-                    } elseif ($this->datos['usuarioSesion']->idRol == 4){
-                        redireccionar('/tienda');
-                    }    
-                } else{
-                    $this->datos['error'] = $error;
-                    $this->vista('login', $this->datos);
-                }
-            }            
+            // }else{
+            //     if (Sesion::sesionCreada($this->datos)){     // dependiendo del rol que tiene el usuario el cual ha iniciado sesion se le redirige a una pagina u otra
+            //         if ($this->datos['usuarioSesion']->idRol == 1) {
+            //             redireccionar('/admin');
+            //         } elseif ($this->datos['usuarioSesion']->idRol == 2){
+            //             redireccionar('/entrenador');
+            //         } elseif ($this->datos['usuarioSesion']->idRol == 3){
+            //             redireccionar('/socio');
+            //         } elseif ($this->datos['usuarioSesion']->idRol == 4){
+            //             redireccionar('/tienda');
+            //         }    
+            //     } else{
+            //         $this->datos['error'] = $error;
+            //         $this->vista('login', $this->datos);
+            //     }
+            // }            
         }
         public function logout(){
             Sesion::iniciarSesion($this->datos);        // controlamos si no esta iniciada la sesion y cogemos los datos de la sesion
