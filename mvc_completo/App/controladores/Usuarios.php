@@ -32,7 +32,6 @@
 
 
         public function agregar(){
-            
             $this->datos['rolesPermitidos'] = [1];      // Definimos los roles que tendran acceso
 
             //prueba de cifrado de contraseña
@@ -87,17 +86,12 @@
 
 
         public function editar($id){
-            
             $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
             
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');
             }
 
-            $pass = $_POST['clave'];
-            //$salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
-
-            $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
             
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
@@ -108,10 +102,9 @@
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
-                    'clave' => trim($passCifrada),
                     'telefono' => trim($_POST['telefono']),
                     'activado' => trim($_POST['activado']),
-                    'idRol' => trim($_POST['rol']),
+
                 ];
 
                 

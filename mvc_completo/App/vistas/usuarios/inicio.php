@@ -30,7 +30,13 @@
                     <td><?php echo $uruario->idRol ?></td>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
                     <td>
-                        <a href="<?php echo RUTA_URL?>/usuarios/editar/<?php echo $uruario->id_usuario ?>">Editar</a>
+                        <!-- <a href="<?php //echo RUTA_URL?>/usuarios/editar/<?php //echo $uruario->id_usuario ?>">Editar</a> -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editmodal">
+                        Editar
+                    </button>
+
+
                         &nbsp;&nbsp;&nbsp;
                         <a href="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a>
                         &nbsp;&nbsp;&nbsp;
@@ -71,13 +77,64 @@
             </tbody>
         </table>
     </div>
+<!-- Modal edit usuario -->
+<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="editmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="editmodallabel"><?php echo $accion = 'Editar' ?> Usuario</h5>
+            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="post" action="<?php echo RUTA_URL?>/usuarios/editar/<?php echo $uruario->id_usuario ?>">
+                <div class="mt-3 mb-3">
+                    <label for="nombre">Nombre: <sup>*</sup></label>
+                    <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="dni">DNI: <sup>*</sup></label>
+                    <input type="text" name="dni" id="dni" class="form-control form-control-lg" maxlength="9" autocomplete="off" onblur="comprobarDni(this.value)">
+                </div>
+                <div class="mb-3">
+                    <label for="cc">Cuenta: <sup>*</sup></label>
+                    <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(this.value)">
+                </div>
+                <div class="mb-3">
+                    <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
+                    <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email: <sup>*</sup></label>
+                    <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" onblur="validarEmail(this.value)">
+                </div>
+    
+                <div class="mb-3">
+                    <br><label for="telefono">Teléfono: <sup>*</sup></label>
+                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg">
+                </div>
+                <div class="mb-3">
+                    <label for="activado">Activado: <sup>*</sup></label>
+                    <input type="activado" name="activado" id="activado" class="form-control form-control-lg">
+                </div>
+
+                <input type="submit" class="btn btn-success" value="<?php echo $accion ?> Usuario" onclick="return confirm('¿Seguro que quieres <?php echo $accion ?> este usuario?');">
+            </form>
+
+        </div>
+    </div>
+  </div>
+</div>
+<!-- Fin modal nuevo usuario -->
+
+
 
 <!-- Modal nuevo usuario -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><?php echo $accion ?> Usuario</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><?php echo $accion = 'Agregar'?> Usuario</h5>
             <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -150,6 +207,7 @@ function eliminar_elemento(){
     var selectrolll = document.getElementById("selectrolll");
     var throwawayNode = valor.removeChild(selectrolll);
 }
+
 
 async function rellenarRol(){
     
