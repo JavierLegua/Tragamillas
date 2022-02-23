@@ -76,12 +76,12 @@
                     'clave' => '',
                     'telefono' => '',
                     'activado' => '',
-                    'idRol' => 3
+                    'idRol' => ''
                 ];
 
                 $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
 
-                $this->vista('usuarios/agregar_editar',$this->datos);
+                $this->vista('usuarios/inicio',$this->datos);
             }
         }
 

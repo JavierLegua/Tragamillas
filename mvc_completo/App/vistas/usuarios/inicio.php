@@ -49,6 +49,7 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rellenarRol()">
             Agregar
         </button>
+
     </div>
 
     <div class="container" id="listadoSesiones" style="display:none">
@@ -77,30 +78,35 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><?php echo $accion ?> Usuario</h5>
-            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close" onclick="comprobarExiste()"></button>
+            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
-            <form method="post">
+            <form method="post" action="<?php echo RUTA_URL?>/usuarios/agregar">
                 <div class="mt-3 mb-3">
                     <label for="nombre">Nombre: <sup>*</sup></label>
                     <input type="text" name="nombre" id="nombre" class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
                     <label for="dni">DNI: <sup>*</sup></label>
-                    <input type="text" name="dni" id="dni" class="form-control form-control-lg" maxlength="9" autocomplete="off"onblur="comprobarDni(this.value)">
+                    <input type="text" name="dni" id="dni" class="form-control form-control-lg" maxlength="9" autocomplete="off" onblur="comprobarDni(this.value)">
                 </div>
                 <div class="mb-3">
                     <label for="cc">Cuenta: <sup>*</sup></label>
-                    <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24"onblur="fn_ValidateIBAN(this.value)">
+                    <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(this.value)">
                 </div>
                 <div class="mb-3">
                     <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
-                    <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg">
+                    <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
                 </div>
                 <div class="mb-3">
                     <label for="email">Email: <sup>*</sup></label>
                     <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" onblur="validarEmail(this.value)">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Clave: <sup>*</sup></label>
+                    <input type="password" name="clave" id="clave" class="form-control form-control-lg" autocomplete="off">
                 </div>
     
                 <div class="mb-3">
@@ -127,6 +133,8 @@
 
 <script>
 
+
+
 function comprobarExiste(){
     var element = document.getElementById("contenedorRoles");
     
@@ -137,51 +145,43 @@ function comprobarExiste(){
     }
 }
 
-
-function dfad(){
-    var valor = document.getElementById("contenedorRoles");
-    return valor;
-}
-
-
 function eliminar_elemento(){
-    var valor = dfad();
+    var valor = document.getElementById("contenedorRoles");
     var selectrolll = document.getElementById("selectrolll");
     var throwawayNode = valor.removeChild(selectrolll);
 }
 
-    async function rellenarRol(){
+async function rellenarRol(){
+    
+    await fetch('<?php echo RUTA_URL?>/usuarios/obtenerrol') 
+    .then(response => response.json())
+    .then(data => datos = data);
+    
+    var dasfsaf  = document.createElement("select");
+    var prueba = " form-control form-control-lg-3";
+    dasfsaf.setAttribute("class", prueba);
+    dasfsaf.setAttribute("id","selectrolll");
+    dasfsaf.setAttribute("name","rol");
+    
+    let option0 = document.createElement("option");
+    
+        option0.setAttribute("value", "0");
+        let option1Texto0 = document.createTextNode(" ");
+        option0.appendChild(option1Texto0);
+        dasfsaf.appendChild(option0);
+
+    datos.forEach(datosObjet => {
+
+        let option1 = document.createElement("option");
+        option1.setAttribute("value", datosObjet.idRol);
+        let option1Texto = document.createTextNode(datosObjet.nombreRol);
+        option1.appendChild(option1Texto);
+        dasfsaf.appendChild(option1);
         
-        await fetch('<?php echo RUTA_URL?>/usuarios/obtenerrol') 
-        .then(response => response.json())
-        .then(data => datos = data);
-      
-        var dasfsaf  = document.createElement("select");
-        var prueba = " form-control form-control-lg-3";
-        dasfsaf.setAttribute("class", prueba);
-        dasfsaf.setAttribute("id","selectrolll");
-        
-        let option0 = document.createElement("option");
-        
-            option0.setAttribute("value", "0");
-            let option1Texto0 = document.createTextNode(" ");
-            option0.appendChild(option1Texto0);
-            dasfsaf.appendChild(option0);
-
-        datos.forEach(datosObjet => {
-
-            let option1 = document.createElement("option");
-            option1.setAttribute("value", datosObjet.idRol);
-            let option1Texto = document.createTextNode(datosObjet.nombreRol);
-            option1.appendChild(option1Texto);
-            dasfsaf.appendChild(option1);
-            
-       });        
-        document.getElementById("contenedorRoles").appendChild(dasfsaf);
-       
-    }
-
-
+    });        
+    document.getElementById("contenedorRoles").appendChild(dasfsaf);
+    
+}
 
     function getSesiones(id_usuario){
         fetch('<?php echo RUTA_URL?>/usuarios/sesiones/'+id_usuario, {

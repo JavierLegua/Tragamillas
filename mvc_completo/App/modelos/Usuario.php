@@ -22,6 +22,8 @@
 
 
         public function agregarUsuario($datos){
+       
+
             $this->db->query("INSERT INTO usuario (apellidoUsuario, dniUsuario, cc, fecha_nac, email, clave, telefono, activado, idRol) 
                                         VALUES (:apellidoUsuario, :dniUsuario, :cc, :fecha_nac, :email, :clave, :telefono, :activado, :idRol)");
 
@@ -47,12 +49,10 @@
                         return false;
                     }
                 }
+                return true;
             } else {
                 return false;
             }
-
-
-            
 
             //ejecutamos
             
