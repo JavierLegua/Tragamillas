@@ -26,7 +26,7 @@
           <div class="card-body text-center mt-3 padtop">
 
             <div class="mb-md-5 mt-md-5 pb-5 ">
-              <form action="datos_login.php" method="post">
+              <form method="post">
                 <div class="form-outline form-white mb-4">
                   <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Usuario (email)" required/>
                 </div>
@@ -54,10 +54,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-dark">
-                    <form name="emailRecuperacion" method="post" class="card-body">
+                    <form id="emailRecuperacion" method="post" class="card-body">
                       <div class="mb-3">
                           <label for="email">Email de recuperación: <sup>*</sup></label>
-                          <input type="email" name="emailRecuperacion" id="emailRecuperacion" class="form-control form-control-lg" autocomplete="off" value="">
+                          <input type="email" name="emailRec" id="emailRec" class="form-control form-control-lg" autocomplete="off" value="">
                       </div>
                     </form>
                   </div>
@@ -80,29 +80,31 @@
   </div>
 </section>
 
-<SCRipt>
+<script>
 
   async function recuperarPass(){
         const data = new FormData(document.getElementById('emailRecuperacion'));
         //alert("dddddd")
-        // await fetch('<?php echo RUTA_URL?>/inicio/recuperarPass/', {
-        //     method: "POST",
-        //     body: data,
-        // })
-        //     .then((resp) => resp.json())
-        //     .then(function(data) {
-    
-        //         if (Boolean(data)){
-        //           alert('Revisa tu correo')
-        //         } else {
-        //             alert('Error al Cerrar la sesión')
-        //         }
+         await fetch('<?php echo RUTA_URL?>/inicio/recuperarPass', {
+             method: "POST",
+             body: data,
+         })
+             .then((resp) => resp.json())
+             .then(function(data) {
+              
+              console.log(data)
+
+                 if (Boolean(data)){
+                   alert('Revisa tu correo')
+                 } else {
+                     alert('Error al Cerrar la sesión')
+                 }
                 
-        //     })
+             })
     }
 
 
-</SCRipt>
+</script>
 
 </body>
 </html>
