@@ -106,12 +106,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="email">Email: <sup>*</sup></label>
-                    <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" onblur="validarEmail(this.value)">
+                    <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" onblur="validarEmail(this.value)" value="<?php echo $uruario->email ?>">
                 </div>
     
                 <div class="mb-3">
                     <br><label for="telefono">Teléfono: <sup>*</sup></label>
-                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg">
+                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario->telefono ?>">
                 </div>
                 <div class="mb-3">
                     <label for="activado">Activado: <sup>*</sup></label>
