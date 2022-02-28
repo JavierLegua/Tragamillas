@@ -32,10 +32,13 @@
                 $ids .= $id_grupo.',';
             }
             $ids = trim($ids, ',');
-            
-            $inscripciones = $this->inscripcionModelo->obtenerGruposFinal($ids);
-
+            if ($ids == '') {
+                $inscripciones = $this->inscripcionModelo->obtenerTodosGrupos();
+            } else{
+                 $inscripciones = $this->inscripcionModelo->obtenerGruposFinal($ids);
+            }    
             $this->datos['inscripcion'] = $inscripciones;
+            
             
             $this->vista('inscripciones/inicio',$this->datos);
 

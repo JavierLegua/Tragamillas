@@ -14,6 +14,13 @@ class Inscripcion{
     //     return $this->db->registros();
     // }
 
+    public function obtenerTodosGrupos(){
+        
+        $this->db->query("SELECT * FROM grupo;");
+        return $this->db->registros();
+
+    }
+
     public function obtenerGrupos($id){
         
         $this->db->query("SELECT grupo.idGrupo FROM grupo JOIN grupo_socio ON grupo.idGrupo = grupo_socio.idGrupo WHERE idUsuario = $id;");
@@ -23,7 +30,7 @@ class Inscripcion{
 
     public function obtenerGruposFinal($ids){
   
-        $this->db->query("SELECT * FROM grupo WHERE NOT (grupo.idGrupo IN ($ids));");
+        $this->db->query("SELECT * FROM grupo WHERE NOT (idGrupo IN ($ids))");
         return $this->db->registros();
 
     }
