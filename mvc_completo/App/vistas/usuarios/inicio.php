@@ -43,7 +43,7 @@
                         
                        <!--   <a class="btn btn-danger" href="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a>-->
                         &nbsp;&nbsp;&nbsp;
-                        <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a>
+                    <!-- <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a> -->    
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña">
                             Cambiar contraseña
                         </button>
