@@ -7,6 +7,12 @@
             $this->db = new Base;
         }
 
+        public function obtenerGruposAdmin(){
+            $this->db->query("SELECT g.idGrupo, g.nombre, g.abierto FROM `grupo` as g");
+
+            return $this->db->registros();
+        }
+
         public function obtenerGruposEntrenador($id){
             $this->db->query("SELECT g.idGrupo, g.nombre, g.abierto FROM `grupo` as g, entrenador_grupo as eg WHERE eg.idGrupo = g.idGrupo AND eg.idUsuario = $id");
 
@@ -19,7 +25,7 @@
             return $this->db->registros();
         }
 
-        public function cerrarGrupos($idGrupo, $datos){
+        public function cerrarGrupos($idGrupo){
             $this->db->query("UPDATE grupo SET abierto=:abierto WHERE idgrupo = $idGrupo");
     
             $this->db->bind(':abierto',0);
@@ -31,7 +37,7 @@
             }
         }
 
-        public function abrirGrupos($idGrupo, $datos){
+        public function abrirGrupos($idGrupo){
             $this->db->query("UPDATE grupo SET abierto=:abierto WHERE idgrupo = $idGrupo");
     
             $this->db->bind(':abierto',1);
