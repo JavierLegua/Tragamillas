@@ -1,6 +1,6 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
-<body>
+
     <section class="main">
 
         <div class="container">
