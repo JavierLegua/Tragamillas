@@ -5,7 +5,7 @@
                 <th>Id grupo</th>
                 <th>Nombre</th>
                 <th>Abierto</th>
-<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[2])):?>
+<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1,2])):?>
                 <th>Acciones</th>
 <?php endif ?>
             </tr>
@@ -16,7 +16,7 @@
                     <td><?php echo $uruario->idGrupo ?></td>
                     <td><?php echo $uruario->nombre ?></td>
                     <td><?php echo $uruario->abierto ?></td>
-<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[2])):?>
+<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1,2])):?>
                     <td>
                         <a href="<?php echo RUTA_URL?>/grupos/verGrupos/<?php echo $uruario->idGrupo ?>">Ver grupo</a>
                     </td>

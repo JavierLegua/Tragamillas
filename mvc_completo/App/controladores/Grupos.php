@@ -3,7 +3,7 @@
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1,2];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -17,9 +17,12 @@
 
         public function index(){
             //Obtenemos los grupos
+            if ($this->datos['usuarioSesion']->idRol == 2) {
+                $grupos = $this->grupoModelo->obtenerGruposEntrenador($this->datos['usuarioSesion']->id_usuario);
+            } elseif ($this->datos['usuarioSesion']->idRol == 1) {
+                $grupos = $this->grupoModelo->obtenerGruposAdmin();
+            }
             
-            $grupos = $this->grupoModelo->obtenerGruposEntrenador($this->datos['usuarioSesion']->id_usuario);
-
             $this->datos['grupo'] = $grupos;
             
             $this->vista('grupos/inicio',$this->datos);
@@ -28,7 +31,7 @@
 
         public function verGrupos($id){
             //Obtenemos los grupos
-            $this->datos['rolesPermitidos'] = [2];
+            $this->datos['rolesPermitidos'] = [1,2];
 
             $grupos = $this->grupoModelo->obtenerAlumnosGrupo($id);
 
@@ -41,7 +44,7 @@
         }
 
         public function cerrarGrupos($idGrupo){
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1,2];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/grupos/inicio');
@@ -61,7 +64,7 @@
                 $this->datos['grupo'] = (object) [
                     'abierto' => 1, 
                 ];
-                $this->datos['grupo'] = $this->grupoModelo->cerrarGrupos($idGrupo, $grupoCerrado);
+                $this->datos['grupo'] = $this->grupoModelo->cerrarGrupos($idGrupo, $this->datos['grupo']);
 
                 $this->vista('/entrenadores/inicio',$this->datos);
             }
@@ -69,7 +72,7 @@
         }
 
         public function abrirGrupos($idGrupo){
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1,2];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/grupos/inicio');
@@ -89,7 +92,7 @@
                 $this->datos['grupo'] = (object) [
                     'abierto' => 0, 
                 ];
-                $this->datos['grupo'] = $this->grupoModelo->abrirGrupos($idGrupo, $grupoAbierto);
+                $this->datos['grupo'] = $this->grupoModelo->abrirGrupos($idGrupo, $this->datos['grupo']);
 
                 $this->vista('/entrenadores/inicio',$this->datos);
             }
