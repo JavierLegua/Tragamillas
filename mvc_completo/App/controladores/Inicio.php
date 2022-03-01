@@ -19,17 +19,22 @@
                 $usuarioSesion = $this->loginModelo->loginEmail($this->datos['email']);
 
                 if(isset($usuarioSesion)) {
-                    $accesoPermitido = password_verify($this->datos['clave'], $usuarioSesion->clave)
-                    ;       //comprobamos que la contraseña introducida concuerde con el hash guardado de la bbdd
+
+                    if (empty($usuarioSesion)) {
+                        $this->vista('/errores/error');
+                    } else {
+                        $accesoPermitido = password_verify($this->datos['clave'], $usuarioSesion->clave);
+                    //comprobamos que la contraseña introducida concuerde con el hash guardado de la bbdd
                     // print_r($this->datos['clave']); echo "<br>";
                     // print_r($usuarioSesion->clave);
                     // exit();
-                    if($accesoPermitido){
-                        Sesion::crearSesion($usuarioSesion);
-                        $this->loginModelo->registroSesion($usuarioSesion->id_usuario); // registro el login en DDBB
-                        redireccionar('/'); 
-                    } else {
-                        echo "fallo";
+                        if($accesoPermitido){
+                            Sesion::crearSesion($usuarioSesion);
+                            $this->loginModelo->registroSesion($usuarioSesion->id_usuario); // registro el login en DDBB
+                            redireccionar('/'); 
+                        } else {
+                            $this->vista('/errores/error');
+                        }
                     }
                 } else {
                     redireccionar('/login/index/error_1');
@@ -50,6 +55,8 @@
                     $this->vista('login', $this->datos);
                 }
             }
+
+            
                
         }
 
