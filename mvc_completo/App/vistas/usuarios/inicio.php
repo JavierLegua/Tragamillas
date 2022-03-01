@@ -29,18 +29,23 @@
                     <td><?php echo $uruario->telefono ?></td>
                     <td><?php echo $uruario->idRol ?></td>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
-                    <td>
-                        <!-- <a href="<?php //echo RUTA_URL?>/usuarios/editar/<?php //echo $uruario->id_usuario ?>">Editar</a> -->
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editmodal"><i class="bi bi-pencil"></i></button>
-                        &nbsp;&nbsp;
+                <td>
+                    <!-- ------------------------------------------------ -->
+                        <!--  <button type="button" class="open-modalP" onclick="crearmodalEditar(<?php echo $uruario->id_usuario ?>)" data-open="modal1P">Prueba</button>-->
+                        <button id="btnModal"onclick="crearmodalEditar(<?php echo $uruario->id_usuario ?>)">Abrir modal</button> 
+                    <!-- ------------------------------------------------ -->
 
-                        <!--   <a class="btn btn-danger" href="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a> -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar"><i class="bi bi-trash-fill"></i></button>
-                        &nbsp;&nbsp;
-                        
-                        <!-- <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a> -->   
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña">Cambiar contraseña</button>
-                    </td>
+                    <!-- <a href="<?php //echo RUTA_URL?>/usuarios/editar/<?php //echo $uruario->id_usuario ?>">Editar</a> -->
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editmodal" onclick="crearmodalEditar(<?php echo $uruario->id_usuario ?>)"><i class="bi bi-pencil"></i></button>
+                    &nbsp;&nbsp;
+
+                    <!--   <a class="btn btn-danger" href="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a> -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar"><i class="bi bi-trash-fill"></i></button>
+                    &nbsp;&nbsp;
+                    
+                    <!-- <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a> -->   
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña">Cambiar contraseña</button>
+                </td>
 <?php endif ?>
                 </tr>
             <?php endforeach ?>
@@ -76,6 +81,22 @@
             </tbody>
         </table>
     </div>
+
+
+
+
+<!-- -----------------------PRUEBA------------------------- -->
+
+<div id="myModal" class="modalContainer">
+ <div class="modal-content">
+ <span class="close">×</span> <h2>Modal</h2>
+    <div id="contenidoP"></div>
+ </div> 
+
+<!-- -----------------------FIN PRUEBA------------------------- -->
+
+
+
 
 <!-- modal cambiar contraseña -->
 <div class="modal fade" id="cambiocontraseña" tabindex="-1" aria-labelledby="exampleModalcambio" aria-hidden="true">
