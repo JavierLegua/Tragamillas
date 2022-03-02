@@ -101,7 +101,7 @@ function mostrarPass(){
         campo.type = "password";
     }
 }
-
+/* arreglar modal cambiar contraseña para que funcione con javascript/bootstrap */
 function crearmodalEditar(idusu) {
     var modal=document.getElementById(idusu);
     
