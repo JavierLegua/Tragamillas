@@ -103,41 +103,17 @@ function mostrarPass(){
 }
 
 function crearmodalEditar(idusu) {
+    var modal=document.getElementById(idusu);
     
-    //document.write(idusu);
-    document.getElementById("contenidoP").innerHTML = idusu;
+    var close =document.getElementsByTagName("close")[0];
+    modal.style.display="block";
+    close.style.overflow="hidden";
 
-    if(document.getElementById("btnModal")){
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("btnModal");
-        var span = document.getElementsByClassName("close")[0];
-        var body = document.getElementsByTagName("body")[0];
+}
 
-        btn.onclick = function() {
-            modal.style.display = "block";
-
-            body.style.position = "static";
-            body.style.height = "100%";
-            body.style.overflow = "hidden";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-
-            body.style.position = "inherit";
-            body.style.height = "auto";
-            body.style.overflow = "visible";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-
-                body.style.position = "inherit";
-                body.style.height = "auto";
-                body.style.overflow = "visible";
-            }
-        }
-    }
-    
+function cerrar(idusu){
+    var modal=document.getElementById(idusu);
+    var close=document.getElementsByTagName("close")[0];
+    modal.style.display="none";
+    close.style.overflow="visible";
 }

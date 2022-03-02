@@ -2,6 +2,10 @@
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
  }
+
+ .orden{
+     z-index: 0;
+ }
 .padtop{
     padding-top: 75px;
 }
@@ -101,45 +105,51 @@ html{
 }
 
 
-/* css modal*/
+/* css modal
 
-.modalContainer {
-    display: none; 
-    position: fixed; 
-    z-index: 1;
-    padding-top: 100px;
+/* The Modal (background) */
+.modal1 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding: 100 100 0 100;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modalContainer .modal-content {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content1 {
+    border-radius: 1%;
     background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid lightgray;
-    border-top: 10px solid #58abb7;
-    width: 60%;
-}
-
-.modalContainer .close {
-    color: #aaaaaa;
+    margin: auto; /* 15% from the top and centered */
+    margin-top: 70px;
+    padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
-
-.modalContainer .close:hover,
-.modalContainer .close:focus {
-    color: #000;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
+  }
 
 /*----------fin css modal---------*/
 

@@ -16,7 +16,7 @@
 <body>
     
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark orden">
         <div class="container-fluid">
             <a href="<?php echo RUTA_URL?>" class="navbar-brand"><?php echo 'TRAGAMILLAS' ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
