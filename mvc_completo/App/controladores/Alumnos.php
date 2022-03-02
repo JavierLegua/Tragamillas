@@ -1,6 +1,7 @@
 <?php
 
     class Alumnos extends Controlador{
+        
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
             $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
