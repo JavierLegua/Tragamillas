@@ -83,7 +83,7 @@ html{
 
 .avatar {
     position: absolute;
-    top: -129px;
+    top: -120px;
     width:70%; 
     height:52.3%;
     
@@ -162,6 +162,9 @@ html{
     .tarjeta {
         width: 10rem; 
     }
+    .prueba{
+        margin-bottom: 20px;
+    }
  }
 
  @media (max-width: 575px) { 
@@ -171,14 +174,16 @@ html{
     nav{
         font-size: 14px;
     }
+    .tarjeta {
+        width: 8rem; 
+    }
    .columna {
        width: 67%;
    }
-
-   .container{
-       padding-left: 100px;
-       padding-right: 100px;
+   .prueba{
+       margin-bottom: 20px;
    }
+
  }
 
  @media (max-width: 767px) { 
