@@ -56,7 +56,7 @@
                 </tr>
 
         
-<!-- -----------------------PRUEBA------------------------- -->
+
 
 <div id="<?php echo $uruario->id_usuario ?>" class="modal1">
 <div class="modal-content1">
@@ -97,7 +97,7 @@
     </div>
 </div>
 
-<!-- -----------------------FIN PRUEBA------------------------- -->
+
 
 <!-- Modal borrar usuario -->
 <div class="modal fade" id="modalborrar_<?php echo $uruario->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalBorrar" aria-hidden="true">
@@ -199,7 +199,7 @@
             <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-
+        
             <form method="post" action="<?php echo RUTA_URL?>/usuarios/agregar">
                 <div class="mt-3 mb-3">
                     <label for="nombre">Nombre: <sup>*</sup></label>
@@ -248,6 +248,25 @@
   </div>
 </div>
 <!-- Fin modal nuevo usuario -->
+
+
+<!-- paginacion -->
+<br><br>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- fin paginacion -->
 
 <script>
 

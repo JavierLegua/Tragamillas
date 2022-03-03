@@ -7,9 +7,14 @@
             $this->db = new Base;
         }
 
-
-        public function obtenerUsuarios(){
+        public function contarUsuarios(){
             $this->db->query("SELECT * FROM usuario");
+
+            return $this->db->rowCount();
+        }
+
+        public function obtenerUsuarios($min, $registrosPorPagina){
+            $this->db->query("SELECT * FROM usuario LIMIT $min, $registrosPorPagina");
 
             return $this->db->registros();
         }
