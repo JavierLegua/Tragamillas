@@ -83,7 +83,7 @@ html{
 
 .avatar {
     position: absolute;
-    top: -129px;
+    top: -120px;
     width:70%; 
     height:52.3%;
     
@@ -175,10 +175,6 @@ html{
        width: 67%;
    }
 
-   .container{
-       padding-left: 100px;
-       padding-right: 100px;
-   }
  }
 
  @media (max-width: 767px) { 
