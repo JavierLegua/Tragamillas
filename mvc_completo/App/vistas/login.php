@@ -12,10 +12,10 @@
 </head>
 
 <body>
-<section class="mt-5">
+<section>
 
   <div class="container">
-    <div class="row vh-100 justify-content-center align-items-center">
+    <div class="row d-flex vh-100 justify-content-center align-items-center">
       <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8">
 
         <div class="card text-white justify-content-center align-items-center shadow mb-5 bg-body rounded padtop">
@@ -23,10 +23,11 @@
             <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" class="avatar padbotom">
         
        
-          <div class="card-body text-center mt-3 padtop">
+          <div class="card-body text-center padtop">
 
-            <div class="mb-md-5 mt-md-5 pb-5 ">
+            <div class="mb-md-5 mt-md-5">
               <form method="post">
+
                 <div class="form-outline form-white mb-4">
                   <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Usuario (email)" required/>
                 </div>
@@ -34,7 +35,8 @@
                 <div class="form-outline form-white mb-4">
                   <input type="password" name="clave" id="clave" class="form-control form-control-lg" placeholder="Contraseña" autocomplete="off" required/>
                 </div>
-                <input type="submit" class="mt-4 btn btn-outline-light btn-lg px-5 colortarjeta colortarjetahover" value="Login"> <br>
+
+                <input type="submit" class="mt-3 btn btn-outline-light btn-lg px-5 colortarjeta colortarjetahover prueba" value="Login"> <br>
               </form>  
             </div>
 

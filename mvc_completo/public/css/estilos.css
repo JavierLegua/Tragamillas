@@ -162,6 +162,9 @@ html{
     .tarjeta {
         width: 10rem; 
     }
+    .prueba{
+        margin-bottom: 20px;
+    }
  }
 
  @media (max-width: 575px) { 
@@ -173,6 +176,9 @@ html{
     }
    .columna {
        width: 67%;
+   }
+   .prueba{
+       margin-bottom: 20px;
    }
 
  }
