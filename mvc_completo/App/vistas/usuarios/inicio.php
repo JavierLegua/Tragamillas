@@ -47,15 +47,9 @@
                     &nbsp;&nbsp;
                     <!-- Fin PRUEBA -->
 
-                    <!-- <a href="<?php //echo RUTA_URL?>/usuarios/editar/<?php //echo $uruario->id_usuario ?>">Editar</a> -->
-                   <!--   <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editmodal" onclick="crearmodalEditar(<?php echo $uruario->id_usuario ?>)"><i class="bi bi-pencil"></i></button>
-                    &nbsp;&nbsp;-->
-
-                    <!--   <a class="btn btn-danger" href="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">Borrar</a> -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar_<?php echo $uruario->id_usuario ?>"><i class="bi bi-trash-fill"></i></button>
                     &nbsp;&nbsp;
-                    
-                    <!-- <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a> -->   
+                
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>">Cambiar contraseña</button>
                 </td>
 
@@ -72,7 +66,6 @@
         </div>
     <!-- Modal content -->
     
-        
         <form method="post" action="<?php echo RUTA_URL?>/usuarios/editar/<?php echo $uruario->id_usuario ?>">
             <div class="mt-3 mb-3">
                 <label for="nombre">Nombre: <sup>*</sup></label>
@@ -94,14 +87,9 @@
                 <label for="email">Email: <sup>*</sup></label>
                 <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" onblur="validarEmail(this.value)" value="<?php echo $uruario->email ?>">
             </div>
-
             <div class="mb-3">
-                <br><label for="telefono">Teléfono: <sup>*</sup></label>
+                <label for="telefono">Teléfono: <sup>*</sup></label>
                 <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario->telefono ?>">
-            </div>
-            <div class="mb-3">
-                <label for="activado">Activado: <sup>*</sup></label>
-                <input type="activado" name="activado" id="activado" class="form-control form-control-lg">
             </div>
 
             <input type="submit" class="btn btn-success" value="Editar Usuario" onclick="return confirm('¿Seguro que quieres <?php echo $accion ?> este usuario?');">
@@ -147,28 +135,36 @@
 <!-- modal cambiar contraseña -->
 
 <div class="modal fade" id="cambiocontraseña_<?php echo $uruario->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalcambio" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalcambio">Cambiar contraseña <?php echo $uruario->apellidoUsuario ?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="<?php echo RUTA_URL?>/usuarios/actualizar/">
-            <div class="d-flex justify-content-around">
-                <div class="mb-3">
-                    <label for="clave">Nueva contraseña: <sup>*</sup></label>
-                    <input type="password" name="clave" id="clave" class="form-control form-control-lg">
-                </div>
-                <div>
-                    <button class="btn btn-primary" type="button" onclick="mostrarPass()"><i class="bi bi-eye"></i></button>    <!--  mostrar icono en el boton -->
-                </div>
-            </div>    
-                <input type="submit" class="btn btn-success" value="Actualizar contraseña" onclick="return confirm('¿Seguro que quieres actualizar la contraseña?');">
-            </form>
-      </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalcambio">Cambiar contraseña <?php echo $uruario->apellidoUsuario ?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body container">
+                <form method="post" action="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">
+
+                    <div class="d-flex justify-content-around row"> 
+
+                        <!-- <div class="mb-3">
+                            <label for="clave">Nueva contraseña: <sup>*</sup></label>
+                            <input type="password" name="clave" id="clave" class="form-control form-control-lg">
+                            <button class="btn btn-primary" type="button" onclick="mostrarPass()"><i class="bi bi-eye"></i></button> 
+                        </div>  -->
+
+                        <div class="input-group mb-3">
+                            <input type="password" name="clave" id="clave" class="form-control" aria-describedby="botonMostrar">
+                            <button class="btn btn-outline-primary" type="button" id="botonMostrar" onclick="mostrarPass()"><i class="bi bi-eye"></i></button>
+                        </div>
+
+                        <input type="submit" class="btn btn-success" value="Actualizar contraseña" onclick="return confirm('¿Seguro que quieres actualizar la contraseña?');">
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- fin modal cambiar contraseña -->
@@ -182,6 +178,8 @@
     </table>
 </div>    <!-- fin table -->
 
+
+
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
     <div class="col text-center" onMouseDown="comprobarExiste()">
 
@@ -189,35 +187,7 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="rellenarRol()">
             Agregar
         </button>
-
     </div>
-
-    <div class="container" id="listadoSesiones" style="display:none">
-        <br><br>
-        <h2>Sesiones de: <span id="usuarioSesion"></span></h2>
-        <table class="table text-center">
-            <thead>
-                <tr>
-                <th scope="col">id_sesion</th>
-                <th scope="col">id_usuario</th>
-                <th scope="col">fecha_inicio</th>
-                <th scope="col">fecha_fin</th>
-                <th scope="col">estado</th>
-                </tr>
-            </thead>
-            <tbody id="tbodyTablaSesiones">
-
-                
-            </tbody>
-        </table>
-
-
-        </div> <!-- fin col -->
-    </div> <!-- fin row -->
-</div> <!-- fin container -->
-
-
-
 
 
 <!-- Modal nuevo usuario -->

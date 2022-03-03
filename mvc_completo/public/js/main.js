@@ -93,15 +93,26 @@ function getnumIBAN(letra) {
 
 /* ----------------------------------------------------------------------------------------- */
 
+/* arreglar modal cambiar contraseña para que funcione con javascript/bootstrap */
 function mostrarPass(){
+
     var campo = document.getElementById("clave");
-    if (campo.type == "password") {
-        campo.type = "text"
+
+    if(campo.type == "password"){
+        campo.type = "text";
+        $('.icon').removeClass('bi bi-eye-slash').addClass('bi bi-eye');
     }else{
         campo.type = "password";
+        $('.icon').removeClass('bi bi-eye').addClass('bi bi-eye-slash');
     }
 }
-/* arreglar modal cambiar contraseña para que funcione con javascript/bootstrap */
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------- */
 function crearmodalEditar(idusu) {
     var modal=document.getElementById(idusu);
     
