@@ -19,9 +19,9 @@
 
         public function index(){
             //Obtenemos los usuarios
-            $tests = $this->testModelo->crearTest();
+            $pruebas = $this->testModelo->obtenerPruebas();
 
-            $this->datos['test'] = $tests;
+            $this->datos['pruebas'] = $pruebas;
 
             $this->vista('test_inicio/inicio',$this->datos);
         }
@@ -34,30 +34,20 @@
             }
             // print_r($this->datos);exit();
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                $inscripcionNueva = [
-                    'aceptado' => 0,
-                    'activo' => $this->datos['usuarioSesion']->activado,
-                    'idGrupo' => $id,
-                    'idUsuario' => $this->datos['usuarioSesion']->id_usuario,                    
+                
+                
+                $testNuevo = [
+                    'nombreTest' => trim($_POST['nombreTest']),
+                    'idPrueba' => trim($_POST['idPrueba']),
+                    'detalles' => trim($_POST['detalles']),                   
                 ];
-                if ($this->inscripcionModelo->agregarInscripcion($inscripcionNueva)){
-                    redireccionar('/inscripciones');
+                if ($this->testModelo->crearTest($testNuevo)){
+                    redireccionar('/entrenadores');
                 } else {
                     die('Algo ha fallado!!!');
                 }
             } else {
-                $this->datos['inscripcion'] = (object) [
-                    'fecha_inscrip' => '',
-                    'aceptado' => 0,
-                    'activado' => '',
-                    'idGrupo' => '',
-                    'idUsuario' => '',
-                    
-                ];
-                $this->datos['listagrupos'] = $this->inscripcionModelo->obtenerGrupos();
-
-                $this->vista('inscripciones/inicio',$this->datos);
+                print_r('falla en el post');exit;
             }
 
         }

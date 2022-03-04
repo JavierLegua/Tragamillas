@@ -13,6 +13,26 @@
             return $this->db->registros();
         }
 
+        public function realizarTest($datos){
+
+            $this->db->query("INSERT INTO socio_prueba (fecha, marca, idUsuario, idPrueba, idTest) 
+            VALUES (NOW(), :marca, :idUsuario, :idPrueba, :idTest)");
+    
+            // //vinculamos los valores
+            $this->db->bind(':marca',$datos['marca']);
+            $this->db->bind(':idUsuario',$datos['idUsuario']);
+            $this->db->bind(':idPrueba',$datos['idPrueba']);
+            $this->db->bind(':idTest',$datos['idTest']);
+    
+            //ejecutamos
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
+            
+        }
+
     }
 
 ?>

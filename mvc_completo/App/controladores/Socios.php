@@ -38,10 +38,9 @@
                 
                 $equipacionNueva = [
                     'talla' => trim($_POST['talla']),
-                    // 'fechaPeticion' => trim($_POST['fechaPeticion']),
+
                     'idUsuario' => $id,
-                    // 'idIngresoCuotas' => trim($_POST['idIngresoCuotas']),
-                    //'idOtrosGastos' => trim($_POST['idOtrosGastos']),
+
                     'idTienda' => $this->datos['usuarioSesion']->id_usuario,
                 ];
 

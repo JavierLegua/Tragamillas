@@ -6,6 +6,7 @@
                 <th>nombre</th>
                 <th>Id usuario</th>
                 <th>nombre Usuario</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +17,9 @@
                         <td><?php echo $uruario->nombre ?></td>
                         <td><?php echo $uruario->id_usuario ?></td>
                         <td><?php echo $uruario->apellidoUsuario ?></td>
+                        <td>
+                            <a href="<?php echo RUTA_URL?>/alumnos/realizarTest/<?php echo $uruario->id_usuario ?>">Realizar test</a>
+                        </td>
                     </tr>
                 <?php endif ?>
             <?php endforeach ?>
