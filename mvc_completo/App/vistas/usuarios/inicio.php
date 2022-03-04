@@ -260,6 +260,7 @@
     <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/0">1</a></li>
     <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/1">2</a></li>
     <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/2">3</a></li>
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/3">4</a></li>
     <li class="page-item">
       <a class="page-link" href="#">Next</a>
     </li>

@@ -62,7 +62,7 @@
 
         public function recuperarPass(){
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 
                 //funcion para generar contraseña aleatoria
 
@@ -78,9 +78,9 @@
 
                 $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
 
-                $to = $_POST['emailRec'];
+                //$to = $_POST['emailRec'];
                 //$email = "javierlegua14@gmail.com";
-                //$to = "javierlegua14@gmail.com";
+                $to = "javierlegua14@gmail.com";
                 $nombreTo = "Socio";
                 $asunto = "Recuperación contraseña";
                 $cuerpo = "Su contraseña temporal es: $pass";

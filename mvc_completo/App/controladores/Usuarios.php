@@ -53,10 +53,8 @@
             //prueba de cifrado de contraseña
 
             $pass = $_POST['clave'];
-            //$salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
 
             $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
-            //password_verify($pass, $passCifrada);
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/usuarios');

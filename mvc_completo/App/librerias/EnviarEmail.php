@@ -6,17 +6,16 @@
 
     final class EnviarEmail{
 
-        public function __construct(){
+        private static $email = EmailEmisor;
+        private static $emailPass = EmailPass;
+        private static $emisor = Emisor;
 
+        public function __construct(){
+            
         }
 
         public static function sendEmail($to,$nombreTo,$asunto,$cuerpo,$from="makelelesinformatica@gmail.com",$nombreFrom="Club tragamillas")
         {
-
-            // echo json_encode($to);
-            // echo json_encode($nombreTo);
-            // echo json_encode($asunto);
-            // echo json_encode($cuerpo);
 
             $mail = new PHPMailer(true);
     
@@ -35,8 +34,8 @@
                 $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     //            $mail->Username   = $from;                     // SMTP username
-                $mail->Username   = "makelelesinformatica@gmail.com";                     // SMTP username
-                $mail->Password   = 'Makeleles123';                               // SMTP password
+                $mail->Username   = self::$email;                     // SMTP username
+                $mail->Password   = self::$emailPass;                               // SMTP password
     //            $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     //            $mail->Port       = 465; 
@@ -46,30 +45,24 @@
     
                 //Recipients
     //            $mail->setFrom($from, $nombreFrom);
-                $mail->setFrom("makelelesinformatica@gmail.com", "Club tragamillas");
+                $mail->setFrom(self::$email, self::$emisor);
                 $mail->addAddress($to, $nombreTo);
     //            $mail->addReplyTo($from, $nombreFrom);
-                $mail->addReplyTo("makelelesinformatica@gmail.com", "Club tragamillas");
+                $mail->addReplyTo(self::$email, self::$emisor);
                 
     
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = $asunto;
                 $mail->Body    = $cuerpo;
-                
-                // $mail->smtpConnect([
-                //     'ssl' => [
-                //          'verify_peer' => false,
-                //          'verify_peer_name' => false,
-                //          'allow_self_signed' => true
-                //      ]
-                //  ]);
 
 
                 $mail->send();
     //            $respuesta = 'El Mensaje ha sido enviado correctamente';
-                $respuesta = '1'; 
+                $respuesta = '1';
+                
                 redireccionar('/');
+                
             } catch (Exception $e) {
                  echo $respuesta = "No se ha podido enviar el mensaje. Error: {$mail->ErrorInfo}";
                  //$respuesta = '0';
