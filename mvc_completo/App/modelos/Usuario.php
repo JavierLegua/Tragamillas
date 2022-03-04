@@ -13,8 +13,13 @@
             return $this->db->rowCount();
         }
 
-        public function obtenerUsuarios($min, $registrosPorPagina){
-            $this->db->query("SELECT * FROM usuario LIMIT $min, $registrosPorPagina");
+        public function obtenerUsuarios($min = -1, $registrosPorPagina = 0){
+
+            if ($min == -1 && $registrosPorPagina == 0) {
+                $this->db->query("SELECT * FROM usuario");
+            }else{
+                $this->db->query("SELECT * FROM usuario LIMIT $min, $registrosPorPagina");
+            }
 
             return $this->db->registros();
         }

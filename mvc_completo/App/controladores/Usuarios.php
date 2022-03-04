@@ -21,20 +21,22 @@
             $this->vistaApi($roles);
         }
 
-        public function index($pagina = 5){
+        public function index($pagina = 0){
             //Obtenemos los usuarios y paginamos
 
             $registrosPorPagina = 4;
-            $pagina = intval($pagina);
+            $pagina = intval($pagina + 1);
             $numUsuarios = $this->usuarioModelo->contarUsuarios();
 
+
             $numPagTotal = ceil($numUsuarios / $registrosPorPagina);
+
 
             // if (isset($_GET["pagina"])) {
             //     $pagina = $_GET["pagina"];
             // }
 
-            $min = ($registrosPorPagina * $pagina) - ($registrosPorPagina + 1);
+            $min = ($registrosPorPagina * $pagina) - ($registrosPorPagina);
             
 
             $usuarios = $this->usuarioModelo->obtenerUsuarios($min, $registrosPorPagina);
