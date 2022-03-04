@@ -119,7 +119,7 @@
                     'fecha_nac' => trim($_POST['fecha_nac']),
                     'email' => trim($_POST['email']),
                     'telefono' => trim($_POST['telefono']),
-                    'activado' => trim($_POST['activado']),
+                    'activado' => trim(1),
 
                 ];
 
