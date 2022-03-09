@@ -9,16 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo RUTA_URL?>/css/estilos.css">
+    <link rel="stylesheet" href="<?php echo RUTA_URL?>/public/css/estilos.css">
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
     <title><?php echo "Página de inicio"?></title>
 </head>
-<body>
-    
+<body class="d-flex flex-column h-100">
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark orden">
         <div class="container-fluid">
-            <a href="<?php echo RUTA_URL?>" class="navbar-brand"><?php echo 'TRAGAMILLAS' ?></a>
+            <a href="/" class="navbar-brand"><?php echo 'TRAGAMILLAS' ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -263,5 +262,3 @@
         </div>
     </nav>
 </header>
-
-<br><br><br>

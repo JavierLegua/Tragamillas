@@ -1,10 +1,9 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
+<main class="flex-shrink-0 margenTop">
 
 <div class="container">
     <div class="row">
-        <div class="col col-lg-12">
-
-     
+        <div class="col col-lg-12">     
 <?php
     if (isset($datos['usuario']->id_usuario)){
         $accion = "Modificar";
@@ -12,7 +11,7 @@
         $accion = "Agregar";
     }
 ?>
-    <table class="table m-auto">
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -55,9 +54,6 @@
 
                 </tr>
 
-        
-
-
 <div id="<?php echo $uruario->id_usuario ?>" class="modal1">
 <div class="modal-content1">
         <div class="modal-header">
@@ -77,7 +73,7 @@
             </div>
             <div class="mb-3">
                 <label for="cc">Cuenta: <sup>*</sup></label>
-                <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(this.value)" value="<?php echo $uruario->cc ?>">
+                <input type="text" name="cc" id="cc_<?php echo $uruario->id_usuario ?>" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(<?php echo $uruario->cc ?>)" value="<?php echo $uruario->cc ?>">
             </div>
             <div class="mb-3">
                 <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
@@ -103,29 +99,29 @@
 <div class="modal fade" id="modalborrar_<?php echo $uruario->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalBorrar" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalBorrar">Borrar Usuario</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalBorrar">Borrar Usuario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
 
-        <form method="post" action="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">
-            <div class="mt-3 mb-3">
-                <label for="nombre">Nombre: <sup>*</sup></label>
-                <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="email">Email: <sup>*</sup></label>
-                <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $uruario->email ?>" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="telefono">Teléfono: <sup>*</sup></label>
-                <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario-> telefono ?>" disabled>
-            </div>
-            <input type="submit" class="btn btn-success" value="Borrar Usuario" onclick="return confirm('¿Seguro que quieres eliminar este usuario?');">
-        </form>
+            <form method="post" action="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">
+                <div class="mt-3 mb-3">
+                    <label for="nombre">Nombre: <sup>*</sup></label>
+                    <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email: <sup>*</sup></label>
+                    <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $uruario->email ?>" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="telefono">Teléfono: <sup>*</sup></label>
+                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario-> telefono ?>" disabled>
+                </div>
+                <input type="submit" class="btn btn-success" value="Borrar Usuario" onclick="return confirm('¿Seguro que quieres eliminar este usuario?');">
+            </form>
 
-      </div>
+        </div>
     </div>
   </div>
 </div>
@@ -188,6 +184,7 @@
             Agregar
         </button>
     </div>
+</main>    
 
 
 <!-- Modal nuevo usuario -->

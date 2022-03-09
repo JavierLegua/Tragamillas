@@ -13,9 +13,8 @@ function validarEmail(valor) {
 /* ----------------------------------------------------------------------------------------- */
 
 document.getElementById("dni").addEventListener("keyup", comprobarDni);
-function comprobarDni(dni_user){
-    var campo = document.getElementById("dni");
 
+function comprobarDni(dni_user){
     var campo = document.getElementById("dni");
 
     var vLetras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
@@ -31,15 +30,15 @@ function comprobarDni(dni_user){
         //campo.style.border = "2px solid green";
         
     }
-
 }
 
 /* ----------------------------------------------------------------------------------------- */
 
-document.getElementById("cc").addEventListener("keyup", fn_ValidateIBAN);
 
-function fn_ValidateIBAN(IBAN) {
-    var campoiban = document.getElementById("cc");
+
+function fn_ValidateIBAN(IBAN, idusu1) {
+    
+    var campoiban = document.getElementById("cc_"+idusu1);
     //Se pasa a Mayusculas
     IBAN = IBAN.toUpperCase();
     //Se quita los blancos de principio y final.
