@@ -7,8 +7,19 @@
             $this->db = new Base;
         }
 
-        public function obtenerPedidos($idTienda){
+        public function contarPedidos($idTienda){
             $this->db->query("SELECT equipacion.idEquipacion, equipacion.talla, equipacion.idUsuario, usuario.apellidoUsuario, equipacion.entregado FROM equipacion, usuario WHERE equipacion.idUsuario = usuario.id_usuario AND equipacion.idTienda = $idTienda");
+
+            return $this->db->rowCount();
+        }
+
+        public function obtenerPedidos($idTienda, $min = -1, $registrosPorPagina = 0){
+            
+            if ($min == -1 && $registrosPorPagina == 0) {
+                $this->db->query("SELECT equipacion.idEquipacion, equipacion.talla, equipacion.idUsuario, usuario.apellidoUsuario, equipacion.entregado FROM equipacion, usuario WHERE equipacion.idUsuario = usuario.id_usuario AND equipacion.idTienda = $idTienda");
+            }else{
+                $this->db->query("SELECT equipacion.idEquipacion, equipacion.talla, equipacion.idUsuario, usuario.apellidoUsuario, equipacion.entregado FROM equipacion, usuario WHERE equipacion.idUsuario = usuario.id_usuario AND equipacion.idTienda = $idTienda LIMIT $min, $registrosPorPagina");
+            }    
 
             return $this->db->registros();
         }

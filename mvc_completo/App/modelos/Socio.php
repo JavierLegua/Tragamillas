@@ -7,8 +7,19 @@
             $this->db = new Base;
         }
 
-        public function obtenerSocios(){
+        public function contarSocios(){
             $this->db->query("SELECT * FROM usuario WHERE idRol = '3'");
+
+            return $this->db->rowCount();
+        }
+
+        public function obtenerSocios($min = -1, $registrosPorPagina = 0){
+
+            if ($min == -1 && $registrosPorPagina == 0) {
+                $this->db->query("SELECT * FROM usuario WHERE idRol = '3'");
+            }else{
+                $this->db->query("SELECT * FROM usuario WHERE idRol = '3' LIMIT $min, $registrosPorPagina");
+            }
 
             return $this->db->registros();
         }

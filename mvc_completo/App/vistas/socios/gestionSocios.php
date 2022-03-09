@@ -28,4 +28,41 @@
         </tbody>
     </table>
 
+    <!-- paginacion -->
+
+<br><br>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+  <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/socios/index/0" tabindex="-1" aria-disabled="true">Primera</a></li>
+
+  <?php for ($i=0; $i < $this->numPaginas; $i++): ?>
+
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/socios/index/<?php echo $i?>"><?php echo $i+1 ?></a></li>
+
+  <?php endfor ?>
+
+  <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/socios/index/<?php echo $this->numPaginas-1?>" tabindex="-1" aria-disabled="true">Última</a></li>
+    
+     
+ 
+
+  
+  
+
+    <!-- <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/0">1</a></li>
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/1">2</a></li>
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/2">3</a></li>
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/3">4</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li> -->
+  </ul>
+</nav>
+
+<!-- fin paginacion -->
+
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>

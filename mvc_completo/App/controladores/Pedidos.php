@@ -15,14 +15,31 @@
             
         }
 
-        public function index(){
+        public function index($pagina = 0){
             //Obtenemos los usuarios
+
             $idTienda = $this->datos['usuarioSesion']->id_usuario;
-            $pedidos = $this->pedidoModelo->obtenerPedidos($idTienda);
+
+            $registrosPorPagina = 4;
+            $pagina = intval($pagina + 1);
+            $numPedidos = $this->pedidoModelo->contarPedidos($idTienda);
+
+            $numPagTotal = ceil($numPedidos / $registrosPorPagina);
+
+            $min = ($registrosPorPagina * $pagina) - ($registrosPorPagina);
+
+
+
+            $pedidos = $this->pedidoModelo->obtenerPedidos($idTienda, $min, $registrosPorPagina);
 
             $this->datos['pedido'] = $pedidos;
+            $this->numPaginas = $numPagTotal;
 
-            $this->vista('pedidos/ver_pedidos',$this->datos);
+            $pedidosjson = json_encode($pedidos);
+            // echo $pedidosjson; exit();
+            $this->pedidosCod = $pedidosjson;
+
+            $this->vista('pedidos/ver_pedidos',$this->datos, $this->numPaginas, $this->pedidosCod);
         }
 
         public function confirmarPedido($id){
