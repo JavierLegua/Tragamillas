@@ -2,8 +2,8 @@
 <main class="flex-shrink-0 margenTop">
 
 <div class="container">
-    <div class="row">
-        <div class="col col-lg-12">     
+    <div class="">
+        <div class="">     
 <?php
     if (isset($datos['usuario']->id_usuario)){
         $accion = "Modificar";
@@ -14,7 +14,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>id</th>
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Teléfono</th>
@@ -49,7 +49,7 @@
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar_<?php echo $uruario->id_usuario ?>"><i class="bi bi-trash-fill"></i></button>
                     &nbsp;&nbsp;
                 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>">Cambiar contraseña</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>"><i class="bi bi-shield-lock"></i></button>
                 </td>
 
                 </tr>
