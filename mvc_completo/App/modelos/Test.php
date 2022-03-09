@@ -27,29 +27,46 @@
 
             // //vinculamos los valores
             $this->db->bind(':nombreTest',$datos['nombreTest']);
-
-            //ejecutamos
-            if($id = $this->db->executeInsert()){
-                $this->db->query("INSERT INTO test_prueba (idTest, idPrueba, detalles) VALUES (:idTest, :idPrueba, :detalles)");
-                
-                //vinculamos los valores
-                $this->db->bind(':idTest',$id);
-                $this->db->bind(':idPrueba',$datos['idPrueba']);
-                $this->db->bind(':detalles',$datos['detalles']);
-
-                //ejecutamos
-                if($this->db->execute()){
-                    return true;
-                } else {
-                    return false;
-                }
+            
+            if($this->db->execute()){
+                return true;
             } else {
                 return false;
             }
+            //ejecutamos
+
+            // if($id = $this->db->executeInsert()){
+            //     $this->db->query("INSERT INTO test_prueba (idTest, idPrueba, detalles) VALUES (:idTest, :idPrueba, :detalles)");
+                
+            //     //vinculamos los valores
+            //     $this->db->bind(':idTest',$id);
+            //     $this->db->bind(':idPrueba',$datos['idPrueba']);
+            //     $this->db->bind(':detalles',$datos['detalles']);
+
+            //     //ejecutamos
+            //     if($this->db->execute()){
+            //         return true;
+            //     } else {
+            //         return false;
+            //     }
+            // } else {
+            //     return false;
+            // }
         }
 
-        public function crearTestPrueba($datos){
-            
+        public function agregarPruebaTest($datos){
+            $this->db->query("INSERT INTO test_prueba (idTest, idPrueba, detalles) VALUES (:idTest, :idPrueba, :detalles)");
+            //vinculamos los valores
+            $this->db->bind(':idTest',$datos['idTest']);
+            $this->db->bind(':idPrueba',$datos['idPrueba']);
+            $this->db->bind(':detalles',$datos['detalles']);
+
+            //ejecutamos
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
         }
 
     }
