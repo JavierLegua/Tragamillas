@@ -17,13 +17,23 @@
         }
 
 
-        public function index(){
+        public function index($pagina = 0){
             //Obtenemos los usuarios
-            $socios = $this->socioModelo->obtenerSocios();
+
+            $registrosPorPagina = 4;
+            $pagina = intval($pagina + 1);
+            $numSocios = $this->socioModelo->contarSocios();
+
+            $numPagTotal = ceil($numSocios / $registrosPorPagina);
+
+            $min = ($registrosPorPagina * $pagina) - ($registrosPorPagina);
+
+            $socios = $this->socioModelo->obtenerSocios($min, $registrosPorPagina);
 
             $this->datos['socio'] = $socios;
+            $this->numPaginas = $numPagTotal;
 
-            $this->vista('socios/gestionSocios',$this->datos);
+            $this->vista('socios/gestionSocios',$this->datos, $this->numPaginas);
         }
 
         public function marcarRopa($id){

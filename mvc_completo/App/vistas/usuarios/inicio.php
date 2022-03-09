@@ -5,6 +5,7 @@
     <div class="">
         <div class="">     
 <?php
+    
     if (isset($datos['usuario']->id_usuario)){
         $accion = "Modificar";
     } else {
@@ -225,7 +226,7 @@
                 </div>
     
                 <div class="mb-3">
-                    <br><label for="telefono">Teléfono: <sup>*</sup></label>
+                    <label for="telefono">Teléfono: <sup>*</sup></label>
                     <input type="text" name="telefono" id="telefono" class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
@@ -248,19 +249,21 @@
 
 
 <!-- paginacion -->
+
 <br><br>
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/0">1</a></li>
-    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/1">2</a></li>
-    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/2">3</a></li>
-    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/3">4</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
+
+  <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/0" tabindex="-1" aria-disabled="true">Primera</a></li>
+
+  <?php for ($i=0; $i < $this->numPaginas; $i++): ?>
+
+    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/<?php echo $i?>"><?php echo $i+1 ?></a></li>
+
+  <?php endfor ?>
+
+  <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/<?php echo $this->numPaginas-1?>" tabindex="-1" aria-disabled="true">Última</a></li>
+    
   </ul>
 </nav>
 

@@ -31,19 +31,15 @@
 
             $numPagTotal = ceil($numUsuarios / $registrosPorPagina);
 
-
-            // if (isset($_GET["pagina"])) {
-            //     $pagina = $_GET["pagina"];
-            // }
-
             $min = ($registrosPorPagina * $pagina) - ($registrosPorPagina);
             
 
             $usuarios = $this->usuarioModelo->obtenerUsuarios($min, $registrosPorPagina);
 
             $this->datos['usuario'] = $usuarios;
+            $this->numPaginas = $numPagTotal;
 
-            $this->vista('usuarios/inicio',$this->datos);
+            $this->vista('usuarios/inicio',$this->datos, $this->numPaginas);
         }
 
 

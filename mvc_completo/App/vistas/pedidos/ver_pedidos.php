@@ -30,4 +30,11 @@
         </tbody>
     </table>
 
+    <script>
+        
+    let pedidos = <?php echo $this->pedidosCod ?>
+    console.log(pedidos)
+
+    </script>
+
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>
