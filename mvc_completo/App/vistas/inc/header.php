@@ -37,7 +37,7 @@
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
                             <div class="dropdown">
                                 <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Grupos
+                                    Grupos2222
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Crear</a></li>
