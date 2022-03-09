@@ -11,7 +11,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="#"><h4>Marcas</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/marcas"><h4>Marcas</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
                         </p>
                     </div>
 
