@@ -127,3 +127,7 @@ function cerrar(idusu){
     modal.style.display="none";
     close.style.overflow="visible";
 }
+
+
+/*------------------------------------------------------------ */
+

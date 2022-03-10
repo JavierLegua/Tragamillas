@@ -16,7 +16,7 @@
         }
 
         public function index(){
-            
+
             $inscripciones = $this->inscripcionModelo->obtenerInscripciones($this->datos['usuarioSesion']->id_usuario);
 
             $this->datos['inscripcion'] = $inscripciones;
@@ -38,7 +38,10 @@
                     'aceptado' => 1,             
                 ];
                 if ($abierto == 1 && $this->inscripcionModelo->confirmarInscripcion($id, $idGrupo, $inscripcionConfirmada)){
-                    redireccionar('/inscripciones_grupos');
+                    
+                    $this->vista('entrenadores/inicio',$this->datos);
+                    //redireccionar('/inscripciones_grupos');
+
                 } else {
                     if ($abierto == 0) {
                         $this->vista('/errores/grupo_cerrado',$this->datos);
@@ -70,7 +73,8 @@
                     'aceptado' => 0,                    
                 ];
                 if ($this->inscripcionModelo->cancelarInscripcion($id, $idGrupo, $inscripcionCancelada)){
-                    redireccionar('/inscripciones_grupos');
+                    $this->vista('entrenadores/inicio',$this->datos);
+                    //redireccionar('/inscripciones_grupos');
                 } else {
                     die('Algo ha fallado!!!');
                 }

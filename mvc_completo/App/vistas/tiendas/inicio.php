@@ -1,7 +1,7 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
     <section>
         <div class="container">
-            <div class="row vista justify-content-around justify-content-center align-items-center">
+            <div class="row vista justify-content-around justify-content-center align-items-center ">
                 
                 <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
                     <div class="card-header d-flex justify-content-center colortarjeta">

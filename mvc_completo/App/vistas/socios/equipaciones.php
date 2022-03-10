@@ -23,6 +23,17 @@
                     <option value="XXL">XXL</option>
                 </select>
             </div>
+            <div class="mt-3 mb-3">
+                <label for="prenda">Tipo prenda: <sup>*</sup></label>
+                <select name="prenda" id="prenda" class="form-control form-control-lg">
+                    <option value="seleccione una talla" selected>Seleccione una opción:</option>
+                    <option value="sudadera">Sudadera</option>
+                    <option value="chandal">Chandal</option>
+                    <option value="manguitos">Manguitos</option>
+                    <option value="1equipacion">1º Equipación</option>
+                    <option value="2equipacion">2º Equipación</option>
+                </select>
+            </div>
             <!-- <div class="mb-3">
                 <label for="idOtrosGastos">Precio: <sup>*</sup></label>
                 <input type="idOtrosGastos" name="idOtrosGastos" id="idOtrosGastos" class="form-control form-control-lg"></input>

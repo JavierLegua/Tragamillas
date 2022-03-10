@@ -1,5 +1,5 @@
 
-<footer class="footer mt-auto py-3 color">
+<footer class="footer mt-auto py-2 color">
     <div class="container">
 
 

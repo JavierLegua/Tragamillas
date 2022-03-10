@@ -95,4 +95,54 @@
             }
         }
 
+        public function agregar(){
+
+            //prueba de cifrado de contraseña
+
+            $pass = $_POST['clave'];
+
+            $passCifrada = password_hash($pass, PASSWORD_BCRYPT);
+
+            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+                redireccionar('/');
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                $usuarioNuevo = [
+                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'dniUsuario' => trim($_POST['dni']),
+                    'cc' => trim($_POST['cc']),
+                    'fecha_nac' => trim($_POST['fecha_nac']),
+                    'email' => trim($_POST['email']),
+                    'clave' => trim($passCifrada),
+                    'telefono' => trim($_POST['telefono']),
+                    'activado' => trim(1),
+                    'idRol' => trim(3),
+                ];
+
+                if ($this->usuarioModelo->agregarUsuario($usuarioNuevo)){
+                    redireccionar('/');
+                } else {
+                    die('Algo ha fallado!!!');
+                }
+            } else {
+                $this->datos['usuario'] = (object) [
+                    'apellidoUsuario' => '',
+                    'dniUsuario' => '',
+                    'cc' => '',
+                    'fecha_nac' => '',
+                    'email' => '',
+                    'clave' => '',
+                    'telefono' => '',
+                    'activado' => '',
+                    'idRol' => ''
+                ];
+
+                $this->datos['listaRoles'] = $this->usuarioModelo->obtenerRoles();
+
+                $this->vista('usuarios/inicio',$this->datos);
+            }
+        }
+
     }

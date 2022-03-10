@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Log-In</title>
-    <!-- <script src="<?php echo RUTA_URL?>/js/main.js"></script> -->
+    <script src="<?php echo RUTA_URL?>/public/js/main.js"></script>
     <link rel="stylesheet" href="<?php echo RUTA_URL?>/public/css/estilos.css">
 </head>
 
@@ -43,12 +43,12 @@
             <!-- ------------------------------Comienzo modal recuperar contraseña--------------------- -->
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-light btn-lg px-5 colortarjeta colortarjetahover" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-light btn-lg px-5 colortarjeta colortarjetahover" data-bs-toggle="modal" data-bs-target="#recuperar">
               Recuperar contraseña
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="recuperar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog mb-1">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -77,8 +77,65 @@
         </div>
         
       </div>
+    
+
+      <!-- -------------------------Modal registrar nuevo usuario------------------------- -->
+
+      <p class="text-center">¿No estás registrado aún? <a href="" data-bs-toggle="modal" data-bs-target="#registrar">Regístrate</a></p>
+
+      <div class="modal fade" id="registrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Registrar usuario</h5>
+            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+            <form method="post" class="card-body" class="registrarNuevo" action="/inicio/agregar">
+                <div class="mt-3 mb-3">
+                    <label for="nombre">Nombre: <sup>*</sup></label>
+                    <input type="text" name="nombre" id="nombre" class="form-control form-control-lg">
+                </div>
+                <div class="mb-3">
+                    <label for="dni">DNI: <sup>*</sup></label>
+                    <input type="text" name="dni" id="dni" class="form-control form-control-lg" maxlength="9" autocomplete="off" onblur="comprobarDni(this.value)">
+                </div>
+                <div class="mb-3">
+                    <label for="cc">Cuenta: <sup>*</sup></label>
+                    <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(this.value)">
+                </div>
+                <div class="mb-3">
+                    <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
+                    <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email: <sup>*</sup></label>
+                    <input type="email" name="email" id="email" class="form-control form-control-lg" autocomplete="off" onblur="validarEmail(this.value)">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Clave: <sup>*</sup></label>
+                    <input type="password" name="clave" id="clave" class="form-control form-control-lg" autocomplete="off">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="telefono">Teléfono: <sup>*</sup></label>
+                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg">
+                </div>
+                <input type="submit" class="btn btn-success" value="Registrar Usuario" onclick="return confirm('¿Seguro que quieres registrar este usuario?');">
+            </form>
+
+        </div>
+    </div>
+  </div>
+</div>
+
       
     </div>
+
+    
+
   </div>
 </section>
 

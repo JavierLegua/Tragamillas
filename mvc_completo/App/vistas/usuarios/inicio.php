@@ -2,8 +2,10 @@
 <main class="flex-shrink-0 margenTop">
 
 <div class="container">
-    <div class="">
-        <div class="">     
+    <div> <!-- BUSCADOR -->
+        
+    </div> <!-- FIN BUSCADOR -->
+            
 <?php
     
     if (isset($datos['usuario']->id_usuario)){
@@ -12,7 +14,9 @@
         $accion = "Agregar";
     }
 ?>
-    <table class="table">
+<div class="table-responsive">
+
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>id</th>
@@ -172,8 +176,10 @@
 
             <?php endforeach ?>
         </tbody>
-    </table>
-</div>    <!-- fin table -->
+    </table><!-- fin table -->
+
+</div> <!-- fin table-responsive -->
+</div>    
 
 
 
@@ -229,10 +235,6 @@
                     <label for="telefono">Teléfono: <sup>*</sup></label>
                     <input type="text" name="telefono" id="telefono" class="form-control form-control-lg">
                 </div>
-                <div class="mb-3">
-                    <label for="activado">Activado: <sup>*</sup></label>
-                    <input type="activado" name="activado" id="activado" class="form-control form-control-lg">
-                </div>
 
                 <div class="mb-3" id="contenedorRoles">
                     <label for="rol" >Rol: <sup>*</sup></label>
@@ -287,7 +289,6 @@ function eliminar_elemento(){
     var throwawayNode = valor.removeChild(selectrolll);
 }
 
-
 async function rellenarRol(){
     
     await fetch('<?php echo RUTA_URL?>/usuarios/obtenerrol') 
@@ -317,7 +318,6 @@ async function rellenarRol(){
         
     });        
     document.getElementById("contenedorRoles").appendChild(dasfsaf);
-    
 }
 
     function getSesiones(id_usuario){

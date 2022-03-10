@@ -1,5 +1,8 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-    <table class="table">
+<main class="flex-shrink-0 margenTop">
+    <div class="container">
+
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Fecha</th>
@@ -23,5 +26,6 @@
             <?php endforeach ?>
         </tbody>
     </table>
-
+    </div>
+</main>  
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>

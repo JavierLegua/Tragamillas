@@ -37,13 +37,13 @@
 
             $pedidosjson = json_encode($pedidos);
             // echo $pedidosjson; exit();
-            $this->pedidosCod = $pedidosjson;
+            $this->pedidosCod['pedidoCod'] = $pedidosjson;
 
             $this->vista('pedidos/ver_pedidos',$this->datos, $this->numPaginas, $this->pedidosCod);
         }
 
         public function confirmarPedido($id){
-            // echo $_POST['talla'];exit();
+            // echo $_POST['prenda'];exit();
             $this->datos['rolesPermitidos'] = [4];          // Definimos los roles que tendran acceso
             
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
@@ -55,6 +55,7 @@
                 $pedidoConfirmado = [
                     'idEquipacion' => $id,
                     'talla' => trim($_POST['talla']),
+                    'prenda' => trim($_POST['prenda']),
                     'idUsuario' => trim($_POST['idUsuario']),
                     'entregado' => trim($_POST['entregado']),
                 ];

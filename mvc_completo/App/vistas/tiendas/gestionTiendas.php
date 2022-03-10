@@ -1,5 +1,5 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-    <table class="table">
+    <table class="table margenTop">
         <thead>
             <tr>
                 <th>Id</th>

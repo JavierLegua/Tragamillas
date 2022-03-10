@@ -1,8 +1,13 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-    <table class="table">
+<main class="flex-shrink-0 margenTop">
+    <div class="container">
+
+    
+<table class="table table-hover">
         <thead>
             <tr>
                 <th>Id pedido</th>
+                <th>Tipo</th>
                 <th>Talla</th>
                 <th>Id usuario</th>
                 <th>Nombre usuario</th>
@@ -13,9 +18,10 @@
         </thead>
         <tbody>
             <?php foreach($datos['pedido'] as $uruario): ?>
-                <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[4]) && $uruario->entregado == !1):?>
+                <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[4]) && $uruario->entregado != 1):?>
                     <tr>
                         <td><?php echo $uruario->idEquipacion ?></td>
+                        <td><?php echo $uruario->tipo ?></td>
                         <td><?php echo $uruario->talla ?></td>
                         <td><?php echo $uruario->idUsuario ?></td>
                         <td><?php echo $uruario->apellidoUsuario ?></td>
@@ -29,12 +35,22 @@
             <?php endforeach ?>
         </tbody>
     </table>
+    </div>
+</main>
 
-    <script>
-        
-    let pedidos = <?php echo $this->pedidosCod ?>
-    console.log(pedidos)
+<!-- <?php echo $this->pedidosCod['pedidoCod'];  ?> -->
 
-    </script>
+
+<script>
+
+    let pedidos = <?php echo $this->pedidosCod['pedidoCod'];  ?>
+
+    let pedidosDecod = JSON.parse(pedidos)
+
+    // console.log(JSON.parse(pedidos))
+
+    console.log(pedidosDecod[0].talla)
+
+</script>
 
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>

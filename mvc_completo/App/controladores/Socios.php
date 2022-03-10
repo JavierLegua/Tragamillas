@@ -50,6 +50,8 @@
                     'talla' => trim($_POST['talla']),
 
                     'idUsuario' => $id,
+                    
+                    'prenda' => trim($_POST['prenda']),
 
                     'idTienda' => $this->datos['usuarioSesion']->id_usuario,
                 ];

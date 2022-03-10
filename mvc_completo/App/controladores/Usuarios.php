@@ -66,7 +66,7 @@
                     'email' => trim($_POST['email']),
                     'clave' => trim($passCifrada),
                     'telefono' => trim($_POST['telefono']),
-                    'activado' => trim($_POST['activado']),
+                    'activado' => trim(1),
                     'idRol' => trim($_POST['rol']),
                 ];
 

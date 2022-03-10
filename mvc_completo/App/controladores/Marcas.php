@@ -16,20 +16,11 @@
         }
 
         public function index(){
-
-            $grupos = $this->marcaModelo->obtenerGruposEntrenador($this->datos['usuarioSesion']->id_usuario);
-            
-            $this->datos['grupos'] = $grupos;
-
-            for ($i=0; $i < count($this->datos['grupos']); $i++) { 
-                $this->datos['grupos'][$i] = $this->marcaModelo->obtenerAlumnosGrupo($this->datos['grupos'][$i]->idGrupo);
-            }
-
-            $marcas = $this->marcaModelo->obtenerMarcas();
+            $marcas = $this->marcaModelo->obtenerMarcas($this->datos['usuarioSesion']->id_usuario);
 
             $this->datos['marca'] = $marcas;
 
-            print_r($this->datos['grupos'][0]);exit;
+           //print_r($this->datos['grupos']);exit;
 
             $this->vista('marcas/inicio',$this->datos);
                 
