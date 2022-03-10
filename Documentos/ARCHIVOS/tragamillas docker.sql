@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 172.17.0.2
--- Tiempo de generación: 28-02-2022 a las 12:45:31
--- Versión del servidor: 5.7.37
--- Versión de PHP: 8.0.16
+-- Servidor: localhost:3306
+-- Tiempo de generación: 10-03-2022 a las 09:05:49
+-- Versión del servidor: 8.0.26-0ubuntu0.20.04.2
+-- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,10 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
-  `idCategoria` int(11) NOT NULL,
+  `idCategoria` int NOT NULL,
   `nombre_cat` varchar(200) NOT NULL,
-  `edad_min` int(11) NOT NULL,
-  `edad_max` int(11) NOT NULL
+  `edad_min` int NOT NULL,
+  `edad_max` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,7 +43,7 @@ CREATE TABLE `categoria` (
 
 CREATE TABLE `entrenador` (
   `sueldo` decimal(3,0) DEFAULT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -62,8 +63,8 @@ INSERT INTO `entrenador` (`sueldo`, `idUsuario`) VALUES
 
 CREATE TABLE `entrenador_grupo` (
   `fecha` date NOT NULL,
-  `idGrupo` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idGrupo` int NOT NULL,
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -88,14 +89,14 @@ INSERT INTO `entrenador_grupo` (`fecha`, `idGrupo`, `idUsuario`) VALUES
 --
 
 CREATE TABLE `equipacion` (
-  `idEquipacion` int(11) NOT NULL,
+  `idEquipacion` int NOT NULL,
   `talla` varchar(10) NOT NULL,
   `fechaPeticion` date NOT NULL,
-  `idUsuario` int(11) NOT NULL,
-  `idIngresoCuotas` int(11) DEFAULT NULL,
-  `idOtrosGastos` int(11) DEFAULT NULL,
-  `entregado` int(11) NOT NULL DEFAULT '0',
-  `idTienda` int(11) DEFAULT NULL
+  `idUsuario` int NOT NULL,
+  `idIngresoCuotas` int DEFAULT NULL,
+  `idOtrosGastos` int DEFAULT NULL,
+  `entregado` int NOT NULL DEFAULT '0',
+  `idTienda` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,13 +125,13 @@ INSERT INTO `equipacion` (`idEquipacion`, `talla`, `fechaPeticion`, `idUsuario`,
 --
 
 CREATE TABLE `evento` (
-  `idEvento` int(11) NOT NULL,
+  `idEvento` int NOT NULL,
   `nombre_evento` varchar(150) NOT NULL,
   `tipo` varchar(100) NOT NULL,
   `precio` decimal(3,0) NOT NULL,
   `fecha_ini_even` date NOT NULL,
   `fecha_fin_even` date NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -140,7 +141,7 @@ CREATE TABLE `evento` (
 --
 
 CREATE TABLE `grupo` (
-  `idGrupo` int(11) NOT NULL,
+  `idGrupo` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `fecha_ini` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
@@ -170,10 +171,10 @@ INSERT INTO `grupo` (`idGrupo`, `nombre`, `fecha_ini`, `fecha_fin`, `abierto`) V
 
 CREATE TABLE `grupo_socio` (
   `fecha_inscrip` date NOT NULL,
-  `aceptado` tinyint(4) NOT NULL,
-  `activo` tinyint(4) NOT NULL,
-  `idGrupo` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `aceptado` tinyint NOT NULL,
+  `activo` tinyint NOT NULL,
+  `idGrupo` int NOT NULL,
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -198,11 +199,11 @@ INSERT INTO `grupo_socio` (`fecha_inscrip`, `aceptado`, `activo`, `idGrupo`, `id
 --
 
 CREATE TABLE `g_personal` (
-  `id_gasto` int(11) NOT NULL,
+  `id_gasto` int NOT NULL,
   `fecha` date NOT NULL,
   `concepto` varchar(200) NOT NULL,
   `importe` decimal(3,0) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -212,7 +213,7 @@ CREATE TABLE `g_personal` (
 --
 
 CREATE TABLE `horario` (
-  `idHorario` int(11) NOT NULL,
+  `idHorario` int NOT NULL,
   `diasemana` varchar(45) NOT NULL,
   `hora_ini` time NOT NULL,
   `hora_fin` time NOT NULL
@@ -225,8 +226,8 @@ CREATE TABLE `horario` (
 --
 
 CREATE TABLE `horario_grupo` (
-  `idHorario` int(11) NOT NULL,
-  `idGrupo` int(11) NOT NULL
+  `idHorario` int NOT NULL,
+  `idGrupo` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -236,13 +237,13 @@ CREATE TABLE `horario_grupo` (
 --
 
 CREATE TABLE `ingresosActividades` (
-  `idIngresoActividades` int(11) NOT NULL,
+  `idIngresoActividades` int NOT NULL,
   `fecha` date NOT NULL,
   `concepto` varchar(200) NOT NULL,
   `importe` decimal(3,0) NOT NULL,
-  `idExterno` int(11) NOT NULL,
-  `idEvento` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idExterno` int NOT NULL,
+  `idEvento` int NOT NULL,
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -252,12 +253,12 @@ CREATE TABLE `ingresosActividades` (
 --
 
 CREATE TABLE `ingreso_cuotas` (
-  `idIngresoCuotas` int(11) NOT NULL,
+  `idIngresoCuotas` int NOT NULL,
   `fecha` date NOT NULL,
   `concepto` varchar(250) DEFAULT NULL,
   `importe` decimal(3,0) DEFAULT NULL,
   `tipo` varchar(45) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -267,13 +268,13 @@ CREATE TABLE `ingreso_cuotas` (
 --
 
 CREATE TABLE `licencia` (
-  `idLicencia` int(11) NOT NULL,
+  `idLicencia` int NOT NULL,
   `img` varchar(250) NOT NULL,
-  `num_licencia` int(11) NOT NULL,
+  `num_licencia` int NOT NULL,
   `fecha_cad_licen` date NOT NULL,
   `tipo` varchar(45) NOT NULL,
-  `dorsal` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL
+  `dorsal` int NOT NULL,
+  `idUsuario` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -283,7 +284,7 @@ CREATE TABLE `licencia` (
 --
 
 CREATE TABLE `otras_entidades` (
-  `idEntidad` int(11) NOT NULL,
+  `idEntidad` int NOT NULL,
   `nombreEntidad` varchar(200) NOT NULL,
   `nif` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -295,12 +296,12 @@ CREATE TABLE `otras_entidades` (
 --
 
 CREATE TABLE `otros_gastos` (
-  `idOtrosGastos` int(11) NOT NULL,
+  `idOtrosGastos` int NOT NULL,
   `fecha` date NOT NULL,
   `concepto` varchar(200) NOT NULL,
   `importe` decimal(3,0) NOT NULL,
-  `idUsuario` int(11) NOT NULL,
-  `idEntidad` int(11) NOT NULL
+  `idUsuario` int NOT NULL,
+  `idEntidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -310,11 +311,11 @@ CREATE TABLE `otros_gastos` (
 --
 
 CREATE TABLE `otros_ingresos` (
-  `idOtrosIngresos` int(11) NOT NULL,
+  `idOtrosIngresos` int NOT NULL,
   `fecha` date NOT NULL,
   `concepto` varchar(250) DEFAULT NULL,
   `importe` decimal(3,0) NOT NULL,
-  `idEntidad` int(11) NOT NULL
+  `idEntidad` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -324,15 +325,15 @@ CREATE TABLE `otros_ingresos` (
 --
 
 CREATE TABLE `participante_externo` (
-  `idExterno` int(11) NOT NULL,
+  `idExterno` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(200) NOT NULL,
   `dni` varchar(9) NOT NULL,
   `fecha_nac` date NOT NULL,
   `email` varchar(100) NOT NULL,
-  `dorsal` int(11) NOT NULL,
+  `dorsal` int NOT NULL,
   `marca` varchar(20) DEFAULT NULL,
-  `idEvento` int(11) NOT NULL
+  `idEvento` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -342,10 +343,25 @@ CREATE TABLE `participante_externo` (
 --
 
 CREATE TABLE `prueba` (
-  `idPrueba` int(11) NOT NULL,
-  `nombre_prueba` varchar(150) NOT NULL,
-  `tipo` varchar(45) NOT NULL
+  `idPrueba` int NOT NULL,
+  `nombre_prueba` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `prueba`
+--
+
+INSERT INTO `prueba` (`idPrueba`, `nombre_prueba`) VALUES
+(1, 'Pista cubierta'),
+(2, 'Pista aire libre'),
+(3, 'Campo a traves'),
+(4, 'Ruta'),
+(5, 'Marcha'),
+(6, 'Montaña-Trail'),
+(7, 'Salto de altura'),
+(8, 'Salto de longitud'),
+(9, 'Salto de valla'),
+(10, 'Otros');
 
 -- --------------------------------------------------------
 
@@ -354,7 +370,7 @@ CREATE TABLE `prueba` (
 --
 
 CREATE TABLE `rol` (
-  `idRol` int(11) NOT NULL,
+  `idRol` int NOT NULL,
   `nombreRol` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -376,7 +392,7 @@ INSERT INTO `rol` (`idRol`, `nombreRol`) VALUES
 
 CREATE TABLE `sesiones` (
   `id_sesion` varchar(40) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int NOT NULL,
   `fecha_inicio` datetime NOT NULL,
   `fecha_fin` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -491,10 +507,36 @@ INSERT INTO `sesiones` (`id_sesion`, `id_usuario`, `fecha_inicio`, `fecha_fin`) 
 ('628ejorinp2fj1ueglhsh0lieh', 7, '2022-02-22 14:19:18', NULL),
 ('6p5vf3177re97ugks2354qt6qh', 7, '2022-02-23 09:06:42', NULL),
 ('b04ak254e8vkeul5c68k6blk2k', 9, '2022-02-28 09:45:20', NULL),
-('c34636048639d60e1ac6c05988f93fd1', 4, '2022-02-28 11:02:22', '2022-02-28 11:02:42'),
-('dbdf4e1bc0161acf38d59b577867814f', 4, '2022-02-28 11:16:04', '2022-02-28 11:16:20'),
-('323dbeab01094d475d317093d011d8ce', 4, '2022-02-28 11:16:30', '2022-02-28 11:18:30'),
-('de5513d7f35d3846cef290f9deaf3c65', 4, '2022-02-28 12:38:22', NULL);
+('vq3hj59k168nvujpt93jsiiipq', 3, '2022-03-01 09:09:29', '2022-03-01 09:09:31'),
+('qfgc7bdrs3nqrgbch1ftssu274', 3, '2022-03-01 09:09:45', '2022-03-01 09:25:41'),
+('n3e5vv2iksjimqpj62p2fdeqdb', 3, '2022-03-01 09:26:54', '2022-03-01 09:27:44'),
+('c185fepom0amc6m61m8mpl7a0d', 3, '2022-03-01 10:02:10', '2022-03-01 10:10:04'),
+('9iej8clvb1b0svadrvfcaar3uq', 3, '2022-03-01 10:10:09', NULL),
+('dm48j58ecos6nug91u6tmqu0a9', 3, '2022-03-01 11:11:46', '2022-03-01 11:19:47'),
+('q0j6016o83cda7m9duc81vu9ac', 3, '2022-03-01 11:24:56', '2022-03-01 11:54:13'),
+('vosaftqa3v0drotjqrbg6jd2rb', 3, '2022-03-01 11:54:18', NULL),
+('77udcs8iovji8dont7ii76t0dn', 3, '2022-03-01 13:22:13', '2022-03-01 14:34:38'),
+('ohja76jcg2b2heelc5gkjiq3sr', 3, '2022-03-01 14:34:42', NULL),
+('8r2qtjkorqdrilrtopodpo4gin', 3, '2022-03-02 09:07:16', '2022-03-02 10:21:29'),
+('sspe3ussn0hp9atofirtvh4e1m', 3, '2022-03-02 10:21:33', '2022-03-02 14:28:28'),
+('cikkqav6hr3m901e5b66ll5i4b', 5, '2022-03-02 14:28:52', '2022-03-02 14:30:51'),
+('ho5qjik5c44i1s621r0drtqv4e', 39, '2022-03-02 14:30:59', '2022-03-02 14:31:04'),
+('73t2qc6na5142qjchiv1ucqcq4', 3, '2022-03-02 14:31:09', NULL),
+('e723p8d1ku2umphg46qjem726k', 3, '2022-03-03 09:07:48', '2022-03-03 09:07:50'),
+('0025h7mqo6ehbs0n9o3c2kabjp', 9, '2022-03-03 09:07:57', '2022-03-03 09:07:59'),
+('geks1629o0udfj2bmscfvvsgkq', 12, '2022-03-03 09:08:06', '2022-03-03 09:08:07'),
+('8i33uqds8l4kimenk8pf81rj0l', 3, '2022-03-03 09:08:24', '2022-03-03 09:08:45'),
+('6qvn6o8j7nnsfsrmjtvi7gcbb3', 3, '2022-03-03 09:09:14', '2022-03-03 09:09:36'),
+('l6ag4lrh7lnce1luqgr2j95sb4', 6, '2022-03-03 09:13:02', '2022-03-03 09:14:40'),
+('carhl4bcenhpdub66eae1sroec', 7, '2022-03-03 09:14:56', NULL),
+('g88v3diulpp6fvskml6gjeldqc', 7, '2022-03-03 12:00:02', NULL),
+('b1ndejb25rk67rbopggtacvvek', 7, '2022-03-04 09:04:27', NULL),
+('dhsj6qofvsm5jpo58chivasqq2', 7, '2022-03-04 11:20:03', NULL),
+('t2upeh677h79tjqpgp2hjc444s', 7, '2022-03-04 13:14:36', NULL),
+('t621qrnbdd5nq4iun89bonmg74', 7, '2022-03-09 09:05:10', NULL),
+('ja2hjt3j9a81dfgn3c6bdt2k6n', 7, '2022-03-09 13:26:11', '2022-03-09 13:52:05'),
+('itbk23tm8hn1j6ikpmbh90ef8o', 6, '2022-03-09 13:52:16', '2022-03-09 13:52:21'),
+('s5pa74ucormfsfj1to9gfov2hb', 6, '2022-03-09 13:52:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -503,8 +545,8 @@ INSERT INTO `sesiones` (`id_sesion`, `id_usuario`, `fecha_inicio`, `fecha_fin`) 
 --
 
 CREATE TABLE `socio` (
-  `idUsuario` int(11) NOT NULL,
-  `idUsuarioFK` int(11) NOT NULL
+  `idUsuario` int NOT NULL,
+  `idUsuarioFK` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -515,8 +557,8 @@ CREATE TABLE `socio` (
 
 CREATE TABLE `socio_categoria` (
   `fecha` date NOT NULL,
-  `idUsuario` int(11) NOT NULL,
-  `idCategoria` int(11) NOT NULL
+  `idUsuario` int NOT NULL,
+  `idCategoria` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -528,9 +570,9 @@ CREATE TABLE `socio_categoria` (
 CREATE TABLE `socio_evento` (
   `fecha` date NOT NULL,
   `marca` decimal(3,0) NOT NULL,
-  `dorsal` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL,
-  `idEvento` int(11) NOT NULL
+  `dorsal` int NOT NULL,
+  `idUsuario` int NOT NULL,
+  `idEvento` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -542,9 +584,20 @@ CREATE TABLE `socio_evento` (
 CREATE TABLE `socio_prueba` (
   `fecha` date NOT NULL,
   `marca` varchar(45) NOT NULL,
-  `idUsuario` int(11) NOT NULL,
-  `idPrueba` int(11) NOT NULL
+  `idUsuario` int NOT NULL,
+  `idPrueba` int NOT NULL,
+  `idTest` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `socio_prueba`
+--
+
+INSERT INTO `socio_prueba` (`fecha`, `marca`, `idUsuario`, `idPrueba`, `idTest`) VALUES
+('2022-03-04', '10 seg', 10, 9, 18),
+('2022-03-04', '3 seg', 11, 1, 18),
+('2022-03-04', '10 seg', 11, 9, 18),
+('2022-03-09', '10 seg', 10, 1, 18);
 
 -- --------------------------------------------------------
 
@@ -553,9 +606,9 @@ CREATE TABLE `socio_prueba` (
 --
 
 CREATE TABLE `socio_solicitud_evento` (
-  `idUsuario` int(11) NOT NULL,
-  `idSolicitudEvento` int(11) NOT NULL,
-  `idEvento` int(11) NOT NULL,
+  `idUsuario` int NOT NULL,
+  `idSolicitudEvento` int NOT NULL,
+  `idEvento` int NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -566,7 +619,7 @@ CREATE TABLE `socio_solicitud_evento` (
 --
 
 CREATE TABLE `solicitud_evento` (
-  `idSolicitudEvento` int(11) NOT NULL,
+  `idSolicitudEvento` int NOT NULL,
   `fecha_ini` date NOT NULL,
   `fecha_fin` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -579,9 +632,9 @@ CREATE TABLE `solicitud_evento` (
 
 CREATE TABLE `solicitud_exter_evento` (
   `fecha` date NOT NULL,
-  `idExterno` int(11) NOT NULL,
-  `idEvento` int(11) NOT NULL,
-  `idSolicitudEvento` int(11) NOT NULL
+  `idExterno` int NOT NULL,
+  `idEvento` int NOT NULL,
+  `idSolicitudEvento` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -591,9 +644,9 @@ CREATE TABLE `solicitud_exter_evento` (
 --
 
 CREATE TABLE `solicitud_ext_solo_socio` (
-  `idSolicitudSocio` int(11) NOT NULL,
-  `idGrupo` int(11) NOT NULL,
-  `aceptado` tinyint(4) NOT NULL,
+  `idSolicitudSocio` int NOT NULL,
+  `idGrupo` int NOT NULL,
+  `aceptado` tinyint NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -604,7 +657,7 @@ CREATE TABLE `solicitud_ext_solo_socio` (
 --
 
 CREATE TABLE `solicitud_socio` (
-  `idSolicitudSocio` int(11) NOT NULL,
+  `idSolicitudSocio` int NOT NULL,
   `dni` varchar(9) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(150) NOT NULL,
@@ -620,7 +673,7 @@ CREATE TABLE `solicitud_socio` (
 --
 
 CREATE TABLE `temporada` (
-  `idTemporada` int(11) NOT NULL,
+  `idTemporada` int NOT NULL,
   `fecha_ini_temp` date NOT NULL,
   `fecha_fin_temp` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -632,8 +685,18 @@ CREATE TABLE `temporada` (
 --
 
 CREATE TABLE `test` (
-  `idtest` int(11) NOT NULL
+  `idTest` int NOT NULL,
+  `nombreTest` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `test`
+--
+
+INSERT INTO `test` (`idTest`, `nombreTest`) VALUES
+(18, 'Vamonooos'),
+(19, 'hola'),
+(20, 'funciona');
 
 -- --------------------------------------------------------
 
@@ -642,9 +705,20 @@ CREATE TABLE `test` (
 --
 
 CREATE TABLE `test_prueba` (
-  `idtest` int(11) NOT NULL,
-  `idPrueba` int(11) NOT NULL
+  `idTest` int NOT NULL,
+  `idPrueba` int NOT NULL,
+  `detalles` varchar(30) CHARACTER SET utf8mb4 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `test_prueba`
+--
+
+INSERT INTO `test_prueba` (`idTest`, `idPrueba`, `detalles`) VALUES
+(18, 1, '400 m'),
+(18, 9, '200 m'),
+(19, 6, '2 km'),
+(20, 5, '1 km');
 
 -- --------------------------------------------------------
 
@@ -653,17 +727,17 @@ CREATE TABLE `test_prueba` (
 --
 
 CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int NOT NULL,
   `apellidoUsuario` varchar(100) NOT NULL,
   `dniUsuario` varchar(9) NOT NULL,
   `cc` varchar(40) NOT NULL,
   `fecha_nac` date NOT NULL,
   `email` varchar(150) NOT NULL,
-  `clave` varchar(60) NOT NULL,
-  `foto` varchar(500) DEFAULT NULL,
+  `clave` varchar(60) CHARACTER SET utf8mb4 NOT NULL,
+  `foto` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
   `telefono` varchar(12) NOT NULL,
-  `activado` tinyint(4) NOT NULL,
-  `idRol` int(11) NOT NULL
+  `activado` tinyint NOT NULL,
+  `idRol` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -675,8 +749,8 @@ INSERT INTO `usuario` (`id_usuario`, `apellidoUsuario`, `dniUsuario`, `cc`, `fec
 (4, 'Legua', '72321123Q', '2020202020', '2002-03-23', 'javierlegua@hotmail.com', '$2y$10$.cH9HRnmSKGVKF3EPPclOurSaFtiYh3v9pJvAXt2as7vWXJds5Q1a', '', '698234638', 1, 1),
 (5, 'Manauta', '32178652P', '3030303030', '2000-05-23', 'raulmanauta@hotmail.com', '$2y$10$pfQcfU05B5UYQAQ1DRblh.3YQ.aWnk0I1RQdo4oA8jxDS57aV7iJS', '', '632894610', 1, 1),
 (6, 'Felpudiego', '12345678P', '4040404040', '2001-01-25', 'felpudiego@hotmail.com', '$2y$10$uQmwpkOEy4QhIrfz4.3FL.El2rU3YAD2H6lpMpNwZ.Jt.AQyhzErC', '', '678457632', 1, 2),
-(7, 'Magallon', '97531357M', '5050505050', '2002-10-08', 'oscarmagallon@hotmail.com', '$2y$10$9B3OR4UTXBbrufnehVQHXOoXFoVITXCuFWwY8cm71k1OsF9qVr/8S', '', '890789079', 1, 2),
-(8, 'Gil', '74537289P', '6060606060', '2000-04-04', 'gilpablo@hotmail.com', '$2y$10$4gXR4uJz8jrDo4atVdlKL.7xEuLN/bkFALhi04P9LZKCmudNY9KAm', '', '654321234', 1, 2),
+(7, 'Magallon', '97531357M', '5050505050', '2002-10-08', 'oscarmagallon@hotmail.com', '$2y$10$uQmwpkOEy4QhIrfz4.3FL.El2rU3YAD2H6lpMpNwZ.Jt.AQyhzErC', '', '890789079', 1, 2),
+(8, 'Gil', '74537289P', '6060606060', '2000-04-04', 'gilpablo@hotmail.com', '$2y$10$uQmwpkOEy4QhIrfz4.3FL.El2rU3YAD2H6lpMpNwZ.Jt.AQyhzErC', '', '654321234', 1, 2),
 (9, 'Amador', '12378965P', '7070707070', '1979-11-20', 'amadorrivas@hotmail.com', '$2y$10$Kl1wnHpEPTT0Fd8Rli2Apu8o9dZLnGQR/djUPaJsnILPOuQi.k/Bq', '', '645545454', 1, 3),
 (10, 'Fermin', '75665566P', '8080808080', '1968-08-15', 'fermintrujillo@hotmail.com', '$2y$10$y3J3H23g6iGxg6JT/9.E/encV57xnSKDTKMozdv/lIei.3Qc/xGCO', '', '607080909', 1, 3),
 (11, 'Dj Theo', '87623456P', '9090909090', '1979-10-06', 'teodororivas@hotmail.com', '$2y$10$piEzkSSFGj2wlTTJqFC82Oblpemv40X4LCEy4HfyWJFqYJ7WQJT0y', '', '601928374', 1, 3),
@@ -691,8 +765,8 @@ INSERT INTO `usuario` (`id_usuario`, `apellidoUsuario`, `dniUsuario`, `cc`, `fec
 --
 
 CREATE TABLE `usuario_temporada` (
-  `idUsuario` int(11) NOT NULL,
-  `idTemporada` int(11) NOT NULL
+  `idUsuario` int NOT NULL,
+  `idTemporada` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -859,9 +933,10 @@ ALTER TABLE `socio_evento`
 -- Indices de la tabla `socio_prueba`
 --
 ALTER TABLE `socio_prueba`
-  ADD PRIMARY KEY (`fecha`,`idUsuario`,`idPrueba`),
+  ADD PRIMARY KEY (`fecha`,`idUsuario`,`idPrueba`,`idTest`) USING BTREE,
   ADD KEY `idUsuario` (`idUsuario`),
-  ADD KEY `idPrueba` (`idPrueba`);
+  ADD KEY `idPrueba` (`idPrueba`),
+  ADD KEY `socio_prueba_ibfk_3` (`idTest`);
 
 --
 -- Indices de la tabla `socio_solicitud_evento`
@@ -909,13 +984,13 @@ ALTER TABLE `temporada`
 -- Indices de la tabla `test`
 --
 ALTER TABLE `test`
-  ADD PRIMARY KEY (`idtest`);
+  ADD PRIMARY KEY (`idTest`);
 
 --
 -- Indices de la tabla `test_prueba`
 --
 ALTER TABLE `test_prueba`
-  ADD PRIMARY KEY (`idtest`,`idPrueba`),
+  ADD PRIMARY KEY (`idTest`,`idPrueba`),
   ADD KEY `idPrueba` (`idPrueba`);
 
 --
@@ -940,121 +1015,121 @@ ALTER TABLE `usuario_temporada`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCategoria` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `equipacion`
 --
 ALTER TABLE `equipacion`
-  MODIFY `idEquipacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idEquipacion` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEvento` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `idGrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idGrupo` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `g_personal`
 --
 ALTER TABLE `g_personal`
-  MODIFY `id_gasto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gasto` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `idHorario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idHorario` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ingresosActividades`
 --
 ALTER TABLE `ingresosActividades`
-  MODIFY `idIngresoActividades` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idIngresoActividades` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ingreso_cuotas`
 --
 ALTER TABLE `ingreso_cuotas`
-  MODIFY `idIngresoCuotas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idIngresoCuotas` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `licencia`
 --
 ALTER TABLE `licencia`
-  MODIFY `idLicencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLicencia` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `otras_entidades`
 --
 ALTER TABLE `otras_entidades`
-  MODIFY `idEntidad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEntidad` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `otros_gastos`
 --
 ALTER TABLE `otros_gastos`
-  MODIFY `idOtrosGastos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idOtrosGastos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `otros_ingresos`
 --
 ALTER TABLE `otros_ingresos`
-  MODIFY `idOtrosIngresos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idOtrosIngresos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `participante_externo`
 --
 ALTER TABLE `participante_externo`
-  MODIFY `idExterno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idExterno` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `prueba`
 --
 ALTER TABLE `prueba`
-  MODIFY `idPrueba` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPrueba` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idRol` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud_evento`
 --
 ALTER TABLE `solicitud_evento`
-  MODIFY `idSolicitudEvento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSolicitudEvento` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud_socio`
 --
 ALTER TABLE `solicitud_socio`
-  MODIFY `idSolicitudSocio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSolicitudSocio` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `temporada`
 --
 ALTER TABLE `temporada`
-  MODIFY `idTemporada` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTemporada` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `test`
 --
 ALTER TABLE `test`
-  MODIFY `idtest` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTest` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas
@@ -1080,7 +1155,7 @@ ALTER TABLE `equipacion`
   ADD CONSTRAINT `equipacion_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `equipacion_ibfk_2` FOREIGN KEY (`idIngresoCuotas`) REFERENCES `ingreso_cuotas` (`idIngresoCuotas`),
   ADD CONSTRAINT `equipacion_ibfk_3` FOREIGN KEY (`idOtrosGastos`) REFERENCES `otros_gastos` (`idOtrosGastos`),
-  ADD CONSTRAINT `equipacion_ibfk_4` FOREIGN KEY (`idTienda`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `equipacion_ibfk_4` FOREIGN KEY (`idTienda`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `evento`
@@ -1093,7 +1168,7 @@ ALTER TABLE `evento`
 --
 ALTER TABLE `grupo_socio`
   ADD CONSTRAINT `grupo_socio_ibfk_1` FOREIGN KEY (`idGrupo`) REFERENCES `grupo` (`idGrupo`),
-  ADD CONSTRAINT `grupo_socio_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `grupo_socio_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `g_personal`
@@ -1172,8 +1247,9 @@ ALTER TABLE `socio_evento`
 -- Filtros para la tabla `socio_prueba`
 --
 ALTER TABLE `socio_prueba`
-  ADD CONSTRAINT `socio_prueba_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `socio` (`idUsuario`),
-  ADD CONSTRAINT `socio_prueba_ibfk_2` FOREIGN KEY (`idPrueba`) REFERENCES `prueba` (`idPrueba`);
+  ADD CONSTRAINT `socio_prueba_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `socio_prueba_ibfk_2` FOREIGN KEY (`idPrueba`) REFERENCES `prueba` (`idPrueba`),
+  ADD CONSTRAINT `socio_prueba_ibfk_3` FOREIGN KEY (`idTest`) REFERENCES `test` (`idTest`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `socio_solicitud_evento`
@@ -1202,7 +1278,7 @@ ALTER TABLE `solicitud_ext_solo_socio`
 -- Filtros para la tabla `test_prueba`
 --
 ALTER TABLE `test_prueba`
-  ADD CONSTRAINT `test_prueba_ibfk_1` FOREIGN KEY (`idtest`) REFERENCES `test` (`idtest`),
+  ADD CONSTRAINT `test_prueba_ibfk_1` FOREIGN KEY (`idTest`) REFERENCES `test` (`idTest`),
   ADD CONSTRAINT `test_prueba_ibfk_2` FOREIGN KEY (`idPrueba`) REFERENCES `prueba` (`idPrueba`);
 
 --
