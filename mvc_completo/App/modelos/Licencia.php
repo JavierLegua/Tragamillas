@@ -1,18 +1,24 @@
 <?php
 
     class Licencia{
+        
         private $db;
 
         public function __construct(){
             $this->db = new Base;
         }
 
+        public function obtenerLicencias(){
+            $this->db->query("SELECT * FROM licencia");
+            return $this->db->registros();
+        }
+
         public function agregarLicencia($licenciaNueva){
 
-            $this->db->query("INSERT INTO licencia (id_usuario, tipo ,num_licencia,regional_nacional,dorsal,fecha_cad,imagen) VALUES 
-            (:id , :tipo , :num_lic, :aut_nac, :dorsal, :fechaCad , :imagenLicAdmin)");
+            $this->db->query("INSERT INTO licencia (idUsuario, tipo ,num_licencia,dorsal,fecha_cad_licen,img) VALUES 
+            (:id , :tipo , :num_lic, :dorsal, :fechaCad , :imagenLicAdmin)");
     
-            $this->db->bind(':id', 33);
+            $this->db->bind(':id', $licenciaNueva['id']);
             $this->db->bind(':tipo', $licenciaNueva['tipo']);
             $this->db->bind(':num_lic',$licenciaNueva['num_lic']);
     

@@ -11,7 +11,7 @@
     <div class="card bg-light mt-5 w-75 justify-content-center align-items-center;">
         <h2 class="card-header">Añadir licencia</h2>
 
-        <form method="post" ENCTYPE="multipart/form-data" class="card-body">
+        <form method="post" ENCTYPE="multipart/form-data" action="<?php echo RUTA_URL?>/Licencias/nueva_licencia" class="card-body">
             <div class="mt-3 mb-3">
                 <label for="numlic">Número licencia: <sup>*</sup></label>
                 <input type="text" name="numlic" id="numlic" class="form-control form-control-lg">
@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3">
                 <label for="fecha_cad">Fecha caducidad: <sup>*</sup></label>
-                <input type="fecha_cad" name="fecha_cad" id="fecha_cad" class="form-control form-control-lg">
+                <input type="date" name="fecha_cad" id="fecha_cad" class="form-control form-control-lg">
             </div>
             <div class="mb-3">
                 <label for="tipo">Tipo licencia: <sup>*</sup></label>

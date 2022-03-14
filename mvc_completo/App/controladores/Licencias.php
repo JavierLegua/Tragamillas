@@ -1,5 +1,5 @@
 <?php
-    class Licencia extends Controlador{
+    class Licencias extends Controlador{
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
@@ -16,34 +16,40 @@
 
         public function index(){
 
-            // $usuarios = $this->usuarioModelo->obtenerUsuarios();
-
-            // $this->datos['usuario'] = $usuarios;
-
+            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
             $this->vista('licencias/inicio',$this->datos);
+            
 
         }
 
         public function nueva_licencia(){
-            $this->datos['rolesPermitidos'] = [3];
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
-                redireccionar('/usuarios');
-            }
+            
+
+            // $this->datos['rolesPermitidos'] = [3];
+            // if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
+            //     echo "hola1";exit();
+            //     redireccionar('/usuarios');
+            // }
     
             if($_SERVER['REQUEST_METHOD'] =='POST'){
     
-                $dir="/var/www/html/tragamillas/public/img/datosBBDD/";
+                $dir="/var/www/html/Tragamillas/mvc_completo/public/img/datosBBDD/";
     
     
                 move_uploaded_file($_FILES['imagenLicAdmin']['tmp_name'], $dir.$_FILES['imagenLicAdmin']['name']);
+
+                $id = $this->datos['usuarioSesion']->id_usuario;
     
                 $licenciaNueva = [
+                    'id' => trim($id),
                     'num_lic' => trim($_POST['numlic']),
                     'tipo' => trim($_POST['tipo']),
                     'dorsal' => trim($_POST['dorsal']),
                     'fechaCad' => trim($_POST['fecha_cad']),
                     'imagenLicAdmin' => $_FILES['imagenLicAdmin']['name']
                 ];
+
+                // print_r($licenciaNueva);exit();
     
                 if($this->licenciaModelo->agregarLicencia($licenciaNueva)){
                     redireccionar('/licencias');
@@ -53,8 +59,8 @@
     
             }else{
     
-                $this->vista('licencias',$this->datos);
+                $this->vista('licencias/inicio',$this->datos);
             }
         }
-
+    }
 ?>
