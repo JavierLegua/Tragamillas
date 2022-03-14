@@ -1,16 +1,16 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-    <main class="flex-shrink-0 margenTop">
+    <main class="flex-shrink-0 mt-auto">
         <div class="container">
-            <div class="row vista justify-content-around justify-content-center align-items-center">
+            <div class="row mt-5 justify-content-around">
                 
-                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                <div class="borde border col-lg-3 col-md-3  p-0 tarjeta">
                     <div class="card-header d-flex justify-content-center colortarjeta">
                         <i class="bi bi-stopwatch iconsize"></i>
                     </div>
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="#"><h4>Marcas</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/marcas"><h4>Marcas</h4></a>
                         </p>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="#"><h4>Pagos Cuotas</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="#"><h4>Pagos Cuotas</h4></a>
                         </p>
                     </div>
 
@@ -37,10 +37,11 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="#"><h4>Licencias</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/licencias"><h4>Licencias</h4></a>
                         </p>
                     </div>
-
+            </div>
+            <div class="row mt-5 justify-content-around">
                 </div>
 
                 <div class="borde border col-md-3 p-0 tarjeta">
@@ -51,7 +52,7 @@
             
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/perfiles"><h4>Perfil</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/perfiles"><h4>Perfil</h4></a>
                         </p>
                     </div>
 
@@ -64,7 +65,20 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones"><h4>Inscripciones</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones"><h4>Grupos</h4></a>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-journal-text iconsize"></i>
+                    </div>
+
+                    <div class="card-body d-flex justify-content-around">
+                        <p class="card-text">
+                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripcionesEventos"><h4>Eventos</h4></a>
                         </p>
                     </div>
 

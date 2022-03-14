@@ -10,7 +10,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones_grupos"><h4>Inscripcion grupos</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones_grupos"><h4>Inscripcion grupos</h4></a>
                         </p>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="#"><h4>Inscripcion eventos</h4> <i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripcionesEventos"><h4>Inscripcion eventos</h4></a>
                         </p>
                     </div>
                 </div>            

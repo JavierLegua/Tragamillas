@@ -39,8 +39,8 @@
                 ];
                 if ($abierto == 1 && $this->inscripcionModelo->confirmarInscripcion($id, $idGrupo, $inscripcionConfirmada)){
                     
-                    $this->vista('entrenadores/inicio',$this->datos);
-                    //redireccionar('/inscripciones_grupos');
+                    //$this->vista('entrenadores/inicio',$this->datos);
+                    redireccionar('/inscripciones_grupos');
 
                 } else {
                     if ($abierto == 0) {

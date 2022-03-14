@@ -54,7 +54,7 @@
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar_<?php echo $uruario->id_usuario ?>"><i class="bi bi-trash-fill"></i></button>
                     &nbsp;&nbsp;
                 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>"><i class="bi bi-shield-lock"></i></button>
+                    <button type="button" class="btn colortarjeta text-light" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>"><i class="bi bi-shield-lock"></i></button>
                 </td>
 
                 </tr>
@@ -204,7 +204,7 @@
         </div>
         <div class="modal-body">
         
-            <form method="post" action="<?php echo RUTA_URL?>/usuarios/agregar">
+            <form method="post" action="/usuarios/agregar">
                 <div class="mt-3 mb-3">
                     <label for="nombre">Nombre: <sup>*</sup></label>
                     <input type="text" name="nombre" id="nombre" class="form-control form-control-lg">
@@ -256,15 +256,15 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
 
-  <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/0" tabindex="-1" aria-disabled="true">Primera</a></li>
+  <li class="page-item"><a class="page-link textoColor" href="<?php echo RUTA_URL?>/usuarios/index/0" tabindex="-1" aria-disabled="true">Primera</a></li>
 
   <?php for ($i=0; $i < $this->numPaginas; $i++): ?>
 
-    <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/<?php echo $i?>"><?php echo $i+1 ?></a></li>
+    <li class="page-item"><a class="page-link textoColor" href="<?php echo RUTA_URL?>/usuarios/index/<?php echo $i?>"><?php echo $i+1 ?></a></li>
 
   <?php endfor ?>
 
-  <li class="page-item"><a class="page-link" href="<?php echo RUTA_URL?>/usuarios/index/<?php echo $this->numPaginas-1?>" tabindex="-1" aria-disabled="true">Última</a></li>
+  <li class="page-item"><a class="page-link textoColor" href="<?php echo RUTA_URL?>/usuarios/index/<?php echo $this->numPaginas-1?>" tabindex="-1" aria-disabled="true">Última</a></li>
     
   </ul>
 </nav>

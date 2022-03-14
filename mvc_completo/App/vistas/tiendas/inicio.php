@@ -10,7 +10,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/socios"><h4>Socios</h4><i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/socios"><h4>Socios</h4></a>
                         </p>
                     </div>
 
@@ -23,7 +23,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/pedidos"><h4>Pedidos</h4><i class="bi bi-box-arrow-right iconsizeb"></i></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/pedidos"><h4>Pedidos</h4></a>
                         </p>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [2,3];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -16,13 +16,25 @@
         }
 
         public function index(){
-            $marcas = $this->marcaModelo->obtenerMarcas($this->datos['usuarioSesion']->id_usuario);
+            
+            if ($this->datos['usuarioSesion']->idRol == 2) {
+                
+                $marcas = $this->marcaModelo->obtenerMarcas($this->datos['usuarioSesion']->id_usuario);
+                
+                $this->datos['marca'] = $marcas;
 
-            $this->datos['marca'] = $marcas;
+                $this->vista('marcas/inicio',$this->datos);
 
-           //print_r($this->datos['grupos']);exit;
+            } elseif ($this->datos['usuarioSesion']->idRol == 3) {
+                
+                $marcas = $this->marcaModelo->obtenerMarcasSocio($this->datos['usuarioSesion']->id_usuario);
+                
+                $this->datos['marca'] = $marcas;
+    
+                $this->vista('marcas/socio',$this->datos);
 
-            $this->vista('marcas/inicio',$this->datos);
+            }
+            
                 
         }
     }

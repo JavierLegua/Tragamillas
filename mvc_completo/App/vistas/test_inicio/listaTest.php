@@ -1,7 +1,10 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <main class="flex-shrink-0 margenTop">
     <div class="container">
-        <table class="table">
+        <div class="table-responsive">
+
+        
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -25,6 +28,7 @@
                 <?php endforeach ?>
             </tbody>
         </table>
+        </div>
 
     <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[2])):?>
         <div class="col text-center">

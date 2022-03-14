@@ -13,7 +13,7 @@
                 <div class="card-body d-flex justify-content-around">
                     
                     <p class="card-text">
-                        <a class="colorb" href="<?php echo RUTA_URL?>/grupos"><h4>Grupos</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL ?>/grupos"><h4>Grupos</h4></a>
                     </p>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <div class="card-body d-flex justify-content-around">
                     
                     <p class="card-text">
-                        <a class="colorb" href="#"><h4>Eventos</h4></i></a>
+                        <a class="colorb" href="<?php echo RUTA_URL ?>/eventos"><h4>Eventos</h4></a>
                     </p>
                 </div>
             </div>

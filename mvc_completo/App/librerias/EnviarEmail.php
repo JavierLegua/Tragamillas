@@ -61,11 +61,10 @@
     //            $respuesta = 'El Mensaje ha sido enviado correctamente';
                 $respuesta = '1';
                 
-                redireccionar('/');
+                // redireccionar('/');
                 
             } catch (Exception $e) {
-                 echo $respuesta = "No se ha podido enviar el mensaje. Error: {$mail->ErrorInfo}";
-                 //$respuesta = '0';
+                $respuesta= $mail->ErrorInfo;
              }
              
             return $respuesta;

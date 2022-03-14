@@ -13,5 +13,11 @@
             return $this->db->registros();
         }
 
+        public function obtenerMarcasSocio($id){
+            $this->db->query("SELECT DISTINCT m.fecha, m.marca, p.nombre_prueba, t.nombreTest FROM socio_prueba as m, prueba as p, test as t WHERE $id = m.idUsuario AND p.idPrueba = m.idPrueba AND t.idTest = m.idTest");
+
+            return $this->db->registros();
+        }
+
     }
 ?>

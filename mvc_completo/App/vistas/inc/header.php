@@ -35,27 +35,9 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <div class="dropdown">
-                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Grupos
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Crear</a></li>
-                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                                    <li><a class="dropdown-item" href="#">Ver</a></li>
-                                </ul>
-                            </div>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
                         <?php else: ?>
-                            <div class="dropdown">
-                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Grupos
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Crear</a></li>
-                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                                    <li><a class="dropdown-item" href="#">Ver</a></li>
-                                </ul>
-                            </div>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
                         <?php endif ?>
                     </li>
 
@@ -69,27 +51,9 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <div class="dropdown">
-                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Eventos
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Organizar</a></li>
-                                    <li><a class="dropdown-item" href="#">Gestionar</a></li>
-                                    <li><a class="dropdown-item" href="#">Consultar</a></li>
-                                </ul>
-                            </div>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/eventos">Eventos</a>
                         <?php else: ?>
-                            <div class="dropdown">
-                                <button class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Eventos
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Organizar</a></li>
-                                    <li><a class="dropdown-item" href="#">Gestionar</a></li>
-                                    <li><a class="dropdown-item" href="#">Consultar</a></li>
-                                </ul>
-                            </div>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/eventos">Eventos</a>
                         <?php endif ?>
                     </li>
 
@@ -241,9 +205,9 @@
 
     <li class="nav-item">
         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Pedidos</a>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/pedidos">Pedidos</a>
         <?php else: ?>
-            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Pedidos</a>
+            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/pedidos">Pedidos</a>
         <?php endif ?>
     </li>
 

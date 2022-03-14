@@ -70,6 +70,9 @@
 .colortarjeta{
     background-color: #023ef9;
 }
+.textoColor{
+    color: #023ef9;
+}
 
 .colortarjetahover:hover{
     color: #023ef9;

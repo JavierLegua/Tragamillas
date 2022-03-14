@@ -2,7 +2,9 @@
 <main class="flex-shrink-0 margenTop">
   <div class="container">
 
-  
+  <div class="table-responsive">
+
+ 
 
     <table class="table table-hover">
         <thead>
@@ -32,7 +34,7 @@
             <?php endforeach ?>
         </tbody>
     </table>
-
+</div>
     <!-- paginacion -->
 
 <br><br>

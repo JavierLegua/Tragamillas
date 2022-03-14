@@ -36,7 +36,7 @@
                   <input type="password" name="clave" id="clave" class="form-control form-control-lg" placeholder="Contraseña" autocomplete="off" required/>
                 </div>
 
-                <input type="submit" class="mt-3 btn btn-outline-light btn-lg px-5 colortarjeta colortarjetahover prueba" value="Login"> <br>
+                <input type="submit" class="mt-3 btn btn-lg px-5 colortarjeta colortarjetahover prueba" value="Login"> <br>
               </form>  
             </div>
 
@@ -77,7 +77,10 @@
         </div>
         
       </div>
-    
+
+      <!-- -------------------------Entrar como externo------------------------- -->
+
+      <p class="text-center">Entrar como <a href="" data-bs-toggle="modal" data-bs-target="#registrar">invitado</a></p>
 
       <!-- -------------------------Modal registrar nuevo usuario------------------------- -->
 
