@@ -48,6 +48,24 @@
             }
     
         }
+
+        public function editarLicencia($datos){
+            $this->db->query("UPDATE licencia SET fecha_cad_licen=:fechaCad, dorsal=:dorsal, tipo=:tipo");
+
+             //vinculamos los valores
+            //  $this->db->bind(':img',$datos['imagenLicAdmin']);
+             $this->db->bind(':fecha_cad_licen',$datos['fechaCad']);
+             $this->db->bind(':dorsal',$datos['dorsal']);
+             $this->db->bind(':tipo',$datos['tipo']);
+
+ 
+             //ejecutamos
+             if($this->db->execute()){
+                 return true;
+             } else {
+                 return false;
+             }
+        }
     }
 
 ?>

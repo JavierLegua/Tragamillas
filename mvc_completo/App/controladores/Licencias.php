@@ -16,20 +16,22 @@
 
         public function index(){
 
-            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
-            $this->vista('licencias/inicio',$this->datos);
             
-
+            if ($this->datos['usuarioSesion']->idRol == 1) {
+                $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+                $this->vista('licencias/verLicencias',$this->datos);
+            }elseif($this->datos['usuarioSesion']->idRol == 3){
+                $this->vista('licencias/inicio',$this->datos);
+            }
         }
 
         public function nueva_licencia(){
             
 
-            // $this->datos['rolesPermitidos'] = [3];
-            // if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
-            //     echo "hola1";exit();
-            //     redireccionar('/usuarios');
-            // }
+            $this->datos['rolesPermitidos'] = [3];
+            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
+                redireccionar('/usuarios');
+            }
     
             if($_SERVER['REQUEST_METHOD'] =='POST'){
     
@@ -62,10 +64,53 @@
                 $this->vista('licencias/inicio',$this->datos);
             }
         }
+        
         public function verLicencias(){
-
             $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
             $this->vista('licencias/verLicencias',$this->datos);
+
+        }
+
+        public function editar($num){
+            // $this->datos['rolesPermitidos'] = [1];
+            // if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
+            //     redireccionar('/licencias/verLicencias');
+            // }
+
+            if($_SERVER['REQUEST_METHOD'] =='POST'){
+    
+                $dir="/var/www/html/Tragamillas/mvc_completo/public/img/datosBBDD/";
+    
+    
+                // move_uploaded_file($_FILES['imagenLic']['tmp_name'], $dir.$_FILES['imagenLic']['name']);
+
+                $id = $this->datos['usuarioSesion']->id_usuario;
+    
+                $licenciaEditada = [
+                    'tipo' => trim($_POST['tipo']),
+                    'dorsal' => trim($_POST['dorsal']),
+                    'fechaCad' => trim($_POST['fecha_cad']),
+                    // 'imagenLicSocio' => $_FILES['imagenLic']['name']
+                ];
+
+                // print_r($licenciaEditada);exit();
+
+                if($this->licenciaModelo->editarLicencia($licenciaEditada)){
+                    redireccionar('/licencias');
+                }else{
+                    die('Algo ha fallado!!');
+                }
+    
+            }else{
+    
+                $this->vista('licencias/verLicencias',$this->datos);
+            }
+
+        }
+
+        public function borrar($num){
+
+
 
         }
     }
