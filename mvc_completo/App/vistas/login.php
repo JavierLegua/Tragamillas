@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<section>
+<main class="flex-shrink-0 margenTop">
 
   <div class="container">
     <div class="row d-flex vh-100 justify-content-center align-items-center">
@@ -36,7 +36,7 @@
                   <input type="password" name="clave" id="clave" class="form-control form-control-lg" placeholder="Contraseña" autocomplete="off" required/>
                 </div>
 
-                <input type="submit" class="mt-3 btn btn-lg px-5 colortarjeta colortarjetahover prueba" value="Login"> <br>
+                <input type="submit" class="color mt-3 btn btn-lg px-5 colortarjeta colortarjetahover" value="Login"> <br>
               </form>  
             </div>
 
@@ -80,7 +80,7 @@
 
       <!-- -------------------------Entrar como externo------------------------- -->
 
-      <p class="text-center">Entrar como <a href="" data-bs-toggle="modal" data-bs-target="#registrar">invitado</a></p>
+      <p class="text-center">Entrar como <a href="<?php echo RUTA_URL?>/invitados">invitado</a></p>
 
       <!-- -------------------------Modal registrar nuevo usuario------------------------- -->
 
@@ -140,7 +140,7 @@
     
 
   </div>
-</section>
+</main>
 
 <script>
 

@@ -24,11 +24,11 @@
                             <td><?php echo $uruario->telefono ?></td>
         <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
                             <td>
-                                <a href="<?php echo RUTA_URL?>/tiendas/editarTienda/<?php echo $uruario->id_usuario ?>">Editar</a>
+                                <a class="btn btn-warning" href="<?php echo RUTA_URL?>/tiendas/editarTienda/<?php echo $uruario->id_usuario ?>"><i class="bi bi-pencil"></i></a>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="<?php echo RUTA_URL?>/tiendas/borrarTienda/<?php echo $uruario->id_usuario ?>">Borrar</a>
+                                <a class="btn btn-danger" href="<?php echo RUTA_URL?>/tiendas/borrarTienda/<?php echo $uruario->id_usuario ?>"><i class="bi bi-trash-fill"></i></a>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">Cambiar contraseña</a>
+                                <a class="btn colortarjeta text-light" href="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>"><i class="bi bi-shield-lock"></i></a>
                             </td>
         <?php endif ?>
                         </tr>

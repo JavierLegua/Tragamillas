@@ -55,7 +55,7 @@ class InscripcionEvento{
     }
 
     public function obtenerInscripciones($id){
-        $this->db->query("SELECT e.nombre_evento, u.apellidoUsuario, ei.aceptado, e.idEvento, u.id_usuario FROM evento_inscripcion as ei, evento as e, usuario as u, grupo_socio as gs, entrenador_grupo as eg, grupo as g WHERE gs.idUsuario = u.id_usuario AND eg.idUsuario = $id AND eg.idGrupo = gs.idGrupo AND g.idGrupo = gs.idGrupo");
+        $this->db->query("SELECT DISTINCT e.nombre_evento, u.apellidoUsuario, ei.aceptado, e.idEvento, u.id_usuario FROM evento_inscripcion as ei, evento as e, usuario as u, grupo_socio as gs, entrenador_grupo as eg, grupo as g WHERE gs.idUsuario = u.id_usuario AND eg.idUsuario = $id AND eg.idGrupo = gs.idGrupo AND g.idGrupo = gs.idGrupo AND u.id_usuario = ei.idUsuario AND e.idEvento = ei.idEvento");
 
         return $this->db->registros();
     }

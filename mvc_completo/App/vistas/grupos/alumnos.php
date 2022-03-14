@@ -18,8 +18,8 @@
             </tbody>
         </table>
 
-        <a class="btn btn-primary justify-content-center" href="<?php echo RUTA_URL?>/grupos/cerrarGrupos/<?php echo $this->datos['idGrupo']?>">Cerrar grupo</a>
-        <a class="btn btn-primary justify-content-center" href="<?php echo RUTA_URL?>/grupos/abrirGrupos/<?php echo $this->datos['idGrupo']?>">Abrir grupo</a>
+        <a class="btn colortarjeta text-light justify-content-center" href="<?php echo RUTA_URL?>/grupos/cerrarGrupos/<?php echo $this->datos['idGrupo']?>">Cerrar grupo</a>
+        <a class="btn colortarjeta text-light justify-content-center" href="<?php echo RUTA_URL?>/grupos/abrirGrupos/<?php echo $this->datos['idGrupo']?>">Abrir grupo</a>
     </div>    
 </main>
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>
