@@ -4,7 +4,7 @@
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [1];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1,3];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -177,14 +177,14 @@
                 $dir="/var/www/html/Tragamillas/mvc_completo/public/img/datosBBDD/";
     
     
-                move_uploaded_file($_FILES['imagenLicAdmin']['tmp_name'], $dir.$_FILES['imagenLicAdmin']['name']);
+                move_uploaded_file($_FILES['imagen']['tmp_name'], $dir.$_FILES['imagen']['name']);
 
                 //$id = $this->datos['usuarioSesion']->id_usuario;
     
                 $fotoNueva = [
                     'imagen' => $_FILES['imagen']['name']
                 ];
-
+                echo $fotoNueva; exit();
                 if($this->usuarioModelo->agregarFoto($fotoNueva)){
                     // print_r($licenciaNueva);exit();
                     redireccionar('/perfiles');
@@ -192,6 +192,7 @@
                     die('Algo ha fallado!!');
                 }
         }
+    }
 
 
         public function borrar($id){
