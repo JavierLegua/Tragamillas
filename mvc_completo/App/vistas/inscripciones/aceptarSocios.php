@@ -30,13 +30,13 @@
                                 <td><?php echo $uruario->aceptado ?></td>
                                 <td>
                                     <form action="<?php echo RUTA_URL?>/inscripciones_grupos/confirmarinscripcion/<?php echo $uruario->idUsuario?>/<?php echo $uruario->idGrupo?>/<?php echo $uruario->abierto?>" method="post">
-                                        <button class="btn btn-primary" type="submit">Aceptar inscripcion</button>
+                                        <button class="btn colortarjeta text-light" type="submit">Aceptar inscripcion</button>
                                     </form>
                                     
                                 </td>  
                                 <td>
                                     <form action="<?php echo RUTA_URL?>/inscripciones_grupos/cancelarinscripcion/<?php echo $uruario->idUsuario?>/<?php echo $uruario->idGrupo?>" method="post">
-                                        <button class="btn btn-primary" type="submit">Cancelar inscripcion</button>
+                                        <button class="btn colortarjeta text-light" type="submit">Cancelar inscripcion</button>
                                     </form>
                                 </td>  
                             </tr>

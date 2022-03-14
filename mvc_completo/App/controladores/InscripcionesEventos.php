@@ -82,7 +82,7 @@
                 ];
                 if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
                     //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripciones');
+                    redireccionar('/inscripcionesEventos');
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -111,7 +111,7 @@
                 ];
                 if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
                     //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripciones');
+                    redireccionar('/inscripcionesEventos');
                 } else {
                     die('Algo ha fallado!!!');
                 }

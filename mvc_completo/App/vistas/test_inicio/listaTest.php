@@ -21,7 +21,7 @@
                         <td><?php echo $uruario->nombreTest ?></td>
     <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[2])):?>
                         <td>
-                            <a href="<?php echo RUTA_URL?>/tests/agregarPruebaTest/<?php echo $uruario->idTest ?>">Agregar pruebas</a>
+                            <a class="btn colortarjeta text-light" href="<?php echo RUTA_URL?>/tests/agregarPruebaTest/<?php echo $uruario->idTest ?>">Agregar pruebas</a>
                         </td>
     <?php endif ?>
                     </tr>

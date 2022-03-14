@@ -21,7 +21,7 @@
                                 <td><?php echo $uruario->id_usuario ?></td>
                                 <td><?php echo $uruario->apellidoUsuario ?></td>
                                 <td>
-                                    <a href="<?php echo RUTA_URL?>/alumnos/realizarTest/<?php echo $uruario->id_usuario ?>">Realizar test</a>
+                                    <a class="btn colortarjeta text-light" href="<?php echo RUTA_URL?>/alumnos/realizarTest/<?php echo $uruario->id_usuario ?>">Realizar test</a>
                                 </td>
                             </tr>
                         <?php endif ?>

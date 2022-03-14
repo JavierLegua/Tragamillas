@@ -21,12 +21,12 @@
                             <td><?php echo $uruario->aceptado ?></td>
                             <td>
                                 <form action="<?php echo RUTA_URL?>/inscripcionesEventos/aceptarEvento/<?php echo $uruario->idEvento?>/<?php echo $uruario->id_usuario?>" method="post">
-                                    <button class="btn btn-primary" type="submit">Aceptar al evento</button>
+                                    <button class="btn colortarjeta text-light" type="submit">Aceptar al evento</button>
                                 </form>
                             </td>    
                             <td>
                                 <form action="<?php echo RUTA_URL?>/inscripcionesEventos/cancelarEvento/<?php echo $uruario->idEvento?>/<?php echo $uruario->id_usuario?>" method="post">
-                                    <button class="btn btn-primary" type="submit">Denegar evento</button>
+                                    <button class="btn colortarjeta text-light" type="submit">Denegar evento</button>
                                 </form>
                             </td>            
                         </tr>
