@@ -17,24 +17,22 @@
 
         public function index(){
             //Obtenemos los grupos
-            if ($this->datos['usuarioSesion']->idRol == 5) {
-                
-                $inscripcionesEventoExt = $this->inscripcionEventoModelo->obtenerTodosEventos();
-             
-                $this->datos['inscripcionEvento'] = $inscripcionesEvento;
-                
-                $this->vista('inscripciones/eventos_invitado',$this->datos);
 
-            } elseif ($this->datos['usuarioSesion']->idRol == 2) {
+            $inscripcionesEventoExt = $this->inscripcionEventoExtModelo->obtenerTodosEventos();
+            $fecha_actual = getdate();
+            $fecha_actual = date("Y-m-d");
+            $cont = 0;
+            foreach ($inscripcionesEventoExt as $evt) {
                 
-                // $inscripcionesEvento = $this->inscripcionEventoModelo->obtenerTodasInscripciones();
-                $inscripcionesEvento = $this->inscripcionEventoModelo->obtenerInscripciones($this->datos['usuarioSesion']->id_usuario);
-             
-                $this->datos['inscripcionEvento'] = $inscripcionesEvento;
-                
-                $this->vista('inscripciones/socioEvento',$this->datos);
-
+                if ($evt->fecha_ini_even > $fecha_actual) {
+                    $ins_evt[$cont] = $evt;
+                }
+                $cont++;
             }
+            $this->datos['inscripcionEvento'] = $ins_evt;
+            //print_r($ins_evt);exit;
+                
+            $this->vista('inscripciones/eventos_invitado',$this->datos);
 
         }
         
@@ -42,7 +40,7 @@
             $this->datos['rolesPermitidos'] = [5];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                redireccionar('/inscripcionesEvento');
+                redireccionar('/inscripcionesEventoExt');
             }
             // print_r($this->datos);exit();
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -51,7 +49,7 @@
                     'idUsuario' => $this->datos['usuarioSesion']->id_usuario,
                     'idEvento' => $id,                     
                 ];
-                if ($this->inscripcionEventoModelo->agregarInscripcion($inscripcionNueva)){
+                if ($this->inscripcionEventoModeloExt->agregarInscripcion($inscripcionNueva)){
                     //$this->vista('inscripciones/inicio',$this->datos);
                     redireccionar('/inscripciones');
                 } else {
@@ -67,63 +65,63 @@
 
         }
 
-        public function aceptarEvento($id, $idUsuario){
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+        // public function aceptarEvento($id, $idUsuario){
+        //     $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
 
-            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                redireccionar('/inscripcionesEvento');
-            }
-            // print_r($this->datos);exit();
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $inscripcion = [
-                    'idUsuario' => $idUsuario,
-                    'idEvento' => $id,
-                    'aceptado' => 1,                      
-                ];
-                if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripcionesEventos');
-                } else {
-                    die('Algo ha fallado!!!');
-                }
-            } else {
-                $this->datos['inscripcion'] = (object) [
-                    'idUsuario' => '',
-                    'idEvento' => '',
-                ];
-                $this->vista('inscripciones/inicio',$this->datos);
-            }
+        //     if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+        //         redireccionar('/inscripcionesEvento');
+        //     }
+        //     // print_r($this->datos);exit();
+        //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //         $inscripcion = [
+        //             'idUsuario' => $idUsuario,
+        //             'idEvento' => $id,
+        //             'aceptado' => 1,                      
+        //         ];
+        //         if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
+        //             //$this->vista('inscripciones/inicio',$this->datos);
+        //             redireccionar('/inscripcionesEventos');
+        //         } else {
+        //             die('Algo ha fallado!!!');
+        //         }
+        //     } else {
+        //         $this->datos['inscripcion'] = (object) [
+        //             'idUsuario' => '',
+        //             'idEvento' => '',
+        //         ];
+        //         $this->vista('inscripciones/inicio',$this->datos);
+        //     }
 
-        }
+        // }
 
-        public function cancelarEvento($id, $idUsuario){
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+        // public function cancelarEvento($id, $idUsuario){
+        //     $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
 
-            if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
-                redireccionar('/inscripcionesEvento');
-            }
-            // print_r($this->datos);exit();
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $inscripcion = [
-                    'idUsuario' => $idUsuario,
-                    'idEvento' => $id,
-                    'aceptado' => 0,                      
-                ];
-                if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripcionesEventos');
-                } else {
-                    die('Algo ha fallado!!!');
-                }
-            } else {
-                $this->datos['inscripcion'] = (object) [
-                    'idUsuario' => '',
-                    'idEvento' => '',
-                ];
-                $this->vista('inscripciones/inicio',$this->datos);
-            }
+        //     if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
+        //         redireccionar('/inscripcionesEvento');
+        //     }
+        //     // print_r($this->datos);exit();
+        //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //         $inscripcion = [
+        //             'idUsuario' => $idUsuario,
+        //             'idEvento' => $id,
+        //             'aceptado' => 0,                      
+        //         ];
+        //         if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
+        //             //$this->vista('inscripciones/inicio',$this->datos);
+        //             redireccionar('/inscripcionesEventos');
+        //         } else {
+        //             die('Algo ha fallado!!!');
+        //         }
+        //     } else {
+        //         $this->datos['inscripcion'] = (object) [
+        //             'idUsuario' => '',
+        //             'idEvento' => '',
+        //         ];
+        //         $this->vista('inscripciones/inicio',$this->datos);
+        //     }
 
-        }
+        // }
 
     }
 ?>

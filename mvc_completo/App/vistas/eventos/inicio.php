@@ -60,11 +60,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="fi">Fecha inicio: <sup>*</sup></label>
-                    <input type="text" name="fecha_ini_even" id="fecha_ini_even" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
+                    <input type="date" name="fecha_ini_even" id="fecha_ini_even" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
                 </div>
                 <div class="mb-3">
                     <label for="ff">Fecha fin: <sup>*</sup></label>
-                    <input type="ff" name="fecha_fin_even" id="fecha_fin_even" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
+                    <input type="date" name="fecha_fin_even" id="fecha_fin_even" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
                 </div>
                 <input type="submit" class="btn btn-success" value="Registrar evento" onclick="return confirm('¿Seguro que quieres registrar este evento?');">
             </form>

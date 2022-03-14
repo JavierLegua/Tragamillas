@@ -20,8 +20,19 @@
             if ($this->datos['usuarioSesion']->idRol == 3) {
                 
                 $inscripcionesEvento = $this->inscripcionEventoModelo->obtenerTodosEventos();
-             
-                $this->datos['inscripcionEvento'] = $inscripcionesEvento;
+
+                $fecha_actual = getdate();
+                $fecha_actual = date("Y-m-d");
+                $cont = 0;
+                foreach ($inscripcionesEvento as $evt) {
+                
+                    if ($evt->fecha_ini_even > $fecha_actual) {
+                        $ins_evt[$cont] = $evt;
+                    }
+                    $cont++;
+                }
+                $this->datos['inscripcionEvento'] = $ins_evt;
+                //$this->datos['inscripcionEvento'] = $inscripcionesEvento;
                 
                 $this->vista('inscripciones/eventos',$this->datos);
 

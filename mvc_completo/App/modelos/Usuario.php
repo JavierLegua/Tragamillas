@@ -16,9 +16,9 @@
         public function obtenerUsuarios($min = -1, $registrosPorPagina = 0){
 
             if ($min == -1 && $registrosPorPagina == 0) {
-                $this->db->query("SELECT * FROM usuario");
+                $this->db->query("SELECT * FROM usuario WHERE id_usuario NOT IN(0)");
             }else{
-                $this->db->query("SELECT * FROM usuario LIMIT $min, $registrosPorPagina");
+                $this->db->query("SELECT * FROM usuario WHERE id_usuario NOT IN(0) LIMIT $min, $registrosPorPagina");
             }
 
             return $this->db->registros();

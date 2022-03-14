@@ -82,7 +82,7 @@
             </div>
             <div class="mb-3">
                 <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
-                <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd" value="<?php echo $uruario->fecha_nac ?>">
+                <input type="date" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd" value="<?php echo $uruario->fecha_nac ?>">
             </div>
             <div class="mb-3">
                 <label for="email">Email: <sup>*</sup></label>
@@ -219,7 +219,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
-                    <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
+                    <input type="date" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
                 </div>
                 <div class="mb-3">
                     <label for="email">Email: <sup>*</sup></label>
