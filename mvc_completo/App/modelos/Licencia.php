@@ -66,6 +66,17 @@
                  return false;
              }
         }
+
+        public function borrarLicencia($num){
+            $this->db->query("DELETE FROM licencia WHERE num_licencia = :num");
+            $this->db->bind(':num', $num);
+
+            if ($this->db->execute()) {
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
 ?>

@@ -170,6 +170,29 @@
             }
         }
 
+        public function subirFoto($id){
+
+            if($_SERVER['REQUEST_METHOD'] =='POST'){
+    
+                $dir="/var/www/html/Tragamillas/mvc_completo/public/img/datosBBDD/";
+    
+    
+                move_uploaded_file($_FILES['imagenLicAdmin']['tmp_name'], $dir.$_FILES['imagenLicAdmin']['name']);
+
+                //$id = $this->datos['usuarioSesion']->id_usuario;
+    
+                $fotoNueva = [
+                    'imagen' => $_FILES['imagen']['name']
+                ];
+
+                if($this->usuarioModelo->agregarFoto($fotoNueva)){
+                    // print_r($licenciaNueva);exit();
+                    redireccionar('/perfiles');
+                }else{
+                    die('Algo ha fallado!!');
+                }
+        }
+
 
         public function borrar($id){
             

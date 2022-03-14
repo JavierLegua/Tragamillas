@@ -40,7 +40,7 @@
 <h5 class="modal-title"> Editar Licencia  <?php echo $licencias->num_licencia ?></h5>
 <span onclick="cerrar(<?php echo $licencias->num_licencia ?>)" class="close"><i class="bi bi-x-lg"></i></span>
 </div>
-<!-- Modal content -->
+
 
 <form method="post" ENCTYPE="multipart/form-data" action="<?php echo RUTA_URL?>/Licencias/editar/<?php echo $licencias->num_licencia ?>">
 <div class="mb-3">
@@ -68,37 +68,32 @@
 
 
 
-<!-- Modal borrar usuario -->
-<div class="modal fade" id="modalborrar_<?php echo $uruario->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalBorrar" aria-hidden="true">
+<!-- Modal borrar licencia -->
+<div class="modal fade" id="modalborrar_<?php echo $licencias->num_licencia ?>" tabindex="-1" aria-labelledby="exampleModalBorrar" aria-hidden="true">
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title" id="exampleModalBorrar">Borrar Usuario</h5>
+<h5 class="modal-title" id="exampleModalBorrar">Borrar licencia</h5>
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
 
-<form method="post" action="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">
+<form method="post" action="<?php echo RUTA_URL?>/Licencias/borrar/<?php echo $licencias->num_licencia ?>">
 <div class="mt-3 mb-3">
-    <label for="nombre">Nombre: <sup>*</sup></label>
-    <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>" disabled>
+    <label for="num_lic">Número licencia: <sup>*</sup></label>
+    <input type="text" name="num_lic" id="num_lic" class="form-control form-control-lg" value="<?php echo $licencias->num_licencia ?>" disabled>
 </div>
 <div class="mb-3">
-    <label for="email">Email: <sup>*</sup></label>
-    <input type="email" name="email" id="email" class="form-control form-control-lg" value="<?php echo $uruario->email ?>" disabled>
+    <label for="dorsal">Dorsal: <sup>*</sup></label>
+    <input type="text" name="dorsal" id="dorsal" class="form-control form-control-lg" value="<?php echo $licencias->dorsal ?>" disabled>
 </div>
-<div class="mb-3">
-    <label for="telefono">Teléfono: <sup>*</sup></label>
-    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario-> telefono ?>" disabled>
-</div>
-<input type="submit" class="btn btn-success" value="Borrar Usuario" onclick="return confirm('¿Seguro que quieres eliminar este usuario?');">
+<input type="submit" class="btn btn-success" value="Borrar licencia" onclick="return confirm('¿Seguro que quieres eliminar esta licencia?');">
 </form>
 
 </div>
 </div>
 </div>
 </div>
-<!-- fin modal borrar usuario -->
 
 
 <?php endif ?>

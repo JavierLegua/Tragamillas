@@ -137,6 +137,14 @@
             }
         }
 
+        public function agregarFoto($id, $fotoNueva){
+            $this->db->query("UPDATE usuario SET foto = :foto WHERE id_usuario = :id");
+
+            $this->db->bind(':id', $id);
+            $this->db->bind(':foto', $fotoNueva['imagen']);
+
+        }
+
 ///////////////////////////////////////////////// Sesion //////////////////////////////////////////////
 
         public function obtenerSesionesUsuario($id){

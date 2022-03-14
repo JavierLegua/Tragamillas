@@ -111,8 +111,13 @@
 
         public function borrar($num){
 
-
-
+            if ($_SERVER['REQUEST_METHOD'] =='POST') {
+                if ($this->licenciaModelo->borrarLicencia($num)) {
+                    redireccionar('/licencias/verLicencias');
+                }else{
+                    die('Algo ha fallado');
+                }
+            }
         }
     }
 ?>
