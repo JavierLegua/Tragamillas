@@ -212,6 +212,24 @@
     </li>
 
 <?php endif ?>
+
+<?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[5])):?>
+    <li class="nav-item">
+        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/socios">Inscripcion Eventos</a>
+        <?php else: ?>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/socios">Inscripcion Eventos</a>
+        <?php endif ?>
+    </li>
+
+    <li class="nav-item">
+        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/pedidos">Consultar Marcas</a>
+        <?php else: ?>
+            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/pedidos">Consultar Marcas</a>
+        <?php endif ?>
+    </li>
+<?php endif ?>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="navbar-text">

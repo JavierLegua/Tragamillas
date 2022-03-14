@@ -62,5 +62,11 @@
                 $this->vista('licencias/inicio',$this->datos);
             }
         }
+        public function verLicencias(){
+
+            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+            $this->vista('licencias/verLicencias',$this->datos);
+
+        }
     }
 ?>

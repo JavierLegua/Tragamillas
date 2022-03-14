@@ -92,7 +92,24 @@
 
     <?php endif ?>
 
-    
+    <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[5])):?>
+        <div class="row">
+
+            <div class="col mt-3">
+                <a class="color" href="#">Inscripcion Eventos</a>
+                <a class="color" href="#">Consultar Marcas</a>
+                
+            </div>
+
+            <div class="col">
+                <a href=""><i class="bi bi-facebook float-end ms-3 iconfooter"></i></a>
+                <i class="bi bi-instagram float-end ms-3 iconfooter"></i>
+                <i class="bi bi-youtube float-end ms-3 iconfooter"></i>
+            </div>
+
+        </div>
+
+    <?php endif ?>
         
     </div>
 </footer>

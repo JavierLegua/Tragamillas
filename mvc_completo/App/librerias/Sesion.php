@@ -22,6 +22,14 @@
             }
         }
 
+        public static function iniciarSesionAnonimo(&$datos = []) {
+            session_start();
+            
+            $_SESSION["usuarioSesion"] = (object)['id_usario'=>0, 'apellidoUsuario'=>'Anonimo', 'idRol' => 5];
+
+            $datos['usuarioSesion'] = $_SESSION["usuarioSesion"];       // pasamos por referencia los datos de la sesion
+        }
+
 
         public static function sesionCreada(&$datos = []) {         // si no necesitamos datos de respuesta, le damos un valor por defecto
             session_start();

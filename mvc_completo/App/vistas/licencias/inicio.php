@@ -4,7 +4,7 @@
 <main class="flex-shrink-0 margenTop">
 
 
-<div class="container mainF">
+<div class="container">
 
     <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 

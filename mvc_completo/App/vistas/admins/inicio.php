@@ -100,7 +100,7 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="#"><h4>Licencias</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/verLicencias"><h4>Licencias</h4></a>
                     </p>
                 </div>
             </div>

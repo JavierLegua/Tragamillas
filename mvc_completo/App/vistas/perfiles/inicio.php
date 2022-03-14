@@ -1,40 +1,80 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 <main class="flex-shrink-0 margenTop">
   <div class="container">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>CORREO</th>
-                    <th>DNI</th>
-                    <th>CUENTA</th>
-                    <th>FECHA NACIMIENTO</th>
-                    <th>TELEFONO</th>
-                    <th>ACCIONES</th>
-                </tr>
-            </thead>
-            <tbody>
+       
                 <?php foreach($datos['perfil'] as $uruario): ?>
                     <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[3])):?>
-                        <tr>
-                            <td><?php echo $uruario->apellidoUsuario ?></td>
-                            <td><?php echo $uruario->email ?></td>
-                            <td><?php echo $uruario->dniUsuario ?></td>
-                            <td><?php echo $uruario->cc ?></td>
-                            <td><?php echo $uruario->fecha_nac ?></td>
-                            <td><?php echo $uruario->telefono ?></td>
-                            <td>
-                                <form action="<?php echo RUTA_URL?>/perfiles/cambiarClave/<?php echo $uruario->id_usuario?>" method="post">
-                                    <input type="password" id="clave" name="clave" placeholder="nueva contraseña">
-                                    <button class="btn btn-primary" type="submit">Cambiar contraseña</button>
-                                </form>
-                                
-                            </td>   
-                        </tr>
+                            <?php  $uruario->apellidoUsuario ?>
+                            <?php  $uruario->email ?>
+                            <?php  $uruario->dniUsuario ?>
+                            <?php  $uruario->cc ?>
+                            <?php  $uruario->fecha_nac ?>
+                            <?php  $uruario->telefono ?>  
                     <?php endif ?>
                 <?php endforeach ?>
-            </tbody>
-        </table>
+
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt="Avatar"
+                class="img-fluid my-5"
+                style="width: 80px;"
+              />
+              <h5><?php echo $uruario->apellidoUsuario ?></h5>
+              <p>Web Designer</p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted">info@example.com</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted">123 456 789</p>
+                  </div>
+                </div>
+                <h6>Projects</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Recent</h6>
+                    <p class="text-muted">Lorem ipsum</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Most Viewed</h6>
+                    <p class="text-muted">Dolor sit amet</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+                <div>
+                    <p>Nombre: <?php echo $uruario->apellidoUsuario ?></p>
+                    <p>Email: <?php echo $uruario->email ?></p>
+                    <p>DNI: <?php echo $uruario->dniUsuario ?></p>
+                    <p>Nº cuenta corriente: <?php echo $uruario->cc ?></p>
+                    <p>Fecha Nacimiento: <?php echo $uruario->fecha_nac ?></p>
+                    <p>Telefono: <?php echo $uruario->telefono ?></p>
+                </div>
     </div>
 </main>
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>
