@@ -16,7 +16,7 @@
         <div class="col col-lg-8 mb-4 mb-lg-0">
           <div class="card mb-3" style="border-radius: .5rem;">
             <div class="row g-0">
-              <div class="col-md-4 bg-dark text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <div class="col-md-4 color text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
               <?php if ($uruario->foto==''){echo '';}else {?> <img width="30" height="30" src="<?php echo RUTA_ImgDatos. $uruario->foto?>"><?php ;}?>
                 <h5 class="mb-4 fw-bold fs-3"><?php echo $uruario->apellidoUsuario ?></h5>
               </div>
@@ -55,7 +55,6 @@
                         </div>
                         <input type="submit" class="btn btn-success" value="Actualizar foto" onclick="return confirm('¿Seguro que quieres actualizar la foto de perfil?');">
                       </form>
-                      
                     </div>
                   </div>
                 </div>

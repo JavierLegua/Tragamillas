@@ -1,8 +1,5 @@
-
 <footer class="footer mt-auto py-2 color">
     <div class="container">
-
-
     <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
 
         <div class="row">

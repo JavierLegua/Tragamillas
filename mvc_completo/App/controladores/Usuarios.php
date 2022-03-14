@@ -192,6 +192,7 @@
                     die('Algo ha fallado!!');
                 }
         }
+    }
 
 
         public function borrar($id){
