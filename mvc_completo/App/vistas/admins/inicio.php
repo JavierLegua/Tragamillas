@@ -1,7 +1,6 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
     <main class="flex-shrink-0 mt-auto">
     <div class="container">
-
         <div class="row justify-content-around justify-content-center align-items-center mt-5"> 
 
 <!-- ----------------------- -->

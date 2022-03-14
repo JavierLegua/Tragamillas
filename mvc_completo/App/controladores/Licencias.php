@@ -28,10 +28,10 @@
         public function nueva_licencia(){
             
 
-            $this->datos['rolesPermitidos'] = [3];
-            if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
-                redireccionar('/usuarios');
-            }
+            // $this->datos['rolesPermitidos'] = [3];
+            // if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
+            //     redireccionar('/usuarios');
+            // }
     
             if($_SERVER['REQUEST_METHOD'] =='POST'){
     
@@ -51,10 +51,11 @@
                     'imagenLicAdmin' => $_FILES['imagenLicAdmin']['name']
                 ];
 
-                // print_r($licenciaNueva);exit();
+                
     
                 if($this->licenciaModelo->agregarLicencia($licenciaNueva)){
-                    redireccionar('/licencias');
+                    // print_r($licenciaNueva);exit();
+                    redireccionar('/licencias/inicio');
                 }else{
                     die('Algo ha fallado!!');
                 }
