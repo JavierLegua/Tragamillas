@@ -22,7 +22,6 @@
         
             <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" class="avatar padbotom">
         
-       
           <div class="card-body text-center padtop">
 
             <div class="mb-md-5 mt-md-5">

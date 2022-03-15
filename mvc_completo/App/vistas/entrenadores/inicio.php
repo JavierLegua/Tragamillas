@@ -21,7 +21,7 @@
                     <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class="bi bi-stopwatch iconsize"></i>
+                            <i class="bi bi-person-lines-fill iconsize"></i>
                         </div>
 
                         <div class="card-body d-flex justify-content-around">
@@ -31,29 +31,11 @@
                         </div>
 
                     </div>
-
-                    <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
-
-                        <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class="bi bi-file-earmark-person iconsize"></i>
-                        </div>
-
-                        <div class="card-body d-flex justify-content-around">
-                            <p class="card-text">
-                                <a class="colorb" href="#"><h4>Licencias</h4></a>
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div><!-- fin row -->
-
-                  <div class="row mt-5 justify-content-around">
                 
                     <div class="borde border col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class='bi bi-people-fill iconsize'></i>
+                        <i class="bi bi-person-badge-fill iconsize"></i>
                         </div>
                 
                         <div class="card-body d-flex justify-content-around">

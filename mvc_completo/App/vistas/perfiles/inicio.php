@@ -1,9 +1,10 @@
 <!-- https://mdbootstrap.com/docs/standard/extended/profiles/ -->
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-<main class="flex-shrink-0 mt-auto margenTop">
+<main class="flex-shrink-0 mt-auto">
   <div class="container">
                 <?php foreach($datos['perfil'] as $uruario): ?>
                     <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[3])):?>
+                            <?php  $uruario->nombreUsuario ?>
                             <?php  $uruario->apellidoUsuario ?>
                             <?php  $uruario->email ?>
                             <?php  $uruario->dniUsuario ?>
@@ -12,13 +13,15 @@
                             <?php  $uruario->telefono ?>  
                     <?php endif ?>
                 <?php endforeach ?>
+      <div class="text-center">
+        <h2 class="fw-bold fs-3 "><?php echo "$uruario->nombreUsuario $uruario->apellidoUsuario" ?></h2>
+      </div>
       <div class="row justify-content-center py-5">
         <div class="col col-lg-8 mb-4 mb-lg-0">
           <div class="card mb-3 bordes">
             <div class="row g-0">
               <div class="col-md-4 color text-center text-white bordePartes">
-              <?php if ($uruario->foto==''){echo '';}else {?> <img width="30" height="30" src="<?php echo RUTA_ImgDatos. $uruario->foto?>"><?php ;}?>
-                <h5 class="fw-bold fs-3 "><?php echo $uruario->apellidoUsuario ?></h5>
+              <?php if ($uruario->foto==''){echo '';}else {?> <img class="mt-auto img-fluid p-4" src="<?php echo RUTA_ImgDatos. $uruario->foto?>"><?php ;}?>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
@@ -52,21 +55,13 @@
                       <div class="mb-3">
                       <h6 class="fw-bold">Foto Perfil:</h6>
                       <hr class="mt-0 mb-4">
-                        <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" method="post">
+                        <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" ENCTYPE="multipart/form-data" method="post">
                           <div class="mb-3">
                               <input accept="image/*" type="file" id="" name="imagen" >
                           </div>
                           <input type="submit" class="btn btn-success" value="Actualizar foto" onclick="return confirm('¿Seguro que quieres actualizar la foto de perfil?');">
                         </form>
                       </div>
-                       
-
-                      <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" ENCTYPE="multipart/form-data" method="post">
-                        <div class="mb-3">
-                            <input accept="image/*" type="file" id="" name="imagen" >
-                        </div>
-                        <input type="submit" class="btn btn-success" value="Actualizar foto" onclick="return confirm('¿Seguro que quieres actualizar la foto de perfil?');">
-                      </form>
                     </div>
                   </div>
                 </div>

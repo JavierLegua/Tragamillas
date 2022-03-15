@@ -7,7 +7,10 @@
  }
 
 .margenTop{
-    margin-top: 65px;
+    margin-top: 70px;
+}
+.margenTopImg{
+    margin-top: 70px;
 }
 .bordes{
     border-radius: 1rem;
@@ -175,6 +178,9 @@
     .avatar {
         top: -98px;
     }
+    .bordePartes{
+        border-radius: 1rem; 
+    }
  }
 
  @media (max-width: 575px) { 
@@ -196,6 +202,9 @@
    .iconfooter{
        font-size: 30px;
    }
+   .bordePartes{
+        border-radius: 1rem; 
+    }
  }
 
 

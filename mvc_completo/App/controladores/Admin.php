@@ -27,6 +27,9 @@
             // $this->vista('usuarios/inicioVue',$this->datos);
         }
 
+        public function mantenimiento(){
+            $this->vista('errores/mantenimiento');
+        }
 
         public function agregar(){
             

@@ -37,6 +37,7 @@
                 
                 <tr>
                     <td><?php echo $uruario->id_usuario ?></td>
+                    <td><?php echo $uruario->nombreUsuario ?></td>
                     <td><?php echo $uruario->apellidoUsuario ?></td>
                     <td><?php echo $uruario->email ?></td>
                     <td><?php echo $uruario->telefono ?></td>

@@ -42,14 +42,19 @@
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/inscripcionesEventoExt');
             }
-            // print_r($this->datos);exit();
+            
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
                 $inscripcionNueva = [
-                    'idUsuario' => $this->datos['usuarioSesion']->id_usuario,
+                    'apellidoUsuario' => trim($_POST['apellidoUsuario']),
+                    'dni' => trim($_POST['dni']),
+                    'cc' => trim($_POST['cc']),
+                    'fecha_nac' => trim($_POST['fecha_nac']),
+                    'email' => trim($_POST['email']),
+                    'telefono' => trim($_POST['telefono']),
                     'idEvento' => $id,                     
                 ];
-                if ($this->inscripcionEventoModeloExt->agregarInscripcion($inscripcionNueva)){
+                //print_r($inscripcionNueva);exit();
+                if ($this->inscripcionEventoExtModelo->agregarInscripcion($inscripcionNueva)){
                     //$this->vista('inscripciones/inicio',$this->datos);
                     redireccionar('/inscripciones');
                 } else {
@@ -57,10 +62,15 @@
                 }
             } else {
                 $this->datos['inscripcion'] = (object) [
-                    'idUsuario' => '',
-                    'idEvento' => '',
+                    'apellidoUsuario' => '',
+                    'dni' => '',
+                    'cc' => '',
+                    'fecha_nac' => '',
+                    'email' => '',
+                    'telefono' => '',
+                    'idEvento' => $id,                     
                 ];
-                $this->vista('inscripciones/inicio',$this->datos);
+                $this->vista('inscripciones/inicio_ext',$this->datos);
             }
 
         }

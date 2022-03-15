@@ -39,7 +39,7 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="#"><h4>Correo</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/Admin/mantenimiento"><h4>Correo</h4></a>
                     </p>
                 </div>
 
@@ -55,7 +55,7 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones"><h4>Inscripciones</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/entrenadores_inscripciones"><h4>Inscripciones</h4></a>
                     </p>
                 </div>
 
@@ -72,7 +72,7 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="#"><h4>Facturación</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/Admin/mantenimiento"><h4>Facturación</h4></a>
                     </p>
                 </div>
 
@@ -99,7 +99,7 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="<?php echo RUTA_URL?>/licencias/verLicencia"><h4>Licencias</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/licencias"><h4>Licencias</h4></a>
                     </p>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="#"><h4>Temporadas</h4></a>
+                        <a class="colorb" href="<?php echo RUTA_URL?>/Admin/mantenimiento"><h4>Temporadas</h4></a>
                     </p>
                 </div>
             </div>
