@@ -1,6 +1,6 @@
 <!-- https://mdbootstrap.com/docs/standard/extended/profiles/ -->
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
-<main class="flex-shrink-0 mt-auto">
+<main class="flex-shrink-0 mt-auto margenTop">
   <div class="container">
                 <?php foreach($datos['perfil'] as $uruario): ?>
                     <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[3])):?>
@@ -14,11 +14,11 @@
                 <?php endforeach ?>
       <div class="row justify-content-center py-5">
         <div class="col col-lg-8 mb-4 mb-lg-0">
-          <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="card mb-3 bordes">
             <div class="row g-0">
-              <div class="col-md-4 color text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <div class="col-md-4 color text-center text-white bordePartes">
               <?php if ($uruario->foto==''){echo '';}else {?> <img width="30" height="30" src="<?php echo RUTA_ImgDatos. $uruario->foto?>"><?php ;}?>
-                <h5 class="mb-4 fw-bold fs-3"><?php echo $uruario->apellidoUsuario ?></h5>
+                <h5 class="fw-bold fs-3 "><?php echo $uruario->apellidoUsuario ?></h5>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
@@ -48,13 +48,18 @@
                       <div class="col-6 mb-3">
                         <button type="button" class="mt-3 btn colortarjeta text-light" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>">Cambiar Contraseña</button>
                       </div>
-
-                      <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" method="post">
-                        <div class="mb-3">
-                            <input accept="image/*" type="file" id="" name="imagen" >
-                        </div>
-                        <input type="submit" class="btn btn-success" value="Actualizar foto" onclick="return confirm('¿Seguro que quieres actualizar la foto de perfil?');">
-                      </form>
+                      
+                      <div class="mb-3">
+                      <h6 class="fw-bold">Foto Perfil:</h6>
+                      <hr class="mt-0 mb-4">
+                        <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" method="post">
+                          <div class="mb-3">
+                              <input accept="image/*" type="file" id="" name="imagen" >
+                          </div>
+                          <input type="submit" class="btn btn-success" value="Actualizar foto" onclick="return confirm('¿Seguro que quieres actualizar la foto de perfil?');">
+                        </form>
+                      </div>
+                       
                     </div>
                   </div>
                 </div>

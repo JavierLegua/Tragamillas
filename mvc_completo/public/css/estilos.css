@@ -9,6 +9,13 @@
 .margenTop{
     margin-top: 65px;
 }
+.bordes{
+    border-radius: 1rem;
+}
+.bordePartes{
+    border-top-left-radius: 1rem; 
+    border-bottom-left-radius: 1rem;
+}
  .orden{
      z-index: 0;
  }
