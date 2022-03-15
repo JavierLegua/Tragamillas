@@ -49,7 +49,7 @@
                         <button type="button" class="mt-3 btn colortarjeta text-light" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>">Cambiar Contraseña</button>
                       </div>
 
-                      <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" method="post">
+                      <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" ENCTYPE="multipart/form-data" method="post">
                         <div class="mb-3">
                             <input accept="image/*" type="file" id="" name="imagen" >
                         </div>

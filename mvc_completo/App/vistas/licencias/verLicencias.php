@@ -59,7 +59,7 @@
         </select>
 </div>
 <div class="mb-3">
-    <input accept="image/*" type="file" id="" name="imagenLicAdmin" >
+    <input accept="image/*" type="file" id="imagenLic" name="imagenLic" >
 </div>
 <input type="submit" class="btn btn-success" value="Editar licencia" onclick="return confirm('¿Seguro que quieres editar esta licencia?');">
 </form>

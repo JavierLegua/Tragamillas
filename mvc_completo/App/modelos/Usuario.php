@@ -138,10 +138,18 @@
         }
 
         public function agregarFoto($id, $fotoNueva){
+
+            // print_r($id);exit();
             $this->db->query("UPDATE usuario SET foto = :foto WHERE id_usuario = :id");
 
             $this->db->bind(':id', $id);
             $this->db->bind(':foto', $fotoNueva['imagen']);
+
+            if($this->db->execute()){
+                return true;
+            } else {
+                return false;
+            }
 
         }
 

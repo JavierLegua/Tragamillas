@@ -175,17 +175,19 @@
             if($_SERVER['REQUEST_METHOD'] =='POST'){
     
                 $dir="/var/www/html/Tragamillas/mvc_completo/public/img/datosBBDD/";
-    
+                
+                // print_r($_FILES['imagen']['name']);exit();
     
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $dir.$_FILES['imagen']['name']);
 
-                //$id = $this->datos['usuarioSesion']->id_usuario;
+                $id = $this->datos['usuarioSesion']->id_usuario;
     
                 $fotoNueva = [
                     'imagen' => $_FILES['imagen']['name']
                 ];
-                echo $fotoNueva; exit();
-                if($this->usuarioModelo->agregarFoto($fotoNueva)){
+
+                // print_r($fotoNueva); exit();
+                if($this->usuarioModelo->agregarFoto($id, $fotoNueva)){
                     // print_r($licenciaNueva);exit();
                     redireccionar('/perfiles');
                 }else{
