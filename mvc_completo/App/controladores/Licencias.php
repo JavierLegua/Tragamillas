@@ -73,17 +73,13 @@
         }
 
         public function editar($num){
-            // $this->datos['rolesPermitidos'] = [1];
-            // if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
-            //     redireccionar('/licencias/verLicencias');
-            // }
 
             if($_SERVER['REQUEST_METHOD'] =='POST'){
     
                 $dir="/var/www/html/Tragamillas/mvc_completo/public/img/datosBBDD/";
     
     
-                // move_uploaded_file($_FILES['imagenLic']['tmp_name'], $dir.$_FILES['imagenLic']['name']);
+                move_uploaded_file($_FILES['imagenLic']['tmp_name'], $dir.$_FILES['imagenLic']['name']);
 
                 $id = $this->datos['usuarioSesion']->id_usuario;
     
@@ -91,10 +87,10 @@
                     'tipo' => trim($_POST['tipo']),
                     'dorsal' => trim($_POST['dorsal']),
                     'fechaCad' => trim($_POST['fecha_cad']),
-                    // 'imagenLicSocio' => $_FILES['imagenLic']['name']
+                    'imagenLicSocio' => $_FILES['imagenLic']['name']
                 ];
 
-                // print_r($licenciaEditada);exit();
+                //  print_r($licenciaEditada);exit();
 
                 if($this->licenciaModelo->editarLicencia($licenciaEditada)){
                     redireccionar('/licencias');

@@ -60,6 +60,13 @@
                         </form>
                       </div>
                        
+
+                      <form action="<?php echo RUTA_URL?>/usuarios/subirFoto/<?php echo $uruario->id_usuario ?>" ENCTYPE="multipart/form-data" method="post">
+                        <div class="mb-3">
+                            <input accept="image/*" type="file" id="" name="imagen" >
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Actualizar foto" onclick="return confirm('¿Seguro que quieres actualizar la foto de perfil?');">
+                      </form>
                     </div>
                   </div>
                 </div>

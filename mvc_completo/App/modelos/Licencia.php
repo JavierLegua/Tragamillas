@@ -50,11 +50,13 @@
         }
 
         public function editarLicencia($datos){
-            $this->db->query("UPDATE licencia SET fecha_cad_licen=:fechaCad, dorsal=:dorsal, tipo=:tipo");
+
+            //print_r($datos);exit();
+            $this->db->query("UPDATE licencia SET img=:imagen, fecha_cad_licen=:fechaCad, dorsal=:dorsal, tipo=:tipo");
 
              //vinculamos los valores
-            //  $this->db->bind(':img',$datos['imagenLicAdmin']);
-             $this->db->bind(':fecha_cad_licen',$datos['fechaCad']);
+             $this->db->bind(':imagen',$datos['imagenLicSocio']);
+             $this->db->bind(':fechaCad',$datos['fechaCad']);
              $this->db->bind(':dorsal',$datos['dorsal']);
              $this->db->bind(':tipo',$datos['tipo']);
 
