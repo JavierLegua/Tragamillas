@@ -27,7 +27,7 @@
     </div>
     <div id="menuPaginacion">
 
-        </div>
+    </div>
 </main>
 
 
@@ -39,14 +39,21 @@
 
     let pedidosDecod = JSON.parse(pedidos)
 
-    const numPorPagina = 1
+    const numPorPagina = 2
     let longitud = pedidosDecod.length
     let numPaginas = Math.ceil(longitud / numPorPagina)
-    let inicio = 0
+    let inicio = 1
+    var ini 
 
-    function rellenarTabla(){
+    function rellenarTabla(ini){
 
-    for (let i = inicio; i < (inicio + numPorPagina); i++) {
+        document.getElementById("pedidos").innerHTML=""
+
+        var varex = (ini*numPorPagina)-numPorPagina
+        var varex2 = (ini*numPorPagina)
+        //console.log(varex)
+    for (let i = varex; i < varex2; i++) {
+        
         var tr = document.createElement("tr")
 
         var td = document.createElement("td")
@@ -79,6 +86,8 @@
         a1.setAttribute('href', '<?php echo RUTA_URL?>/pedidos/confirmarPedido/'+pedidosDecod[i].idEquipacion)
         var contenido5 = document.createTextNode("Confirmar pedido")
         a1.appendChild(contenido5)
+        var btn1 = "btn colortarjeta text-light"
+        a1.setAttribute("class", btn1);
         td5.appendChild(a1)
         tr.appendChild(td5)
 
@@ -87,41 +96,47 @@
         a2.setAttribute('href', '<?php echo RUTA_URL?>/pedidos/borrarPedido/'+pedidosDecod[i].idEquipacion)
         var contenido6 = document.createTextNode("Borrar pedido")
         a2.appendChild(contenido6)
+        var btn2 = "btn colortarjeta text-light"
+        a2.setAttribute("class", btn2);
         td6.appendChild(a2)
         tr.appendChild(td6)
         
         document.getElementById("pedidos").appendChild(tr)
-        
-        }
-        }
 
-        rellenarTabla()
+        }
+    }
+
+        document.addEventListener('load', rellenarTabla(inicio))
+        //rellenarTabla(inicio)
 
         function menuPaginacion(){
 
             var nav = document.createElement("nav")
             var ul = document.createElement("ul")
             ul.classList.add("pagination",  "justify-content-center")
-
-            var liprimero = document.createElement("li")
-            liprimero.classList.add("page-item")
+            var liPrimera = document.createElement("li")
+            liPrimera.classList.add("page-item")
             var a = document.createElement("a")
-            a.setAttribute('href', '/')
+            a.setAttribute('onclick', 'rellenarTabla('+inicio+')')
             a.classList.add("page-link")    
             var primera = document.createTextNode("Primera")
             a.appendChild(primera)
-            liprimero.appendChild(a)
-            ul.appendChild(liprimero)
+            liPrimera.appendChild(a)
+            ul.appendChild(liPrimera)
 
 
-            for (let i = 0; i < numPaginas; i++) {
-                
+            for (let j = 0; j < numPaginas; j++) {
+              
             var li = document.createElement("li")
             li.classList.add("page-item")
             var a3 = document.createElement("a")
-            a3.setAttribute('href', '/')
+            //a3.setAttribute('href', '/')
+            ini = (inicio + j)
+            console.log(ini)
+            a3.setAttribute('id', j+1)
+            a3.setAttribute('onclick', 'rellenarTabla('+ini+')')
             a3.classList.add("page-link")    
-            var numero = document.createTextNode(i+1)
+            var numero = document.createTextNode(j+1)
             a3.appendChild(numero)
             li.appendChild(a3)
             ul.appendChild(li)
@@ -129,21 +144,21 @@
             }
 
 
-            var lifinal = document.createElement("li")
-            lifinal.classList.add("page-item")
+            var liFinal = document.createElement("li")
+            liFinal.classList.add("page-item")
             var a2 = document.createElement("a")
-            a2.setAttribute('href', '/')
+            a2.setAttribute('onclick', 'rellenarTabla('+numPaginas+')')
             a2.classList.add("page-link")    
             var ultima = document.createTextNode("Ultima")
             a2.appendChild(ultima)
-            lifinal.appendChild(a2)
-            ul.appendChild(lifinal)
+            liFinal.appendChild(a2)
+            ul.appendChild(liFinal)
 
             nav.appendChild(ul)
 
             document.getElementById("menuPaginacion").appendChild(nav)
         }
-        menuPaginacion()
+        document.addEventListener('load', menuPaginacion())
 
 </script>
 

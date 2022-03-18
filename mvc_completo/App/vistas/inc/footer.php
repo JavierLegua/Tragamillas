@@ -99,9 +99,9 @@
             </div>
 
             <div class="col">
-                <a href=""><i class="bi bi-facebook float-end ms-3 iconfooter"></i></a>
-                <i class="bi bi-instagram float-end ms-3 iconfooter"></i>
-                <i class="bi bi-youtube float-end ms-3 iconfooter"></i>
+                <a href="https://es-es.facebook.com/tragamillasalcaniz/"><i class="bi bi-facebook float-end ms-3 iconfooter"></i></a>
+                <a href="https://www.instagram.com/aoctragamillas/"><i class="bi bi-instagram float-end ms-3 iconfooter"></i></a>
+                <a href="https://www.youtube.com/channel/UCqGEJt6GHKsFvZieC04VCow"><i class="bi bi-youtube float-end ms-3 iconfooter"></i></a>
             </div>
 
         </div>

@@ -17,7 +17,7 @@
 <header>
     <nav class="p-4 navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid justify-content-center">
-            <a class="navbar-brand fs-2" href="#">TRAGAMILLAS ALCAÑIZ</a>
+            <a class="navbar-brand fs-2" href="/">TRAGAMILLAS ALCAÑIZ</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

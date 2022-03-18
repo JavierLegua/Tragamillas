@@ -7,9 +7,7 @@
             <img src="<?php echo RUTA_URL?>/public/img/logo_tragamillas.png" alt="" width="22%" class="pb-5">
                 <h5>Esta página se encuentra en mantenimiento.</h5> 
                 <a class="btn colortarjeta text-light" onclick="history.back()">Volver Atras</a>   
-            </div>
-            
-            
+            </div>  
         </div>
     </div>
 </main>

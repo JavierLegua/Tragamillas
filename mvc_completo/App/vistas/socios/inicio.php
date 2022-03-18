@@ -10,7 +10,19 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/marcas"><h4>Marcas</h4></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/marcas"><h4>Marcas pruebas y tests</h4></a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="borde border col-lg-3 col-md-3  p-0 tarjeta">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-stopwatch iconsize"></i>
+                    </div>
+
+                    <div class="card-body d-flex justify-content-around">
+                        <p class="card-text">
+                            <a class="colorb" href="<?php echo RUTA_URL?>/marcasExt"><h4>Marcas eventos</h4></a>
                         </p>
                     </div>
                 </div>

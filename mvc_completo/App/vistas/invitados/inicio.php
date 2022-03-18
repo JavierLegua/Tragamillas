@@ -10,7 +10,7 @@
 
                     <div class="card-body d-flex justify-content-around">
                         <p class="card-text">
-                            <a class="colorb" href="<?php echo RUTA_URL?>/inscripciones_grupos"><h4>Ver marcas eventos</h4></a>
+                            <a class="colorb" href="<?php echo RUTA_URL?>/marcasExt"><h4>Ver marcas eventos</h4></a>
                         </p>
                     </div>
                 </div>

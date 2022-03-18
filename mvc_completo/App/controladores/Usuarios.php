@@ -24,7 +24,8 @@
         public function index($pagina = 0){
             //Obtenemos los usuarios y paginamos
 
-            $registrosPorPagina = 4;
+
+            $registrosPorPagina = 5;
             $pagina = intval($pagina + 1);
             $numUsuarios = $this->usuarioModelo->contarUsuarios();
 
@@ -35,11 +36,15 @@
             
 
             $usuarios = $this->usuarioModelo->obtenerUsuarios($min, $registrosPorPagina);
+            $usuarios1 = $this->usuarioModelo->obtenerUsuarios(-1, 0);
+
+            $usuariosEncript = json_encode($usuarios1);
 
             $this->datos['usuario'] = $usuarios;
+            $this->usuEncript['usuarios'] = $usuariosEncript;
             $this->numPaginas = $numPagTotal;
 
-            $this->vista('usuarios/inicio',$this->datos, $this->numPaginas);
+            $this->vista('usuarios/inicio',$this->datos, $this->usuEncript, $this->numPaginas);
         }
 
 
@@ -59,7 +64,8 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 $usuarioNuevo = [
-                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'apellidoUsuario' => trim($_POST['apellido']),
+                    'nombreUsuario' => trim($_POST['nombre']),
                     'dniUsuario' => trim($_POST['dni']),
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),
@@ -78,6 +84,7 @@
             } else {
                 $this->datos['usuario'] = (object) [
                     'apellidoUsuario' => '',
+                    'nombreUsuario' => '',
                     'dniUsuario' => '',
                     'cc' => '',
                     'fecha_nac' => '',
@@ -107,7 +114,8 @@
                 
                 $usuarioModificado = [
                     'id_usuario' => $id,
-                    'apellidoUsuario' => trim($_POST['nombre']),
+                    'apellidoUsuario' => trim($_POST['apellido']),
+                    'nombreUsuario' => trim($_POST['nombre']),
                     'dniUsuario' => trim($_POST['dni']),
                     'cc' => trim($_POST['cc']),
                     'fecha_nac' => trim($_POST['fecha_nac']),

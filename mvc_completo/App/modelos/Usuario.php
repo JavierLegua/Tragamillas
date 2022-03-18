@@ -34,11 +34,12 @@
         public function agregarUsuario($datos){
        
 
-            $this->db->query("INSERT INTO usuario (apellidoUsuario, dniUsuario, cc, fecha_nac, email, clave, telefono, activado, idRol) 
-                                        VALUES (:apellidoUsuario, :dniUsuario, :cc, :fecha_nac, :email, :clave, :telefono, :activado, :idRol)");
+            $this->db->query("INSERT INTO usuario (apellidoUsuario,nombreUsuario ,dniUsuario, cc, fecha_nac, email, clave, telefono, activado, idRol) 
+                                        VALUES (:apellidoUsuario,:nombreUsuario, :dniUsuario, :cc, :fecha_nac, :email, :clave, :telefono, :activado, :idRol)");
 
             //vinculamos los valores
             $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);
+            $this->db->bind(':nombreUsuario',$datos['nombreUsuario']);
             $this->db->bind(':dniUsuario',$datos['dniUsuario']);
             $this->db->bind(':cc',$datos['cc']);
             $this->db->bind(':fecha_nac',$datos['fecha_nac']);
@@ -78,11 +79,12 @@
 
         public function actualizarUsuario($datos){
             // print_r($datos);exit;
-            $this->db->query("UPDATE usuario SET apellidoUsuario=:apellidoUsuario, dniUsuario=:dniUsuario, cc=:cc, fecha_nac=:fecha_nac, email=:email, telefono=:telefono, activado=:activado WHERE id_usuario = :id");
+            $this->db->query("UPDATE usuario SET apellidoUsuario=:apellidoUsuario,nombreUsuario=:nombreUsuario, dniUsuario=:dniUsuario, cc=:cc, fecha_nac=:fecha_nac, email=:email, telefono=:telefono, activado=:activado WHERE id_usuario = :id");
 
             //vinculamos los valores
             $this->db->bind(':id',$datos['id_usuario']);
             $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);
+            $this->db->bind(':nombreUsuario',$datos['nombreUsuario']);
             $this->db->bind(':dniUsuario',$datos['dniUsuario']);
             $this->db->bind(':cc',$datos['cc']);
             $this->db->bind(':fecha_nac',$datos['fecha_nac']);
@@ -99,6 +101,7 @@
         }
 
         public function actualizar($datos){
+            //print_r($datos);exit;
             $this->db->query("UPDATE usuario SET clave=:clave WHERE id_usuario = :id");
 
             //vinculamos los valores
