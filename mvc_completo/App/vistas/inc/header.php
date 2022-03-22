@@ -59,43 +59,13 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Correo</a>
-                        <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Correo</a>
-                        <?php endif ?>
-                    </li>
-
-                    <!-- <li class="nav-item">
-                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/inscripciones">Inscripciones</a>
-                        <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/inscripciones">Inscripciones</a>
-                        <?php endif ?>
-                    </li> -->
-
-                    <li class="nav-item">
-                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/Admin/mantenimiento">Facturación</a>
-                        <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL?>/Admin/mantenimiento">Facturación</a>
-                        <?php endif ?>
-                    </li>
-
-                    <li class="nav-item">
-                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
                             <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/tiendas">Tiendas</a>
                         <?php else: ?>
                             <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/tiendas">Tiendas</a>
                         <?php endif ?>
                     </li>
 
-                    <li class="nav-item">
-                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Temporadas</a>
-                        <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Temporadas</a>
-                        <?php endif ?>
-                    </li>
+            
 <?php endif ?>
 
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[2])):?>
@@ -117,9 +87,9 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/marcasEventos">Asignar Marcas</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/marcasEventos">Marcas Eventos</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/marcasEventos">Asignar Marcas</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/marcasEventos">Marcas Eventos</a>
                         <?php endif ?>
                     </li>
 
@@ -199,13 +169,6 @@
                         <?php endif ?>
                     </li>
 
-                    <li class="nav-item">
-                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Pagos cuotas</a>
-                        <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Pagos cuotas</a>
-                        <?php endif ?>
-                    </li>
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>

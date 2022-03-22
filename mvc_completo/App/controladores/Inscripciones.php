@@ -61,7 +61,8 @@
                     'idUsuario' => $this->datos['usuarioSesion']->id_usuario,                    
                 ];
                 if ($this->inscripcionModelo->agregarInscripcion($inscripcionNueva)){
-                    redireccionar('/inscripciones');
+                    //print_r($this->datos);exit();
+                    $this->vista('socios/inicio',$this->datos);
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -76,7 +77,7 @@
                 ];
                 $this->datos['listagrupos'] = $this->inscripcionModelo->obtenerGrupos();
 
-                $this->vista('inscripciones/inicio',$this->datos);
+                $this->vista('socios',$this->datos);
             }
 
         }

@@ -9,10 +9,7 @@
                 <a class="color ms-2" href="<?php echo RUTA_URL ?>/grupos"">Grupos</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL?>/licencias"">Licencias</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL ?>/eventos"">Eventos</a>
-                <a class="color ms-2" href="#">Correo</a>
-                <a class="color ms-2" href="<?php echo RUTA_URL?>/Admin/mantenimiento">Facturación</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL ?>/tiendas"">Tiendas</a>
-                <a class="color ms-2" href="#">Temporadas</a>
             </div>
 
             <div class="col">
@@ -33,7 +30,8 @@
                 <a class="color" href="<?php echo RUTA_URL ?>/alumnos">Alumnos</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL ?>/marcas">Marcas</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL ?>/tests">Test</a>
-                <a class="color ms-2" href="<?php echo RUTA_URL ?>/marcasEventos">Asignar Marcas</a>
+                <a class="color ms-2" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
+                <a class="color ms-2" href="<?php echo RUTA_URL ?>/marcasEventos">Marcas Eventos</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL ?>/entrenadores_inscripciones">Inscripciones</a>
             </div>
 
@@ -58,7 +56,6 @@
                 <a class="color ms-2" href="<?php echo RUTA_URL?>/licencias">Licencias</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL?>/inscripciones">Grupos</a>
                 <a class="color ms-2" href="<?php echo RUTA_URL?>/inscripcionesEventos">Eventos</a>
-                <a class="color ms-2" href="<?php echo RUTA_URL?>/mantenimiento">Pagos cuotas</a>
             </div>
 
             <div class="col">

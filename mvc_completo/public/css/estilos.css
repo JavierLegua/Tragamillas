@@ -190,11 +190,15 @@
     nav{
         font-size: 14px;
     }
-    .tarjeta {
-        width: 8rem; 
+    a{
+        font-size: 13px;
     }
+    .iconsize {
+        font-size: 45px;
+    }
+   
    .columna {
-       width: 67%;
+       width: 60%;
    }
    .prueba{
        margin-bottom: 20px;

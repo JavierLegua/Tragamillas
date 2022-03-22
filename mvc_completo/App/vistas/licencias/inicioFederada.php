@@ -1,14 +1,14 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
 
 
-<main class="flex-shrink-0 margenTop">
+<main class="flex-shrink-0 mt-auto">
 
 
 <div class="container">
 
-    <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
+    <!--  <a href="" class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>-->
 
-    <div class="card bg-light mt-5 w-75 justify-content-center align-items-center;">
+    <div class="card bg-light">
         <h2 class="card-header">Añadir licencia federada</h2>
 
         <form method="post" ENCTYPE="multipart/form-data" action="<?php echo RUTA_URL?>/Licencias/nueva_licencia" class="card-body">

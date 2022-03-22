@@ -31,7 +31,7 @@
             </div>
 <!-- ----------------------- -->
 
-            <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+            <!-- <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
 
                 <div class="card-header d-flex justify-content-center colortarjeta">
                     <i class="bi bi-envelope iconsize"></i>
@@ -43,7 +43,7 @@
                     </p>
                 </div>
 
-            </div>
+            </div> -->
 
 
 <!-- ----------------------- -->
@@ -64,7 +64,7 @@
 <!-- ----------------------- -->
 
 
-            <div class="borde border col-lg-3 col-md- p-0 tarjeta shadow mb-5 bg-white rounded">
+            <!-- <div class="borde border col-lg-3 col-md- p-0 tarjeta shadow mb-5 bg-white rounded">
 
                 <div class="card-header d-flex justify-content-center colortarjeta">
                     <i class="bi bi-currency-euro iconsize"></i>
@@ -76,10 +76,10 @@
                     </p>
                 </div>
 
-            </div>
-</div>            
-<div class="row justify-content-around justify-content-center align-items-center mt-5">
- <!-- ----------------------- -->       
+            </div> -->
+
+ <!-- ----------------------- -->  
+
             <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-white rounded">
                 <div class="card-header d-flex justify-content-center colortarjeta">
                 <i class="bi bi-cart2 iconsize"></i>
@@ -91,6 +91,10 @@
                     </p>
                 </div>
             </div>
+            
+
+     
+            
 
 <!-- ----------------------- -->
             <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-white rounded">
@@ -106,7 +110,7 @@
             </div>
 
 <!-- ----------------------- -->
-            <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-white rounded">
+            <!-- <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-white rounded">
                 <div class="card-header d-flex justify-content-center colortarjeta">
                     <i class='bi bi-calendar-date iconsize'></i>
                 </div>
@@ -115,7 +119,7 @@
                         <a class="colorb" href="<?php echo RUTA_URL?>/Admin/mantenimiento"><h4>Temporadas</h4></a>
                     </p>
                 </div>
-            </div>
+            </div> -->
 <!-- ----------------------- -->
             <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-white rounded">
                 <div class="card-header d-flex justify-content-center colortarjeta">

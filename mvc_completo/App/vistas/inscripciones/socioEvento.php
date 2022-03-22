@@ -23,7 +23,7 @@
                                 <form action="<?php echo RUTA_URL?>/inscripcionesEventos/aceptarEvento/<?php echo $uruario->idEvento?>/<?php echo $uruario->id_usuario?>" method="post">
                                     <button class="btn colortarjeta text-light" type="submit">Aceptar al evento</button>
                                 </form>
-                            </td>    
+                            </td>
                             <td>
                                 <form action="<?php echo RUTA_URL?>/inscripcionesEventos/cancelarEvento/<?php echo $uruario->idEvento?>/<?php echo $uruario->id_usuario?>" method="post">
                                     <button class="btn colortarjeta text-light" type="submit">Denegar evento</button>

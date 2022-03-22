@@ -63,8 +63,8 @@
                     'idEvento' => $id,                     
                 ];
                 if ($this->inscripcionEventoModelo->agregarInscripcion($inscripcionNueva)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripciones');
+                    $this->vista('inscripciones/inicio',$this->datos);
+                    //redireccionar('/inscripciones');
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -92,8 +92,8 @@
                     'aceptado' => 1,                      
                 ];
                 if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripcionesEventos');
+                    $this->vista('entrenadores/inicio',$this->datos);
+                    //redireccionar('/inscripcionesEventos');
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -121,8 +121,8 @@
                     'aceptado' => 0,                      
                 ];
                 if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripcionesEventos');
+                    $this->vista('entrenadores/inicio',$this->datos);
+                    //redireccionar('/inscripcionesEventos');
                 } else {
                     die('Algo ha fallado!!!');
                 }
