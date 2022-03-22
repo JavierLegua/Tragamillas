@@ -28,7 +28,7 @@
                 <input type="text" name="cc" id="cc" class="form-control form-control-lg" value="<?php echo $datos['tienda']->cc ?>">
             </div>
             <div class="mb-3">
-                <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
+                <label for="fecha_nac">Fecha de creación: <sup>*</sup></label>
                 <input type="fecha_nac" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" value="<?php echo $datos['tienda']->fecha_nac ?>">
             </div>
             <div class="mb-3">

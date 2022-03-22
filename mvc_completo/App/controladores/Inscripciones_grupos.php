@@ -39,7 +39,7 @@
                 ];
                 if ($abierto == 1 && $this->inscripcionModelo->confirmarInscripcion($id, $idGrupo, $inscripcionConfirmada)){
                     
-                    $this->vista('entrenadores/inicio',$this->datos);
+                    $this->vista('entrenadores_inscripciones/inicio',$this->datos);
                     //redireccionar('/inscripciones_grupos');
 
                 } else {
@@ -55,7 +55,7 @@
                 ];
                 $this->datos['inscripcion'] = $this->inscripcionModelo->obtenerInscripciones();
 
-                $this->vista('/inscripciones/aceptarSocios',$this->datos);
+                $this->vista('entrenadores_inscripciones/inicio',$this->datos);
             }
 
         }
@@ -73,7 +73,7 @@
                     'aceptado' => 0,                    
                 ];
                 if ($this->inscripcionModelo->cancelarInscripcion($id, $idGrupo, $inscripcionCancelada)){
-                    $this->vista('entrenadores/inicio',$this->datos);
+                    $this->vista('entrenadores_inscripciones/inicio',$this->datos);
                     //redireccionar('/inscripciones_grupos');
                 } else {
                     die('Algo ha fallado!!!');
@@ -84,7 +84,7 @@
                 ];
                 $this->datos['inscripcion'] = $this->inscripcionModelo->obtenerInscripciones();
 
-                $this->vista('/inscripciones/aceptarSocios',$this->datos);
+                $this->vista('entrenadores_inscripciones/inicio',$this->datos);
             }
 
         }

@@ -22,14 +22,9 @@
         <!-- <div class="col-auto">
             <label for="buscadorpalabra" class="col-form-label"></label>
         </div> -->
-        <div class="col-5">
+        <div class="col-6">
             <input oninput="buscadorFiltrador()" type="text" name="buscador" id="buscadorpalabra" class="form-control" aria-describedby="passwordHelpInline" placeholder="Buscador">
         </div>
-        <!-- <div class="col-auto">
-            <span id="passwordHelpInline" class="form-text">
-                <button class="btn colortarjeta text-light" onclick="buscadorFiltrador()">Buscar</button>
-            </span>
-        </div> -->
     </div>
    
     <!-- FIN BUSCADOR -->

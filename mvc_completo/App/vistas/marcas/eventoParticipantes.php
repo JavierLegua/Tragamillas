@@ -7,7 +7,7 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Apellidos</th>
-                        <th>Acciones</th>
+                        <th>Marca</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,11 +18,28 @@
                                 <td><?php echo $uruario->nombreUsuario ?></td>
                                 <td><?php echo $uruario->apellidoUsuario ?></td>
                                 <td>
-                                    <form method="POST" action="<?php echo RUTA_URL?>/MarcasEventos/agregarMarca/<?php echo $uruario->idUsuario ?>">
-                                        <input type="text" placeholder="marca" name="marca">
-                                        <input type="text" value="<?php echo $uruario->idEvento ?>" name="idEvento" readonly>
-                                        <button class="btn btn-primary" type="submit">Asignar Marca</button>
-                                    </form>
+
+
+                                <form class="row g-3" method="POST" action="<?php echo RUTA_URL?>/MarcasEventos/agregarMarca/<?php echo $uruario->idUsuario ?>">
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" placeholder="marca" name="marca">
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" hidden value="<?php echo $uruario->idEvento ?>" name="idEvento" readonly>
+                                        
+                                    </div>
+                                    <div class="col-auto">
+                                        <button class="btn colortarjeta text-light" type="submit">Asignar Marca</button>
+                                    </div>
+                                </form>
+
+                                    <!-- <form class="row g-3" method="POST" action="<?php echo RUTA_URL?>/MarcasEventos/agregarMarca/<?php echo $uruario->idUsuario ?>">
+                                        <div class="col-5">                                
+                                            <input type="text" class="form-control" placeholder="marca" name="marca">
+                                            <input type="text" hidden value="<?php echo $uruario->idEvento ?>" name="idEvento" readonly>
+                                            
+                                        </div> 
+                                    </form> -->
                                 </td>              
                             </tr>
                         <?php endif ?>
@@ -34,10 +51,17 @@
                                 <td></td>
                                 <td><?php echo $uruario->apellidoUsuario ?></td>
                                 <td>
-                                    <form method="POST" action="<?php echo RUTA_URL?>/MarcasEventos/agregarMarcaExt/<?php echo $uruario->dni ?>">
-                                        <input type="text" placeholder="marca" name="marca">
-                                        <input type="text" value="<?php echo $uruario->idEvento ?>" name="idEvento" readonly>
-                                        <button class="btn btn-primary" type="submit">Asignar Marca</button>
+                                    <form method="POST" class="row g-3" action="<?php echo RUTA_URL?>/MarcasEventos/agregarMarcaExt/<?php echo $uruario->dni ?>">
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" placeholder="marca" name="marca">
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" hidden value="<?php echo $uruario->idEvento ?>" name="idEvento" readonly>
+                                        
+                                    </div>
+                                    <div class="col-auto">
+                                        <button class="btn colortarjeta text-light" type="submit">Asignar Marca</button>
+                                    </div>
                                     </form>
                                 </td>              
                             </tr>

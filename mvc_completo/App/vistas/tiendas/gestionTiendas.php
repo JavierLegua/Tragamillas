@@ -61,7 +61,7 @@
                 <input type="text" name="cc" id="cc_<?php echo $uruario->id_usuario ?>" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(<?php echo $uruario->cc ?>)" value="<?php echo $uruario->cc ?>">
             </div>
             <div class="mb-3">
-                <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
+                <label for="fecha_nac">Fecha creación: <sup>*</sup></label>
                 <input type="date" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd" value="<?php echo $uruario->fecha_nac ?>">
             </div>
             <div class="mb-3">
@@ -182,7 +182,7 @@
                     <input type="text" name="cc" id="cc" class="form-control form-control-lg" autocomplete="off" maxlength="24" onblur="fn_ValidateIBAN(this.value)">
                 </div>
                 <div class="mb-3">
-                    <label for="fecha_nac">Fecha nacimiento: <sup>*</sup></label>
+                    <label for="fecha_nac">Fecha creación: <sup>*</sup></label>
                     <input type="date" name="fecha_nac" id="fecha_nac" class="form-control form-control-lg" placeholder="yyyy-mm-dd">
                 </div>
                 <div class="mb-3">

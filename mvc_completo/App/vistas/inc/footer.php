@@ -75,7 +75,7 @@
 
             <div class="col mt-3">
                 <a class="color" href="<?php echo RUTA_URL ?>/socios">Socios</a>
-                <a class="colorms-2" href="<?php echo RUTA_URL?>/pedidos">Pedidos</a>
+                <a class="color ms-2" href="<?php echo RUTA_URL?>/pedidos">Pedidos</a>
             </div>
 
             <div class="col">
