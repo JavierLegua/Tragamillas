@@ -13,6 +13,11 @@
             return $this->db->registros();
         }
 
+        public function obtenerLicenciasSocio($id){
+            $this->db->query("SELECT * FROM licencia WHERE idUsuario = $id");
+            return $this->db->registros();
+        }
+
         public function agregarLicencia($licenciaNueva){
 
             $this->db->query("INSERT INTO licencia (idUsuario, tipo ,num_licencia,dorsal,fecha_cad_licen,img) VALUES 

@@ -43,9 +43,9 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/licencias">Licencias</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL?>/licencias">Licencias</a>
                         <?php endif ?>
                     </li>
 
@@ -65,19 +65,19 @@
                         <?php endif ?>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/inscripciones">Inscripciones</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/inscripciones">Inscripciones</a>
                         <?php endif ?>
-                    </li>
+                    </li> -->
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Facturación</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/Admin/mantenimiento">Facturación</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Facturación</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL?>/Admin/mantenimiento">Facturación</a>
                         <?php endif ?>
                     </li>
 
@@ -101,25 +101,41 @@
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[2])):?>
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Alumnos</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/alumnos">Alumnos</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Alumnos</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/alumnos">Alumnos</a>
                         <?php endif ?>
                     </li>
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Marcas/Test</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/marcas">Marcas</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Marcas/Test</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/marcas">Marcas</a>
                         <?php endif ?>
                     </li>
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/marcasEventos">Asignar Marcas</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/marcasEventos">Asignar Marcas</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL?>/tests">Test</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/tests">Test</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/grupos">Grupos</a>
                         <?php endif ?>
                     </li>
 
@@ -130,8 +146,8 @@
                                     Inscripciones
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones grupos</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones eventos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/inscripciones_grupos">Inscripciones grupos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/inscripcionesEventos">Inscripciones eventos</a></li>
                                 </ul>
                             </div>
                         <?php else: ?>
@@ -140,8 +156,8 @@
                                     Eventos
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones grupos</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones eventos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/inscripciones_grupos">Inscripciones grupos</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo RUTA_URL ?>/inscripcionesEventos">Inscripciones eventos</a></li>
                                 </ul>
                             </div>
                         <?php endif ?>
@@ -153,25 +169,33 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Perfil</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/perfiles">Perfil</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Perfil</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/perfiles">Perfil</a>
                         <?php endif ?>
                     </li>
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Marcas/Test</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/marcas">Marcas pruebas</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Marcas/Test</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/marcas">Marcas pruebas</a>
                         <?php endif ?>
                     </li>
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/marcasExt">Marcas eventos</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Licencias</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/marcasExt">Marcas eventos</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/licencias">Licencias</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/licencias">Licencias</a>
                         <?php endif ?>
                     </li>
 
@@ -185,9 +209,17 @@
 
                     <li class="nav-item">
                         <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
-                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/inscripciones">Grupos</a>
                         <?php else: ?>
-                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/usuarios">Inscripciones</a>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/inscripciones">Grupos</a>
+                        <?php endif ?>
+                    </li>
+
+                    <li class="nav-item">
+                        <?php if (isset($datos['menuActivo']) && $datos['menuActivo'] == 1 ): ?>
+                            <a class="nav-link active" aria-current="page" href="<?php echo RUTA_URL ?>/inscripcionesEventos">Eventos</a>
+                        <?php else: ?>
+                            <a class="nav-link" aria-current="page" href="<?php echo RUTA_URL ?>/inscripcionesEventos">Eventos</a>
                         <?php endif ?>
                     </li>
 

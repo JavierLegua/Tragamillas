@@ -35,7 +35,7 @@
                     <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class="bi bi-person-lines-fill iconsize"></i>
+                        <i class="bi bi-file-earmark-text-fill iconsize"></i>
                         </div>
 
                         <div class="card-body d-flex justify-content-around">

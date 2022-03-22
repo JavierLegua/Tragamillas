@@ -47,7 +47,7 @@
 
 
 <!-- ----------------------- -->
-            <div class="borde border col-lg-3 col-md- p-0 tarjeta shadow mb-5 bg-white rounded">
+            <!-- <div class="borde border col-lg-3 col-md- p-0 tarjeta shadow mb-5 bg-white rounded">
 
                 <div class="card-header d-flex justify-content-center colortarjeta">
                     <i class="bi bi-journal-text iconsize"></i>
@@ -55,11 +55,11 @@
 
                 <div class="card-body d-flex justify-content-around">
                     <p class="card-text">
-                        <a class="colorb" href="<?php echo RUTA_URL?>/entrenadores_inscripciones"><h4>Inscripciones</h4></a>
+                        <a class="colorb" href="<?php //echo RUTA_URL?>/entrenadores_inscripciones"><h4>Inscripciones</h4></a>
                     </p>
                 </div>
 
-            </div>
+            </div> -->
 
 <!-- ----------------------- -->
 
@@ -77,7 +77,8 @@
                 </div>
 
             </div>
-        
+</div>            
+<div class="row justify-content-around justify-content-center align-items-center mt-5">
  <!-- ----------------------- -->       
             <div class="borde border col-md-4 p-0 tarjeta shadow mb-5 bg-white rounded">
                 <div class="card-header d-flex justify-content-center colortarjeta">

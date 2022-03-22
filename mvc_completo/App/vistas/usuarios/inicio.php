@@ -19,17 +19,17 @@
 
     <!-- BUSCADOR -->
     <div class="row g-3 align-items justify-content-center mb-3 mt-3">
-        <div class="col-auto">
+        <!-- <div class="col-auto">
             <label for="buscadorpalabra" class="col-form-label"></label>
+        </div> -->
+        <div class="col-5">
+            <input oninput="buscadorFiltrador()" type="text" name="buscador" id="buscadorpalabra" class="form-control" aria-describedby="passwordHelpInline" placeholder="Buscador">
         </div>
-        <div class="col-auto">
-            <input type="text" name="buscador" id="buscadorpalabra" class="form-control" aria-describedby="passwordHelpInline" placeholder="Buscador">
-        </div>
-        <div class="col-auto">
+        <!-- <div class="col-auto">
             <span id="passwordHelpInline" class="form-text">
                 <button class="btn colortarjeta text-light" onclick="buscadorFiltrador()">Buscar</button>
             </span>
-        </div>
+        </div> -->
     </div>
    
     <!-- FIN BUSCADOR -->
@@ -317,8 +317,7 @@ function buscadorFiltrador(){
             window.location.href="<?php echo RUTA_URL?>/usuarios/index/0 ?>";
 
 
-        } else 
-        if (usuariosDecod[i].nombreUsuario.toLowerCase().includes(palabra.toLowerCase()) || usuariosDecod[i].dniUsuario.toLowerCase().includes(palabra.toLowerCase()) || usuariosDecod[i].apellidoUsuario.toLowerCase().includes(palabra.toLowerCase())) {
+        } else if(usuariosDecod[i].nombreUsuario.toLowerCase().includes(palabra.toLowerCase()) || usuariosDecod[i].dniUsuario.toLowerCase().includes(palabra.toLowerCase()) || usuariosDecod[i].apellidoUsuario.toLowerCase().includes(palabra.toLowerCase())) {
           
 
             var nUsu = usuariosDecod[i].nombreUsuario ;      
@@ -372,7 +371,7 @@ function buscadorFiltrador(){
             a2.appendChild(icon)
             var btn2 = "btn btn-warning"
             a2.setAttribute("class", btn2)
-            a2.setAttribute("onclick", crearmodalEditar(usuariosDecod[i].id_usuario))
+            a2.setAttribute("onclick", "crearmodalEditar("+usuariosDecod[i].id_usuario+")")
             td6.appendChild(a2)
             
 

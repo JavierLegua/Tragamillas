@@ -61,7 +61,18 @@
         }
         
         public function verLicencias(){
-            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+            if ($this->datos['usuarioSesion']->idRol == 3) {
+                $this->datos['licencia'] = $this->licenciaModelo->obtenerLicenciasSocio($this->datos['usuarioSesion']->id_usuario);
+                $this->vista('licencias/verLicencias',$this->datos);
+            } else {
+                $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+                $this->vista('licencias/verLicencias',$this->datos);
+            }
+            
+        }
+
+        public function verLicenciasSocio(){
+            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicenciasSocio($this->datos['usuarioSesion']->id_usuario);
             $this->vista('licencias/verLicencias',$this->datos);
 
         }

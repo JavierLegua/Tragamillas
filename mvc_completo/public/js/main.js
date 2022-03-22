@@ -110,7 +110,6 @@ function crearmodalEditar(idusu) {
     var close =document.getElementsByTagName("close")[0];
     modal.style.display="block";
     close.style.overflow="hidden";
-
 }
 
 function cerrar(idusu){
