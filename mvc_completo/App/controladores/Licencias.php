@@ -19,19 +19,13 @@
             
             if ($this->datos['usuarioSesion']->idRol == 1) {
                 $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
-                $this->vista('licencias/verLicencias',$this->datos);
+                $this->vista('licencias/inicio',$this->datos);
             }elseif($this->datos['usuarioSesion']->idRol == 3){
                 $this->vista('licencias/inicio',$this->datos);
             }
         }
 
         public function nueva_licencia(){
-            
-
-            // $this->datos['rolesPermitidos'] = [3];
-            // if (!tienePrivilegios($this->datos['usuarioSesion']->id_rol, $this->datos['rolesPermitidos'])) {
-            //     redireccionar('/usuarios');
-            // }
     
             if($_SERVER['REQUEST_METHOD'] =='POST'){
     
@@ -67,8 +61,31 @@
         }
         
         public function verLicencias(){
-            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+            if ($this->datos['usuarioSesion']->idRol == 3) {
+                $this->datos['licencia'] = $this->licenciaModelo->obtenerLicenciasSocio($this->datos['usuarioSesion']->id_usuario);
+                $this->vista('licencias/verLicencias',$this->datos);
+            } else {
+                $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+                $this->vista('licencias/verLicencias',$this->datos);
+            }
+            
+        }
+
+        public function verLicenciasSocio(){
+            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicenciasSocio($this->datos['usuarioSesion']->id_usuario);
             $this->vista('licencias/verLicencias',$this->datos);
+
+        }
+        
+        public function anadirEscolar(){
+            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+            $this->vista('licencias/inicioEscolar',$this->datos);
+
+        }
+        
+        public function anadirFederada(){
+            $this->datos['licencia'] = $this->licenciaModelo->obtenerLicencias();
+            $this->vista('licencias/inicioFederada',$this->datos);
 
         }
 
@@ -92,8 +109,8 @@
 
                 //  print_r($licenciaEditada);exit();
 
-                if($this->licenciaModelo->editarLicencia($licenciaEditada)){
-                    redireccionar('/licencias');
+                if($this->licenciaModelo->editarLicencia($licenciaEditada,$num)){
+                    redireccionar('/licencias/verLicencias');
                 }else{
                     die('Algo ha fallado!!');
                 }

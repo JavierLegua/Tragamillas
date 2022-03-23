@@ -26,7 +26,7 @@
                             <td><?php echo $uruario->fecha_ini_even ?></td>
                             <td><?php echo $uruario->fecha_fin_even ?></td>
                             <td>
-                                <form action="<?php echo RUTA_URL?>/inscripcionesEventos/agregarInscripcion/<?php echo $uruario->idEvento?>" method="post">
+                                <form action="<?php echo RUTA_URL?>/inscripcionesEventosExt/agregarInscripcion/<?php echo $uruario->idEvento?>">
                                     <button class="btn btn-primary" type="submit">Pre-inscribirse</button>
                                 </form>
                                 

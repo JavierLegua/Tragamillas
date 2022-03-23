@@ -2,10 +2,12 @@
     <main class="flex-shrink-0 mt-auto">
         <div class="container">
 
+        
                 <div class="row mt-5 justify-content-around">
 
-                    <div class="borde border col-sm-4 p-0 tarjeta shadow mb-5 bg-white rounded">
+                
 
+                    <div class="borde border p-0 tarjeta shadow mb-5 bg-white rounded">
                         <div class="card-header d-flex justify-content-center colortarjeta">
                             <i class="bi bi-stopwatch iconsize"></i>
                         </div>
@@ -15,13 +17,15 @@
                                 <a class="colorb" href="<?php echo RUTA_URL?>/marcas"><h4>Marcas</h4></a>
                             </p>
                         </div>
-
                     </div>
 
-                    <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+                
+
+               
+                    <div class="borde border p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class="bi bi-stopwatch iconsize"></i>
+                            <i class="bi bi-person-lines-fill iconsize"></i>
                         </div>
 
                         <div class="card-body d-flex justify-content-around">
@@ -31,29 +35,31 @@
                         </div>
 
                     </div>
+                
 
-                    <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
+                
+                    <div class="borde border p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class="bi bi-file-earmark-person iconsize"></i>
+                        <i class="bi bi-file-earmark-text-fill iconsize"></i>
                         </div>
 
                         <div class="card-body d-flex justify-content-around">
                             <p class="card-text">
-                                <a class="colorb" href="#"><h4>Licencias</h4></a>
+                                <a class="colorb" href="<?php echo RUTA_URL?>/marcasEventos"><h4>Eventos</h4></a>
                             </p>
                         </div>
 
                     </div>
+                </div>
+                <div class="row mt-5 justify-content-around">
 
-                </div><!-- fin row -->
-
-                  <div class="row mt-5 justify-content-around">
                 
-                    <div class="borde border col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+                    <div class="borde border p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
-                            <i class='bi bi-people-fill iconsize'></i>
+                        <i class="bi bi-person-badge-fill iconsize"></i>
                         </div>
                 
                         <div class="card-body d-flex justify-content-around">
@@ -61,10 +67,11 @@
                                 <a class="colorb" href="<?php echo RUTA_URL?>/alumnos"><h4>Alumnos</h4></a>
                             </p>
                         </div>
-
                     </div>
+                
 
-                    <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+
+                    <div class="borde border p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
                             <i class='bi bi-people-fill iconsize'></i>
@@ -78,7 +85,7 @@
 
                     </div>
 
-                    <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+                    <div class="borde border p-0 tarjeta shadow mb-5 bg-white rounded">
 
                         <div class="card-header d-flex justify-content-center colortarjeta">
                             <i class="bi bi-journal-text iconsize"></i>

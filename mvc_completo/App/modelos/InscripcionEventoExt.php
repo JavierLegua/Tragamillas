@@ -14,21 +14,29 @@ class InscripcionEventoExt{
 
     }
 
-    // public function agregarInscripcion($datos){
-    //     $this->db->query("INSERT INTO evento_inscripcion (idEvento, idUsuario) 
-    //                                 VALUES (:idEvento, :idUsuario)");
+    public function agregarInscripcion($datos){
+        //print_r($datos);exit;
+        $this->db->query("INSERT INTO evento_inscripcion_ext (apellidoUsuario, dni, cc, fecha_nac, email, telefono, idEvento) 
+                                    VALUES (:apellidoUsuario, :dni, :cc, :fecha_nac, :email, :telefono, :idEvento)");
 
-    //     //vinculamos los valores
-    //     $this->db->bind(':idEvento',$datos['idEvento']);
-    //     $this->db->bind(':idUsuario',$datos['idUsuario']);
+         //vinculamos los valores
+        $this->db->bind(':apellidoUsuario',$datos['apellidoUsuario']);
+        $this->db->bind(':dni',$datos['dni']);
+        $this->db->bind(':cc',$datos['cc']);
+        $this->db->bind(':fecha_nac',$datos['fecha_nac']);
+        $this->db->bind(':email',$datos['email']);
+        $this->db->bind(':telefono',$datos['telefono']);
+        $this->db->bind(':idEvento',$datos['idEvento']);
 
-    //     //ejecutamos
-    //     if($this->db->execute()){
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+         //ejecutamos
+
+        
+        if($this->db->execute()){
+             return true;
+        } else {
+            return false;
+        }
+    }
 
     // public function obtenerTodasInscripciones(){
     //     $this->db->query("SELECT e.nombre_evento, u.apellidoUsuario, ei.aceptado, e.idEvento, u.id_usuario FROM evento_inscripcion as ei, evento as e, usuario as u WHERE ei.idEvento =  e.idEvento AND ei.idUsuario = u.id_usuario");

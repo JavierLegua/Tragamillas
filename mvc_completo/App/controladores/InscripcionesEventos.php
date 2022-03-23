@@ -3,7 +3,7 @@
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [2,3];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1,2,3];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -63,8 +63,8 @@
                     'idEvento' => $id,                     
                 ];
                 if ($this->inscripcionEventoModelo->agregarInscripcion($inscripcionNueva)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripciones');
+                    $this->vista('inscripciones/inicio',$this->datos);
+                    //redireccionar('/inscripciones');
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -92,8 +92,8 @@
                     'aceptado' => 1,                      
                 ];
                 if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripcionesEventos');
+                    $this->vista('entrenadores/inicio',$this->datos);
+                    //redireccionar('/inscripcionesEventos');
                 } else {
                     die('Algo ha fallado!!!');
                 }
@@ -121,8 +121,8 @@
                     'aceptado' => 0,                      
                 ];
                 if ($this->inscripcionEventoModelo->aceptarEvento($inscripcion)){
-                    //$this->vista('inscripciones/inicio',$this->datos);
-                    redireccionar('/inscripcionesEventos');
+                    $this->vista('entrenadores/inicio',$this->datos);
+                    //redireccionar('/inscripcionesEventos');
                 } else {
                     die('Algo ha fallado!!!');
                 }

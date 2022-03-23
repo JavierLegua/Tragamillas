@@ -2,9 +2,32 @@
 <main class="flex-shrink-0 margenTop">
 
 <div class="container">
-    <div> <!-- BUSCADOR -->
-        
-    </div> <!-- FIN BUSCADOR -->
+
+    <!-- <form action="" method="post"> -->
+    <!-- Cambiar numero de elementos por pagina -->
+    <!-- <div class="mb-3" id="contenedorRoles"> -->
+        <!-- <select name="numElementos" id="numElementos" class="form-control form-control-lg-3"> -->
+            <!-- <option value="5" selected>5</option> -->
+            <!-- <option value="10">10</option> -->
+            <!-- <option value="15">15</option> -->
+        <!-- </select> -->
+    <!-- </div> -->
+    <!-- <button type="submit" class="btn btn-success" value="Actualizar">Actualizar</button> -->
+    <!-- </form> -->
+
+
+
+    <!-- BUSCADOR -->
+    <div class="row g-3 align-items justify-content-center mb-3 mt-3">
+        <!-- <div class="col-auto">
+            <label for="buscadorpalabra" class="col-form-label"></label>
+        </div> -->
+        <div class="col-6">
+            <input oninput="buscadorFiltrador()" type="text" name="buscador" id="buscadorpalabra" class="form-control" aria-describedby="passwordHelpInline" placeholder="Buscador">
+        </div>
+    </div>
+   
+    <!-- FIN BUSCADOR -->
             
 <?php
     
@@ -19,8 +42,9 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>id</th>
                 <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>Rol</th>
@@ -29,30 +53,31 @@
 <?php endif ?>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tablebody">
                 
             
             <?php foreach($datos['usuario'] as $uruario): ?>
                 <!--  <?php echo json_encode($datos) ?>-->
                 
                 <tr>
-                    <td><?php echo $uruario->id_usuario ?></td>
+                    <td><?php echo $uruario->nombreUsuario ?></td>
                     <td><?php echo $uruario->apellidoUsuario ?></td>
+                    <td><?php echo $uruario->dniUsuario ?></td>
                     <td><?php echo $uruario->email ?></td>
                     <td><?php echo $uruario->telefono ?></td>
                     <td><?php echo $uruario->idRol ?></td>
 <?php if (tienePrivilegios($datos['usuarioSesion']->idRol,[1])):?>
 
 
-                <td>
+                <td class="text-center">
                     <!-- PRUEBA -->
                     
                     <button class="btn btn-warning" id="myBtn<?php echo $uruario->id_usuario ?>" onclick="crearmodalEditar(<?php echo $uruario->id_usuario ?>)"><i class="bi bi-pencil"></i></button>
-                    &nbsp;&nbsp;
+                    &nbsp;
                     <!-- Fin PRUEBA -->
 
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar_<?php echo $uruario->id_usuario ?>"><i class="bi bi-trash-fill"></i></button>
-                    &nbsp;&nbsp;
+                    &nbsp;
                 
                     <button type="button" class="btn colortarjeta text-light" data-bs-toggle="modal" data-bs-target="#cambiocontraseña_<?php echo $uruario->id_usuario ?>"><i class="bi bi-shield-lock"></i></button>
                 </td>
@@ -62,7 +87,7 @@
 <div id="<?php echo $uruario->id_usuario ?>" class="modal1">
 <div class="modal-content1">
         <div class="modal-header">
-            <h5 class="modal-title"> Editar Usuario  <?php echo $uruario->apellidoUsuario ?></h5>
+            <h5 class="modal-title"> Editar Usuario  <?php echo $uruario->nombreUsuario ?></h5>
             <span onclick="cerrar(<?php echo $uruario->id_usuario ?>)" class="close"><i class="bi bi-x-lg"></i></span>
         </div>
     <!-- Modal content -->
@@ -70,7 +95,11 @@
         <form method="post" action="<?php echo RUTA_URL?>/usuarios/editar/<?php echo $uruario->id_usuario ?>">
             <div class="mt-3 mb-3">
                 <label for="nombre">Nombre: <sup>*</sup></label>
-                <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>">
+                <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->nombreUsuario ?>">
+            </div>
+            <div class="mt-3 mb-3">
+                <label for="apellido">Apellido: <sup>*</sup></label>
+                <input type="text" name="apellido" id="apellido" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>">
             </div>
             <div class="mb-3">
                 <label for="dni">DNI: <sup>*</sup></label>
@@ -135,33 +164,24 @@
 
 <!-- modal cambiar contraseña -->
 
-<div class="modal fade" id="cambiocontraseña_<?php echo $uruario->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalcambio" aria-hidden="true">
+<div class="modal fade" id="cambiocontraseña_<?php echo $uruario->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalcambio" aria-hidden="true" onclick="evento()">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalcambio">Cambiar contraseña <?php echo $uruario->apellidoUsuario ?></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limpiarC(<?php echo $uruario->id_usuario ?>)"></button>
             </div>
             <div class="modal-body container">
-                <form method="post" action="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">
-
-                    <div class="d-flex justify-content-around row"> 
-
-                        <!-- <div class="mb-3">
-                            <label for="clave">Nueva contraseña: <sup>*</sup></label>
-                            <input type="password" name="clave" id="clave" class="form-control form-control-lg">
-                            <button class="btn btn-primary" type="button" onclick="mostrarPass()"><i class="bi bi-eye"></i></button> 
-                        </div>  -->
+                <form method="post" id="cambiarClave_<?php echo $uruario->id_usuario ?>" action="<?php echo RUTA_URL?>/usuarios/actualizar/<?php echo $uruario->id_usuario ?>">
+                    <div class="row d-flex justify-content-around"> 
 
                         <div class="input-group mb-3">
-                            <input type="password" name="clave" id="clave" class="form-control" aria-describedby="botonMostrar">
-                            <button class="btn btn-outline-primary" type="button" id="botonMostrar" onclick="mostrarPass()"><i class="bi bi-eye"></i></button>
+                            <input type="password" name="clave" id="clave_<?php echo $uruario->id_usuario ?>" class="form-control" aria-describedby="botonMostrar">
+                            <button class="btn btn-outline-primary" type="button" id="botonMostrar" onclick="mostrarPass(<?php echo $uruario->id_usuario ?>)"><i class="bi bi-eye"></i></button>
                         </div>
 
                         <input type="submit" class="btn btn-success" value="Actualizar contraseña" onclick="return confirm('¿Seguro que quieres actualizar la contraseña?');">
-
                     </div>
-
                 </form>
             </div>
         </div>
@@ -195,19 +215,23 @@
 
 
 <!-- Modal nuevo usuario -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" onclick="evento()">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel"><?php echo $accion = 'Agregar'?> Usuario</h5>
-            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close" onclick="limpiar()"></button>
         </div>
         <div class="modal-body">
         
-            <form method="post" action="/usuarios/agregar">
+            <form method="post" action="/usuarios/agregar" id="formNuevoUsuario">
                 <div class="mt-3 mb-3">
                     <label for="nombre">Nombre: <sup>*</sup></label>
                     <input type="text" name="nombre" id="nombre" class="form-control form-control-lg">
+                </div>
+                <div class="mt-3 mb-3">
+                    <label for="apellido">Apellido: <sup>*</sup></label>
+                    <input type="text" name="apellido" id="apellido" class="form-control form-control-lg">
                 </div>
                 <div class="mb-3">
                     <label for="dni">DNI: <sup>*</sup></label>
@@ -272,6 +296,135 @@
 <!-- fin paginacion -->
 
 <script>
+
+function buscadorFiltrador(){
+    var palabra = document.getElementById("buscadorpalabra").value;
+    let usuarios = '<?php echo $this->usuEncript['usuarios'];  ?>'
+
+    let usuariosDecod = JSON.parse(usuarios)
+   
+    document.getElementById("tablebody").innerHTML = "";
+
+    for (let i = 0; i < usuariosDecod.length; i++) {
+        if (palabra == "") {
+            //escribir la tabla con todos los usuarios
+            //location.reload();
+            window.location.href="<?php echo RUTA_URL?>/usuarios/index/0 ?>";
+
+
+        } else if(usuariosDecod[i].nombreUsuario.toLowerCase().includes(palabra.toLowerCase()) || usuariosDecod[i].dniUsuario.toLowerCase().includes(palabra.toLowerCase()) || usuariosDecod[i].apellidoUsuario.toLowerCase().includes(palabra.toLowerCase())) {
+          
+
+            var nUsu = usuariosDecod[i].nombreUsuario ;      
+            console.log(nUsu);
+            console.log(usuariosDecod[i].apellidoUsuario);
+
+            var tr = document.createElement("tr")
+            var td = document.createElement("td")
+
+            
+
+            var contenido = document.createTextNode(usuariosDecod[i].nombreUsuario)
+            td.appendChild(contenido)
+            tr.appendChild(td)
+
+            var td2 = document.createElement("td")
+            var contenido2 = document.createTextNode(usuariosDecod[i].apellidoUsuario)
+            td2.appendChild(contenido2)
+            tr.appendChild(td2)
+
+            var td1 = document.createElement("td")
+            var contenido1 = document.createTextNode(usuariosDecod[i].dniUsuario)
+            td1.appendChild(contenido1)
+            tr.appendChild(td1)
+
+            var td3 = document.createElement("td")
+            var contenido3 = document.createTextNode(usuariosDecod[i].email)
+            td3.appendChild(contenido3)
+            tr.appendChild(td3)
+
+            var td4 = document.createElement("td")
+            var contenido4 = document.createTextNode(usuariosDecod[i].telefono)
+            td4.appendChild(contenido4)
+            tr.appendChild(td4)
+
+            var td5 = document.createElement("td")
+            var contenido5 = document.createTextNode(usuariosDecod[i].idRol)
+            td5.appendChild(contenido5)
+            tr.appendChild(td5)
+
+            var td6 = document.createElement("td")
+
+            var tc = "text-center"
+            td6.setAttribute("class", tc)
+
+            var a2 = document.createElement("button")
+            var icon = document.createElement("i") 
+            var iclase = "bi bi-pencil"
+            icon.setAttribute("class", iclase)
+            var contenido6 = document.createTextNode(icon)
+            a2.appendChild(icon)
+            var btn2 = "btn btn-warning"
+            a2.setAttribute("class", btn2)
+            a2.setAttribute("onclick", "crearmodalEditar("+usuariosDecod[i].id_usuario+")")
+            td6.appendChild(a2)
+            
+
+            var a3 = document.createElement("button")
+            var iconb = document.createElement("i") 
+            var iclaseb = "bi bi-trash-fill"
+            iconb.setAttribute("class", iclaseb)
+            var contenido6 = document.createTextNode(iconb)
+            a3.appendChild(iconb)
+            var btn3 = "btn btn-danger ms-3"
+            a3.setAttribute("class", btn3)
+            a3.setAttribute("data-bs-target", "#modalborrar_"+usuariosDecod[i].id_usuario)
+            a3.setAttribute("data-bs-toggle", "modal")
+            td6.appendChild(a3)
+            tr.appendChild(td6)
+
+            var a4 = document.createElement("button")
+            var iconc = document.createElement("i")
+            var iclasec = "bi bi-shield-lock"
+            iconc.setAttribute("class", iclasec)
+            var contenidoc = document.createTextNode(iconc)
+            a4.appendChild(iconc)
+            var btn4 = "btn colortarjeta ms-3 text-light"
+            a4.setAttribute("class", btn4)
+            a4.setAttribute("data-bs-target", "#cambiocontraseña_"+usuariosDecod[i].id_usuario)
+            a4.setAttribute("data-bs-toggle", "modal")
+            td6.appendChild(a4)
+            tr.appendChild(td6)
+
+            document.getElementById("tablebody").appendChild(tr);
+
+            //alert(usuariosDecod[i].id_usuario); 
+           // exit();
+        }
+    }    
+}
+
+    function limpiarC(id) {
+        var div2 = document.getElementById("cambiarClave_"+id);
+        div2.reset();
+    }
+
+    function limpiar() {
+        var div1 = document.getElementById("formNuevoUsuario");
+        div1.reset();
+    }
+
+    function evento() {
+       
+        var div1 = document.getElementById("formNuevoUsuario");
+        document.addEventListener("keyup", function (limpiar) {
+        if (event.keyCode === 27) {
+            div1.reset();
+            
+        }
+        });
+    }
+
 
 function comprobarExiste(){
     var element = document.getElementById("contenedorRoles");

@@ -3,7 +3,7 @@
 
         public function __construct(){
             Sesion::iniciarSesion($this->datos);
-            $this->datos['rolesPermitidos'] = [2];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [1,2];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');
@@ -39,8 +39,8 @@
                 ];
                 if ($abierto == 1 && $this->inscripcionModelo->confirmarInscripcion($id, $idGrupo, $inscripcionConfirmada)){
                     
-                    //$this->vista('entrenadores/inicio',$this->datos);
-                    redireccionar('/inscripciones_grupos');
+                    $this->vista('entrenadores_inscripciones/inicio',$this->datos);
+                    //redireccionar('/inscripciones_grupos');
 
                 } else {
                     if ($abierto == 0) {
@@ -55,7 +55,7 @@
                 ];
                 $this->datos['inscripcion'] = $this->inscripcionModelo->obtenerInscripciones();
 
-                $this->vista('/inscripciones/aceptarSocios',$this->datos);
+                $this->vista('entrenadores_inscripciones/inicio',$this->datos);
             }
 
         }
@@ -73,7 +73,7 @@
                     'aceptado' => 0,                    
                 ];
                 if ($this->inscripcionModelo->cancelarInscripcion($id, $idGrupo, $inscripcionCancelada)){
-                    $this->vista('entrenadores/inicio',$this->datos);
+                    $this->vista('entrenadores_inscripciones/inicio',$this->datos);
                     //redireccionar('/inscripciones_grupos');
                 } else {
                     die('Algo ha fallado!!!');
@@ -84,7 +84,7 @@
                 ];
                 $this->datos['inscripcion'] = $this->inscripcionModelo->obtenerInscripciones();
 
-                $this->vista('/inscripciones/aceptarSocios',$this->datos);
+                $this->vista('entrenadores_inscripciones/inicio',$this->datos);
             }
 
         }

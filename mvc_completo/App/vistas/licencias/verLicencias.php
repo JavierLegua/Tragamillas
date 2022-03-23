@@ -45,11 +45,11 @@
 <form method="post" ENCTYPE="multipart/form-data" action="<?php echo RUTA_URL?>/Licencias/editar/<?php echo $licencias->num_licencia ?>">
 <div class="mb-3">
 <label for="dorsal">Dorsal: <sup>*</sup></label>
-<input type="text" name="dorsal" id="dorsal" class="form-control form-control-lg">
+<input type="text" name="dorsal" id="dorsal" class="form-control form-control-lg" value="<?php echo $licencias->dorsal ?>">
 </div>
 <div class="mb-3">
 <label for="fecha_cad">Fecha caducidad: <sup>*</sup></label>
-<input type="date" name="fecha_cad" id="fecha_cad" class="form-control form-control-lg">
+<input type="date" name="fecha_cad" id="fecha_cad" class="form-control form-control-lg" value="<?php echo $licencias->fecha_cad_licen ?>">
 </div>
 <div class="mb-3">
     <label for="tipo">Tipo licencia: <sup>*</sup></label>

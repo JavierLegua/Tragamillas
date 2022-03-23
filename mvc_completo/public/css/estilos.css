@@ -7,7 +7,10 @@
  }
 
 .margenTop{
-    margin-top: 65px;
+    margin-top: 70px;
+}
+.margenTopImg{
+    margin-top: 70px;
 }
 .bordes{
     border-radius: 1rem;
@@ -175,6 +178,9 @@
     .avatar {
         top: -98px;
     }
+    .bordePartes{
+        border-radius: 1rem; 
+    }
  }
 
  @media (max-width: 575px) { 
@@ -184,11 +190,15 @@
     nav{
         font-size: 14px;
     }
-    .tarjeta {
-        width: 8rem; 
+    a{
+        font-size: 13px;
     }
+    .iconsize {
+        font-size: 45px;
+    }
+   
    .columna {
-       width: 67%;
+       width: 60%;
    }
    .prueba{
        margin-bottom: 20px;
@@ -196,6 +206,9 @@
    .iconfooter{
        font-size: 30px;
    }
+   .bordePartes{
+        border-radius: 1rem; 
+    }
  }
 
 

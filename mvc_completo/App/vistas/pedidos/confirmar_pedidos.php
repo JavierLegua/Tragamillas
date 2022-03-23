@@ -2,7 +2,7 @@
 <main class="flex-shrink-0 margenTop">
         <div class="container mainF">
 
-        <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
+        <a href="/pedidos" class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
 
         <div class="card bg-light mt-5 w-75 card-center m-auto">
         <h2 class="card-header">Confirmar pedido</h2>

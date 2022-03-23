@@ -1,47 +1,45 @@
 <?php require_once RUTA_APP.'/vistas/inc/header.php' ?>
+    <section>
+        <div class="container">
+            <div class="row vista justify-content-around justify-content-center align-items-center">
+                
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-files iconsize"></i>
+                    </div>
 
+                    <div class="card-body d-flex justify-content-around">
+                        <p class="card-text">
+                            <a class="colorb" href="<?php echo RUTA_URL?>/Licencias/anadirEscolar"><h4>Escolar</h4></a>
+                        </p>
+                    </div>
+                </div>
 
-<main class="flex-shrink-0 margenTop">
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                        <i class="bi bi-file-earmark-person iconsize"></i>
+                    </div>
 
+                    <div class="card-body d-flex justify-content-around">
+                        <p class="card-text">
+                            <a class="colorb" href="<?php echo RUTA_URL?>/Licencias/anadirFederada"><h4>Federada</h4></a>
+                        </p>
+                    </div>
+                </div>    
+                <div class="borde border col-lg-3 col-md-3 p-0 tarjeta shadow mb-5 bg-white rounded">
+                    <div class="card-header d-flex justify-content-center colortarjeta">
+                    <i class="bi bi-card-text iconsize"></i>
+                    </div>
 
-<div class="container">
-
-    <a href=".." class="btn btn-light"><i class="bi bi-chevron-double-left"></i>Volver</a>
-
-    <div class="card bg-light mt-5 w-75 justify-content-center align-items-center;">
-        <h2 class="card-header">Añadir licencia</h2>
-
-        <form method="post" ENCTYPE="multipart/form-data" action="<?php echo RUTA_URL?>/Licencias/nueva_licencia" class="card-body">
-            <div class="mt-3 mb-3">
-                <label for="numlic">Número licencia: <sup>*</sup></label>
-                <input type="text" name="numlic" id="numlic" class="form-control form-control-lg">
+                    <div class="card-body d-flex justify-content-around">
+                        <p class="card-text">
+                            <a class="colorb" href="<?php echo RUTA_URL?>/Licencias/verLicencias"><h4>Ver licencias</h4></a>
+                        </p>
+                    </div>
+                </div>            
             </div>
-            <div class="mb-3">
-                <label for="dorsal">Dorsal: <sup>*</sup></label>
-                <input type="text" name="dorsal" id="dorsal" class="form-control form-control-lg" maxlength="9" autocomplete="off" >
-            </div>
-            <div class="mb-3">
-                <label for="fecha_cad">Fecha caducidad: <sup>*</sup></label>
-                <input type="date" name="fecha_cad" id="fecha_cad" class="form-control form-control-lg">
-            </div>
-            <div class="mb-3">
-                <label for="tipo">Tipo licencia: <sup>*</sup></label>
-                <select name="tipo" id="tipo" class="form-select form-select-lg">
-                    <option value="Escolar">Escolar</option>
-                    <option value="Federada">Federada</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <input accept="image/*" type="file" id="" name="imagenLicAdmin" >
-            </div>
-            <input type="submit" class="btn btn-success" value="Añadir licencia" onclick="return confirm('¿Seguro que quieres añadir esta licencia?');">
-        </form>
-        
-    </div>
-</div>
-
-
-</main>
-
+        </div>
+    </section>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
 <?php require_once RUTA_APP.'/vistas/inc/footer.php' ?>

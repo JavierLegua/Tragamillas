@@ -32,7 +32,6 @@
                                     <form action="<?php echo RUTA_URL?>/inscripciones_grupos/confirmarinscripcion/<?php echo $uruario->idUsuario?>/<?php echo $uruario->idGrupo?>/<?php echo $uruario->abierto?>" method="post">
                                         <button class="btn colortarjeta text-light" type="submit">Aceptar inscripcion</button>
                                     </form>
-                                    
                                 </td>  
                                 <td>
                                     <form action="<?php echo RUTA_URL?>/inscripciones_grupos/cancelarinscripcion/<?php echo $uruario->idUsuario?>/<?php echo $uruario->idGrupo?>" method="post">
