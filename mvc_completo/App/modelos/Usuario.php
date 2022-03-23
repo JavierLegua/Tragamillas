@@ -156,6 +156,13 @@
 
         }
 
+        public function verificarCorreo($email){
+            //print_r($email);exit();
+            $this->db->query("SELECT email FROM usuario WHERE email = :user_email");
+            $this->db->bind(':user_email',$email);
+            return $this->db->registros();
+        }
+
 ///////////////////////////////////////////////// Sesion //////////////////////////////////////////////
 
         public function obtenerSesionesUsuario($id){

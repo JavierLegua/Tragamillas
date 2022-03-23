@@ -142,7 +142,7 @@
             <form method="post" action="<?php echo RUTA_URL?>/usuarios/borrar/<?php echo $uruario->id_usuario ?>">
                 <div class="mt-3 mb-3">
                     <label for="nombre">Nombre: <sup>*</sup></label>
-                    <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->apellidoUsuario ?>" disabled>
+                    <input type="text" name="nombre" id="nombre" class="form-control form-control-lg" value="<?php echo $uruario->nombreUsuario ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="email">Email: <sup>*</sup></label>
@@ -150,7 +150,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="telefono">Teléfono: <sup>*</sup></label>
-                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario-> telefono ?>" disabled>
+                    <input type="text" name="telefono" id="telefono" class="form-control form-control-lg" value="<?php echo $uruario->telefono ?>" disabled>
                 </div>
                 <input type="submit" class="btn btn-success" value="Borrar Usuario" onclick="return confirm('¿Seguro que quieres eliminar este usuario?');">
             </form>

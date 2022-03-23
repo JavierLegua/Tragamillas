@@ -4,7 +4,7 @@
         public function __construct(){
             Sesion::iniciarSesionAnonimo($this->datos);
             //print_r($this->datos);exit;
-            $this->datos['rolesPermitidos'] = [5];          // Definimos los roles que tendran acceso
+            $this->datos['rolesPermitidos'] = [3,5];          // Definimos los roles que tendran acceso
 
             if (!tienePrivilegios($this->datos['usuarioSesion']->idRol,$this->datos['rolesPermitidos'])) {
                 redireccionar('/');

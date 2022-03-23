@@ -63,7 +63,7 @@
         public function recuperarPass(){
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+                
                 //funcion para generar contraseña aleatoria
                 // echo "hola";exit();
                 $cadena = "abcdefghijklmnopqrstxwyz0123456789";

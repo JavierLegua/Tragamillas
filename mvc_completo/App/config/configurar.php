@@ -9,11 +9,11 @@
     // define('RUTA_URL', 'http://localhost/Tragamillas/mvc_completo');
 
     //Ruta url del servidor red clase
-    define('RUTA_URL', 'http://192.168.100.154');
+    //define('RUTA_URL', 'http://192.168.100.154');
     // define('RUTA_URL', 'https://192.168.100.154');
 
     //Ruta url del servidor red externa
-    //define('RUTA_URL', 'http://80.28.234.191:64080');
+    define('RUTA_URL', 'http://80.28.234.191:64080');
     // define('RUTA_URL', 'https://80.28.234.191:64443');
 
     define('NOMBRE_SITIO', 'CRUD MVC - DAW2 Alcañiz');
